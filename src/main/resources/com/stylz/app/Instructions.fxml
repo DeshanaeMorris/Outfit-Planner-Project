@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.stylz.app.InstructionsController"
+            stylesheets="@styles.css"
+            styleClass="instructions-screen"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <!-- Yellow Instructions Box -->
+    <VBox layoutX="100" layoutY="80"
+          prefWidth="600" prefHeight="450"
+          alignment="TOP_CENTER" spacing="20"
+          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+
+        <!-- Image Heading -->
+        <ImageView fitWidth="200" preserveRatio="true">
+            <image>
+                <Image url="@/images/instructions-heading.png"/>
+            </image>
+        </ImageView>
+
+        <!-- Instruction 1: Money -->
+        <HBox spacing="15" alignment="CENTER_LEFT">
+            <Label text="💰" style="-fx-font-size: 32px;"/>
+            <Label text="Use your money wisely to buy some trendy items"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+                   maxWidth="500"/>
+        </HBox>
+
+        <!-- Instruction 2: Dress Up -->
+        <HBox spacing="15" alignment="TOP_LEFT">
+            <Label text="👕" style="-fx-font-size: 32px;"/>
+            <VBox spacing="5">
+                <Label text="Dress up your avatar in:"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453;"/>
+                <HBox spacing="40">
+                    <VBox spacing="3">
+                        <Label text="• Tops" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                        <Label text="• Dresses" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                        <Label text="• Accessories" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                    </VBox>
+                    <VBox spacing="3">
+                        <Label text="• Bottoms" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                        <Label text="• Shoes" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </HBox>
+
+        <!-- Instruction 3: Mix and Match -->
+        <HBox spacing="15" alignment="CENTER_LEFT">
+            <Label text="🎨" style="-fx-font-size: 32px;"/>
+            <Label text="Mix and match pieces to show your style!"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+                   maxWidth="500"/>
+        </HBox>
+
+        <!-- Instruction 4: Save Outfits -->
+        <HBox spacing="15" alignment="CENTER_LEFT">
+            <Label text="📋" style="-fx-font-size: 32px;"/>
+            <Label text="Save your outfits or reset to start fresh."
+                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+                   maxWidth="500"/>
+        </HBox>
+
+        <!-- Go Back Link -->
+        <Label text="&lt;&lt;&lt; Go Back"
+               style="-fx-text-fill: #4b4453; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true; -fx-font-weight: bold;"
+               onMouseClicked="#handleGoBack"/>
+    </VBox>
+
+</AnchorPane>

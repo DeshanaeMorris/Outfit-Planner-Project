@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.stylz.app.LoginRegisterController"
+            stylesheets="@styles.css"
+            prefHeight="600.0" prefWidth="400.0"
+            style="-fx-background-image: url('/images/purplepic.jpg'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat;">
+
+    <!-- Welcome Title -->
+    <Label text="Welcome to STYLZ!"
+           layoutX="50" layoutY="70" prefWidth="300" alignment="CENTER"
+           style="-fx-font-size: 27px; -fx-font-weight: bolder; -fx-text-fill: #ffffff; -fx-font-family: 'Verdana Bold', sans-serif;"/>
+
+    <!-- Subtitle -->
+    <Label text="Please choose an option to continue"
+           layoutX="50" layoutY="140"
+           prefWidth="300"
+           alignment="CENTER"
+           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #ffffff;"/>
+
+    <!-- Register Button -->
+    <Button text="Register" styleClass="button"
+            layoutX="125" layoutY="250"
+            prefWidth="150" prefHeight="50"
+            onAction="#handleRegister"/>
+
+    <!-- Login Button -->
+    <Button text="Log In" styleClass="button"
+            layoutX="125" layoutY="330"
+            prefWidth="150" prefHeight="50"
+            onAction="#handleLogin"/>
+
+</AnchorPane>

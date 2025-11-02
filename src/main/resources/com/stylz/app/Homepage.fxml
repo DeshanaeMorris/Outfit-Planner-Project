@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stylz.app.HomepageController"
+            stylesheets="@styles.css"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <!-- Left Side: Shopping Mall Image -->
+    <ImageView fitWidth="400" fitHeight="600" preserveRatio="false">
+        <image>
+            <Image url="@/images/mall-background.png"/>
+        </image>
+    </ImageView>
+
+    <!-- Right Side: Yellow Background with Menu -->
+    <AnchorPane layoutX="400" layoutY="0" prefWidth="400" prefHeight="600"
+                style="-fx-background-color: #f7f3b0;">
+
+        <VBox layoutX="25" layoutY="50" spacing="20" alignment="TOP_CENTER" prefWidth="350">
+
+            <!-- Welcome Header -->
+            <VBox alignment="CENTER" spacing="5">
+                <Label text="Welcome to Stylz"
+                       style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #4b4453;"/>
+                <Label text="Be your own stylist!"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #9b7ac7;"/>
+            </VBox>
+
+            <!-- Menu Buttons (PINK) -->
+            <VBox spacing="15" alignment="CENTER" VBox.vgrow="ALWAYS">
+                <Button text="Store" styleClass="homepage-button"
+                        prefWidth="250" prefHeight="55"
+                        onAction="#handleStore"/>
+
+                <Button text="Catalog" styleClass="homepage-button"
+                        prefWidth="250" prefHeight="55"
+                        onAction="#handleCatalog"/>
+
+                <Button text="Instructions" styleClass="homepage-button"
+                        prefWidth="250" prefHeight="55"
+                        onAction="#handleInstructions"/>
+
+                <Button text="Settings" styleClass="homepage-button"
+                        prefWidth="250" prefHeight="55"
+                        onAction="#handleSettings"/>
+            </VBox>
+
+            <!-- Log Out -->
+            <Label text="&lt;&lt;&lt; Log out"
+                   style="-fx-text-fill: #4b4453; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true; -fx-font-weight: bold;"
+                   onMouseClicked="#handleLogout"/>
+        </VBox>
+    </AnchorPane>
+
+</AnchorPane>
