@@ -5,11 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.event.ActionEvent;
-
 
 public class SignUpController {
 
@@ -23,7 +22,16 @@ public class SignUpController {
     private PasswordField confirmPasswordField;
 
     @FXML
-    private void handleCreateAccount() {
+    private VBox mainVBox;
+
+    @FXML
+    public void initialize() {
+        // Request focus to ensure text fields work immediately
+        mainVBox.requestFocus();
+    }
+
+    @FXML
+    private void handleCreateAccount(ActionEvent event) {
         String username = usernameField.getText();
         String password = passwordField.getText();
         String confirmPassword = confirmPasswordField.getText();
@@ -39,13 +47,12 @@ public class SignUpController {
         }
 
         System.out.println("Account created for: " + username);
-        // Later: Save to database
+        // Save to database later
     }
 
     @FXML
     private void handleGoBack(ActionEvent event) {
         try {
-            // Go back to Login/Register screen
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/LoginRegister.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

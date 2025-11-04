@@ -11,15 +11,18 @@ import javafx.event.ActionEvent;
 public class HomepageController {
 
     @FXML
+    private void handleDressingRoom(ActionEvent event) {
+        System.out.println("Dressing Room clicked!");
+    }
+
+    @FXML
     private void handleStore(ActionEvent event) {
         System.out.println("Store clicked!");
-        // Later: Navigate to Store page
     }
 
     @FXML
     private void handleCatalog(ActionEvent event) {
         System.out.println("Catalog clicked!");
-        // Later: Navigate to Catalog page
     }
 
     @FXML
@@ -43,21 +46,21 @@ public class HomepageController {
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void handleLogout(MouseEvent event) {
         try {
             System.out.println("Logging out...");
-            // Navigate back to Start screen
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/StylzWelcome.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/StylezWelcome.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
         } catch (Exception e) {
+            System.out.println("Error loading StylezWelcome:");
             e.printStackTrace();
         }
     }

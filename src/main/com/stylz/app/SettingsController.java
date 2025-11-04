@@ -13,42 +13,47 @@ import javafx.util.Duration;
 public class SettingsController {
 
     @FXML
-    private ImageView settingsHeadingImage;
+    private ImageView musicImage;
 
     @FXML
-    public void initialize() {
-        // Add pop effect on hover
-        if (settingsHeadingImage != null) {
-            settingsHeadingImage.setOnMouseEntered(event -> playPopEffect());
-        }
-    }
+    private ImageView soundsImage;
 
-    private void playPopEffect() {
-        ScaleTransition pop = new ScaleTransition(Duration.millis(300), settingsHeadingImage);
+    private void playPopEffect(ImageView image) {
+        ScaleTransition pop = new ScaleTransition(Duration.millis(300), image);
         pop.setFromX(1.0);
         pop.setFromY(1.0);
-        pop.setToX(1.15);
-        pop.setToY(1.15);
+        pop.setToX(1.3);
+        pop.setToY(1.3);
         pop.setCycleCount(2);
         pop.setAutoReverse(true);
         pop.play();
+
+        // Rotation animation
+        RotateTransition rotate = new RotateTransition(Duration.millis(400), image);
+        rotate.setFromAngle(0);
+        rotate.setToAngle(10);
+        rotate.setCycleCount(2);
+        rotate.setAutoReverse(true);
+
+        // Play both animations together
+        ParallelTransition combined = new ParallelTransition(pop, rotate);
+        combined.play();
     }
 
     @FXML
     private void handleMusic(ActionEvent event) {
         System.out.println("Music settings clicked!");
-        playPopEffect();
+        playPopEffect(musicImage);
     }
 
     @FXML
     private void handleSounds(ActionEvent event) {
         System.out.println("Sounds settings clicked!");
-        playPopEffect();
+        playPopEffect(soundsImage);
     }
 
     @FXML
     private void handleHome(ActionEvent event) {
-        playPopEffect();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
             Scene scene = new Scene(loader.load());
@@ -61,7 +66,6 @@ public class SettingsController {
 
     @FXML
     private void handleInstructions(ActionEvent event) {
-        playPopEffect();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Instructions.fxml"));
             Scene scene = new Scene(loader.load());
@@ -74,7 +78,6 @@ public class SettingsController {
 
     @FXML
     private void handleGoBack(ActionEvent event) {
-        playPopEffect();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
             Scene scene = new Scene(loader.load());
@@ -87,7 +90,6 @@ public class SettingsController {
 
     @FXML
     private void handleLogout(ActionEvent event) {
-        playPopEffect();
         try {
             System.out.println("Logging out...");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/StylzWelcome.fxml"));

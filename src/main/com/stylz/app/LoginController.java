@@ -54,10 +54,26 @@ public class LoginController {
         }
     }
 
+
+
     @FXML
-    private void handleForgotPassword(MouseEvent event) {
+    private void handleForgotUsername(ActionEvent event) {
         try {
-            // Navigate to Reset Password screen
+            System.out.println("Forgot username clicked!");
+            // Navigate to Reset Password screen (same as forgot password)
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/ResetPassword.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleForgotPassword(ActionEvent event) {
+        try {
+            System.out.println("Forgot password clicked!");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/ResetPassword.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
