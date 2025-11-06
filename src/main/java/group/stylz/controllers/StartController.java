@@ -1,9 +1,9 @@
-package group.stylz;
+package group.stylz.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class StartController {
     @FXML
     private Label welcomeText;
 
