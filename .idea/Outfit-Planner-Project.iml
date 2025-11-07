@@ -13,5 +13,8 @@
     <orderEntry type="library" name="javafx.base" level="project" />
     <orderEntry type="library" name="javafx.graphics" level="project" />
     <orderEntry type="library" name="javafx.media" level="project" />
+    <orderEntry type="library" name="json-20230227" level="project" />
+    <orderEntry type="library" name="okhttp-4.11.0" level="project" />
+    <orderEntry type="library" name="okio-3.3.0" level="project" />
   </component>
 </module>
