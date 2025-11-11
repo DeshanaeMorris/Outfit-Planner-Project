@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
@@ -32,6 +33,7 @@
             <Button text="Log In" styleClass="button"
                     prefWidth="150" prefHeight="50"
                     onAction="#handleLogin"/>
+
         </VBox>
 
     </VBox>
