@@ -27,12 +27,6 @@ public class DressingRoomController {
     @FXML
     private ImageView modelAccessory2;
 
-    //Initialize method
-    @FXML
-    private void initialize() {
-        System.out.println("Dressing Room loaded successfully!");
-    }
-
     //Select white top
 
     @FXML
