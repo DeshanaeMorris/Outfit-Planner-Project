@@ -53,6 +53,7 @@
             <ImageView fx:id="modelShoes" fitWidth="280" fitHeight="520" preserveRatio="true"/>
             <ImageView fx:id="modelAccessory1" fitWidth="280" fitHeight="520" preserveRatio="true"/>
             <ImageView fx:id="modelAccessory2" fitWidth="280" fitHeight="520" preserveRatio="true"/>
+
         </StackPane>
     </VBox>
 
@@ -80,7 +81,7 @@
             <Label text="Jewelry" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;"/>
         </VBox>
 
-        <VBox alignment="CENTER" spacing="8" onMouseClicked="#selectSunglasses">
+        <VBox alignment="CENTER" spacing="8" style="-fx-cursor: hand;" onMouseClicked="#selectSunglasses">
             <ImageView fitWidth="120" fitHeight="120" preserveRatio="true">
                 <image><Image url="@/images/sunglasses.png"/></image>
             </ImageView>
@@ -89,9 +90,9 @@
     </VBox>
 
     <!-- Bottom buttons -->
-    <HBox layoutX="260" layoutY="600" spacing="15" alignment="CENTER">
+    <HBox layoutX="250" layoutY="600" spacing="15" alignment="CENTER">
         <Button text="SAVE" onAction="#handleSave"/>
         <Button text="RESET" onAction="#handleReset"/>
-        <Button text="← Back" onAction="#goBack"/>
+        <Button text="Go Back" onAction="#goBack"/>
     </HBox>
 </AnchorPane>

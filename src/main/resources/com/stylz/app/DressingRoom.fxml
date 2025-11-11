@@ -53,34 +53,35 @@
             <ImageView fx:id="modelShoes" fitWidth="280" fitHeight="520" preserveRatio="true"/>
             <ImageView fx:id="modelAccessory1" fitWidth="280" fitHeight="520" preserveRatio="true"/>
             <ImageView fx:id="modelAccessory2" fitWidth="280" fitHeight="520" preserveRatio="true"/>
+
         </StackPane>
     </VBox>
 
     <!--Right Side: Accessories-->
     <!-- Accessories -->
     <VBox layoutX="600" layoutY="50" spacing="25" alignment="TOP_CENTER">
-        <VBox alignment="CENTER" spacing="8" onMouseClicked="#selectHat">
+        <VBox alignment="CENTER" spacing="8" style="-fx-cursor: hand;" onMouseClicked="#selectHat">
             <ImageView fitWidth="120" fitHeight="120" preserveRatio="true">
                 <image><Image url="@/images/hat-image.png"/></image>
             </ImageView>
             <Label text="Hat" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;"/>
         </VBox>
 
-        <VBox alignment="CENTER" spacing="8" onMouseClicked="#selectHat">
+        <VBox alignment="CENTER" spacing="8" style="-fx-cursor: hand;" onMouseClicked="#selectHat">
             <ImageView fitWidth="120" fitHeight="120" preserveRatio="true">
                 <image><Image url="@/images/bag-image.png"/></image>
             </ImageView>
             <Label text="Bag" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;"/>
         </VBox>
 
-        <VBox alignment="CENTER" spacing="8" onMouseClicked="#selectJewelry">
+        <VBox alignment="CENTER" spacing="8" style="-fx-cursor: hand;" onMouseClicked="#selectJewelry">
             <ImageView fitWidth="120" fitHeight="120" preserveRatio="true">
                 <image><Image url="@/images/jewelry-image.png"/></image>
             </ImageView>
             <Label text="Jewelry" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;"/>
         </VBox>
 
-        <VBox alignment="CENTER" spacing="8" onMouseClicked="#selectSunglasses">
+        <VBox alignment="CENTER" spacing="8" style="-fx-cursor: hand;" onMouseClicked="#selectSunglasses">
             <ImageView fitWidth="120" fitHeight="120" preserveRatio="true">
                 <image><Image url="@/images/sunglasses.png"/></image>
             </ImageView>
@@ -89,9 +90,9 @@
     </VBox>
 
     <!-- Bottom buttons -->
-    <HBox layoutX="260" layoutY="600" spacing="15" alignment="CENTER">
+    <HBox layoutX="250" layoutY="600" spacing="15" alignment="CENTER">
         <Button text="SAVE" onAction="#handleSave"/>
         <Button text="RESET" onAction="#handleReset"/>
-        <Button text="← Back" onAction="#goBack"/>
+        <Button text="Go Back" onAction="#goBack"/>
     </HBox>
 </AnchorPane>
