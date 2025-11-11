@@ -5,14 +5,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
 import javafx.scene.Node;
 import javafx.event.ActionEvent;
+import java.io.IOException;
 
 public class HomepageController {
 
     @FXML
     private void handleDressingRoom(ActionEvent event) {
-        System.out.println("Dressing Room clicked!");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/DressingRoom.fxml"));
+            Parent dressingRoomRoot = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene dressingRoomScene = new Scene(dressingRoomRoot);
+            stage.setScene(dressingRoomScene);
+            stage.show();
+
+            System.out.println("Navigated to Dressing Room!");
+        } catch (IOException e) {
+            System.err.println("Error loading Dressing Room: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -64,4 +78,22 @@ public class HomepageController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void goBack(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
+            Parent homepageRoot = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene homepageScene = new Scene(homepageRoot);
+            stage.setScene(homepageScene);
+            stage.show();
+
+            System.out.println("Returned to Homepage!");
+        } catch (IOException e) {
+            System.err.println("Error loading homepage: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 }
