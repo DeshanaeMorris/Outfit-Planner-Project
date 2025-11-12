@@ -19,16 +19,12 @@
 
         <!-- USER LOGIN Title Image -->
         <ImageView fitWidth="180" preserveRatio="true">
-            <image>
                 <Image url="@/images/login-title.png" />
-            </image>
         </ImageView>
 
         <!-- User Icon Image -->
         <ImageView fitHeight="60" fitWidth="60" preserveRatio="true">
-            <image>
                 <Image url="@/images/user-icon.png" />
-            </image>
         </ImageView>
 
         <!-- Username Field -->
@@ -49,7 +45,7 @@
         <Label fx:id="messageLabel"
                 textFill="red"
                 style="-fx-font-size: 12px; -fx-font-weight: bold;"
-                text=""
+                text="none"
                 alignment="CENTER"/>
 
         <!-- Login Button -->

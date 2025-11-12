@@ -19,28 +19,28 @@
     <VBox alignment="TOP_CENTER" layoutX="20" layoutY="50" spacing="25">
         <VBox alignment="CENTER" onMouseClicked="#selectWhiteTop" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <image><Image url="@/images/top-image.png" /></image>
+                <Image url="@/images/top-image.png" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Top" />
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectBlueShorts" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <image><Image url="@/images/bottom-image.png" /></image>
+                <Image url="@/images/bottom-image.png" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Bottom" />
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectBlackHeels" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <image><Image url="@/images/shoes-icon.png" /></image>
+                <Image url="@/images/shoes-icon.png" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Shoes" />
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectWhiteDress" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <image><Image url="@/images/dresses-image.png" /></image>
+               <Image url="@/images/dresses-image.png" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Dress" />
         </VBox>
@@ -50,7 +50,7 @@
     <VBox alignment="CENTER" layoutX="260" layoutY="50">
         <StackPane prefHeight="520" prefWidth="280" style="-fx-background-color: #F5F5DC; -fx-border-color: black; -fx-border-width: 4;">
             <ImageView fitHeight="520" fitWidth="280" preserveRatio="true">
-                <image><Image url="@/images/model-doll.png" /></image>
+                <Image url="@/images/model-doll.png" />
             </ImageView>
             <ImageView fx:id="modelTop" fitHeight="520" fitWidth="280" preserveRatio="true" />
             <ImageView fx:id="modelBottom" fitHeight="520" fitWidth="280" preserveRatio="true" />
@@ -66,28 +66,28 @@
     <VBox alignment="TOP_CENTER" layoutX="600" layoutY="50" spacing="25">
         <VBox alignment="CENTER" onMouseClicked="#selectHat" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <image><Image url="@/images/hat-image.png" /></image>
+               <Image url="@/images/hat-image.png" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Hat" />
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectHat" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <image><Image url="@/images/bag-image.png" /></image>
+                <Image url="@/images/bag-image.png" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Bag" />
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectJewelry" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <image><Image url="@/images/jewelry-image.png" /></image>
+                <Image url="@/images/jewelry-image.png" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Jewelry" />
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectSunglasses" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <image><Image url="@/images/sunglasses.png" /></image>
+                <Image url="@/images/sunglasses.png" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Sunglasses" />
         </VBox>
