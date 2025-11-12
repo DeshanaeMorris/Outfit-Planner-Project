@@ -17,7 +17,7 @@
         <!-- STYLZ Logo Image (centered) -->
         <ImageView fx:id="logoImageView" fitWidth="300" preserveRatio="true">
             <image>
-                <Image url="@/images/Purple-layer.png"/>
+                <Image url="/images/Purple-layer.png"/>
             </image>
         </ImageView>
 

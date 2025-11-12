@@ -45,6 +45,13 @@
             <Hyperlink onAction="#handleForgotPassword" style="-fx-text-fill: #666; -fx-font-size: 10px; -fx-padding: 0;" text="Forgot Password?" />
         </VBox>
 
+        <!-- Message Label -->
+        <Label fx:id="messageLabel"
+                textFill="red"
+                style="-fx-font-size: 12px; -fx-font-weight: bold;"
+                text=""
+                alignment="CENTER"/>
+
         <!-- Login Button -->
         <Button onAction="#handleLogin" prefHeight="35" prefWidth="150" styleClass="create-account-button" text="LOGIN" />
 
