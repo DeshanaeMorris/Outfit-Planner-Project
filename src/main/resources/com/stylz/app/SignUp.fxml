@@ -11,13 +11,10 @@
            styleClass="signup-screen"
            prefHeight="600.0" prefWidth="400.0">
 
-    <!-- Background Pane to absorb clicks outside the form -->
-    <Pane prefWidth="400" prefHeight="600" />
 
     <!-- Yellow Sign Up Box (Centered) -->
     <VBox fx:id="mainVBox" alignment="CENTER" spacing="15" maxWidth="250" maxHeight="420"
-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);"
-          focusTraversable="true">
+          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
 
         <!-- SIGN UP Title Image -->
         <ImageView fitWidth="180" preserveRatio="true">
@@ -56,8 +53,12 @@
     </VBox>
 
     <!-- Go Back Link (Bottom Center) -->
-    <VBox alignment="BOTTOM_CENTER" StackPane.alignment="BOTTOM_CENTER">
-        <Hyperlink text="&lt;&lt;&lt; Go Back" style="-fx-text-fill: brown; -fx-font-size: 14px;" onAction="#handleGoBack"/>
+    <VBox alignment="BOTTOM_CENTER"
+          StackPane.alignment="BOTTOM_CENTER"
+            pickOnBounds="false">
+        <Hyperlink text="&lt;&lt;&lt; Go Back"
+                   style="-fx-text-fill: brown; -fx-font-size: 14px;"
+                   onAction="#handleGoBack"/>
     </VBox>
 
 </StackPane>
