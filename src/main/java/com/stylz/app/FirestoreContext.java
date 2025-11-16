@@ -11,6 +11,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class FirestoreContext {
+    public static void init(){
+        if (!FirebaseApp.getApps().isEmpty()){
+            return;
+        }
+        new FirestoreContext().firebase();
+    }
     public Firestore firebase() {
         try {
 
