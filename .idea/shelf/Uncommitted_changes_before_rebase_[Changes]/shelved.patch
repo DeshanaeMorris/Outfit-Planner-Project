@@ -1,0 +1,4151 @@
+Index: src/main/resources/com/stylz/app/LoginRegister.fxml
+===================================================================
+diff --git a/src/main/resources/com/stylz/app/LoginRegister.fxml b/src/main/resources/com/stylz/app/LoginRegister.fxml
+deleted file mode 100644
+--- a/src/main/resources/com/stylz/app/LoginRegister.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,39 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.LoginRegisterController"
+-           stylesheets="@styles.css"
+-           prefHeight="600.0" prefWidth="400.0"
+-           style="-fx-background-image: url('/images/purplepic.jpg'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat;">
+-
+-    <!-- Center everything -->
+-    <VBox alignment="CENTER" spacing="40">
+-
+-        <!-- Welcome Title -->
+-        <Label text="Welcome to STYLZ!"
+-               style="-fx-font-size: 27px; -fx-font-weight: bolder; -fx-text-fill: #ffffff; -fx-font-family: 'Verdana Bold', sans-serif;"/>
+-
+-        <!-- Subtitle -->
+-        <Label text="Please choose an option to continue"
+-               style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #ffffff;"/>
+-
+-        <!-- Buttons -->
+-        <VBox spacing="20" alignment="CENTER">
+-            <!-- Register Button -->
+-            <Button text="Register" styleClass="button"
+-                    prefWidth="150" prefHeight="50"
+-                    onAction="#handleRegister"/>
+-
+-            <!-- Login Button -->
+-            <Button text="Log In" styleClass="button"
+-                    prefWidth="150" prefHeight="50"
+-                    onAction="#handleLogin"/>
+-        </VBox>
+-
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: src/main/resources/com/stylz/app/ResetPassword.fxml
+===================================================================
+diff --git a/src/main/resources/com/stylz/app/ResetPassword.fxml b/src/main/resources/com/stylz/app/ResetPassword.fxml
+deleted file mode 100644
+--- a/src/main/resources/com/stylz/app/ResetPassword.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,56 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx"
+-           xmlns:fx="http://javafx.com/fxml"
+-           fx:controller="com.stylz.app.ResetPasswordController"
+-           stylesheets="@styles.css"
+-           styleClass="login-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Yellow Reset Box (Centered) -->
+-    <VBox alignment="CENTER" spacing="15" maxWidth="210" maxHeight="300"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Title Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/Password.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitWidth="60" fitHeight="60" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Email Field -->
+-        <VBox spacing="8" alignment="CENTER">
+-            <Label text="Enter your email address"
+-                   style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <HBox alignment="CENTER_LEFT" spacing="5"
+-                  style="-fx-background-color: white; -fx-border-color: #4b4453; -fx-border-width: 2px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 6;">
+-                <Label text="📧" style="-fx-font-size: 16px;"/>
+-                <TextField fx:id="emailField" promptText="Enter your e-mail..."
+-                           style="-fx-background-color: transparent; -fx-border-width: 0;"
+-                           prefWidth="140"/>
+-            </HBox>
+-        </VBox>
+-
+-        <!-- Reset Button -->
+-        <Button text="Reset" styleClass="create-account-button"
+-                prefWidth="120" prefHeight="35"
+-                onAction="#handleReset"/>
+-
+-        <!-- Go Back Link -->
+-        <Label text="&lt;&lt;&lt; Go Back"
+-               style="-fx-text-fill: brown; -fx-font-size: 11px; -fx-cursor: hand; -fx-underline: true;"
+-               onMouseClicked="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: src/main/resources/com/stylz/app/StylzWelcome.fxml
+===================================================================
+diff --git a/src/main/resources/com/stylz/app/StylzWelcome.fxml b/src/main/resources/com/stylz/app/StylzWelcome.fxml
+deleted file mode 100644
+--- a/src/main/resources/com/stylz/app/StylzWelcome.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,30 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.WelcomeController"
+-           stylesheets="@styles.css"
+-           styleClass="start-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Center everything vertically and horizontally -->
+-    <VBox alignment="CENTER" spacing="80">
+-
+-        <!-- STYLZ Logo Image (centered) -->
+-        <ImageView fx:id="logoImageView" fitWidth="300" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/Purple-layer.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- START Button (centered) -->
+-        <Button fx:id="startButton" text="Start!" styleClass="start-button"
+-                prefWidth="150" prefHeight="70"
+-                onAction="#handleStartButton"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: target/classes/com/stylz/app/Login.fxml
+===================================================================
+diff --git a/target/classes/com/stylz/app/Login.fxml b/target/classes/com/stylz/app/Login.fxml
+deleted file mode 100644
+--- a/target/classes/com/stylz/app/Login.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,61 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.image.*?>
+-<?import javafx.scene.layout.*?>
+-
+-<StackPane prefHeight="600.0" prefWidth="400.0"
+-           styleClass="login-screen"
+-           stylesheets="@styles.css"
+-           xmlns="http://javafx.com/javafx/17.0.12"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.LoginController">
+-
+-    <!-- Yellow Login Box (Centered like SignUp) -->
+-    <VBox alignment="CENTER" spacing="15" maxWidth="250" maxHeight="420"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- USER LOGIN Title Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/login-title.png" />
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitHeight="60" fitWidth="60" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png" />
+-            </image>
+-        </ImageView>
+-
+-        <!-- Username Field -->
+-        <VBox spacing="5">
+-            <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Username" />
+-            <TextField fx:id="usernameField" prefWidth="200" promptText="Enter username" styleClass="signup-textfield" />
+-            <Hyperlink onAction="#handleForgotUsername" style="-fx-text-fill: #666; -fx-font-size: 10px; -fx-padding: 0;" text="Forgot username?" />
+-        </VBox>
+-
+-        <!-- Password Field -->
+-        <VBox spacing="5">
+-            <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Password" />
+-            <PasswordField fx:id="passwordField" prefWidth="200" promptText="Enter password" styleClass="signup-textfield" />
+-            <Hyperlink onAction="#handleForgotPassword" style="-fx-text-fill: #666; -fx-font-size: 10px; -fx-padding: 0;" text="Forgot Password?" />
+-        </VBox>
+-
+-        <!-- Login Button -->
+-        <Button onAction="#handleLogin" prefHeight="35" prefWidth="150" styleClass="create-account-button" text="LOGIN" />
+-
+-        <!-- Sign Up Link -->
+-        <HBox alignment="CENTER" spacing="5">
+-            <Label style="-fx-font-size: 11px;" text="Don't have an account?" />
+-            <Hyperlink onAction="#handleGoToSignUp" style="-fx-text-fill: #9b7ac7; -fx-font-size: 11px; -fx-font-weight: bold; -fx-padding: 0;" text="Sign Up" />
+-        </HBox>
+-
+-    </VBox>
+-
+-    <!-- Exit Button -->
+-    <Button onAction="#handleExit" style="-fx-background-color: transparent; -fx-text-fill: brown; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true;"
+-            StackPane.alignment="BOTTOM_CENTER" text="EXIT" />
+-
+-</StackPane>
+Index: out/production/Outfit-Planner-Project/resources/com/stylz/app/styles.css
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/resources/com/stylz/app/styles.css b/out/production/Outfit-Planner-Project/resources/com/stylz/app/styles.css
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/resources/com/stylz/app/styles.css	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,240 +0,0 @@
+-/* ========== GLOBAL STYLES ========== */
+-.root {
+-    -fx-font-family: "Arial", sans-serif;
+-}
+-
+-/* ========== BACKGROUNDS ========== */
+-.start-screen {
+-    -fx-background-color: #f7f3b0;
+-    -fx-background-image: url('/images/swirl-bg.png');
+-    -fx-background-size: cover;
+-    -fx-background-position: center;
+-    -fx-background-repeat: no-repeat;
+-}
+-
+-.login-screen {
+-    -fx-background-color: #bca0dc;
+-
+-}
+-
+-.signup-screen {
+-    -fx-background-color: #bca0dc;
+-}
+-
+-.instructions-screen {
+-    -fx-background-color: #f2c6de;
+-}
+-
+-/* ========== BUTTONS ========== */
+-.button {
+-    -fx-background-color: #bca0dc;
+-    -fx-text-fill: white;
+-    -fx-font-size: 16px;
+-    -fx-font-weight: bold;
+-    -fx-background-radius: 15;
+-    -fx-cursor: hand;
+-    -fx-padding: 10 25 10 25;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 2);
+-}
+-
+-.button:hover {
+-    -fx-background-color: #f2c6de;
+-}
+-
+-/* Start Button - EXACTLY like Figma */
+-.start-button {
+-    -fx-background-color: #f7f3b0;
+-    -fx-text-fill: #000000;
+-    -fx-font-size: 28px;
+-    -fx-font-weight: bold;
+-    -fx-font-family: "Arial Black", sans-serif;
+-    -fx-border-color: #9b7ac7;
+-    -fx-border-width: 5px;
+-    -fx-border-radius: 20;
+-    -fx-background-radius: 20;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 3, 5);
+-}
+-
+-.start-button:hover {
+-    -fx-background-color: #fffacd;
+-    -fx-scale-x: 1.05;
+-    -fx-scale-y: 1.05;
+-}
+-
+-.create-account-button {
+-    -fx-background-color: white;
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 14px;
+-    -fx-font-weight: bold;
+-    -fx-border-color: #4b4453;
+-    -fx-border-width: 2px;
+-    -fx-border-radius: 8;
+-    -fx-background-radius: 8;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+-}
+-
+-.create-account-button:hover {
+-    -fx-background-color: #f0f0f0;
+-}
+-
+-/* ========== HOMEPAGE BUTTONS (PINK) ========== */
+-.homepage-button {
+-    -fx-background-color: #f2c6de;
+-    -fx-text-fill: #000000;
+-    -fx-font-size: 20px;
+-    -fx-font-weight: bold;
+-    -fx-border-color: transparent;
+-    -fx-border-width: 0px;
+-    -fx-border-radius: 10;
+-    -fx-background-radius: 10;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+-}
+-
+-.homepage-button:hover {
+-    -fx-background-color: #ffd4e5;
+-    -fx-scale-x: 1.02;
+-    -fx-scale-y: 1.02;
+-}
+-
+-/* ========== TEXT FIELDS ========== */
+-.text-field {
+-    -fx-background-color: white;
+-    -fx-border-color: #bca0dc;
+-    -fx-border-radius: 8;
+-    -fx-background-radius: 8;
+-    -fx-padding: 8 12 8 12;
+-}
+-
+-/* ========== TEXT FIELDS ========== */
+-.signup-textfield {
+-    -fx-background-color: white;
+-    -fx-border-color: #4b4453;
+-    -fx-border-width: 2px;
+-    -fx-border-radius: 5;
+-    -fx-background-radius: 5;
+-    -fx-padding: 8;
+-    -fx-font-size: 12px;
+-    -fx-cursor: text;
+-
+-
+-    -fx-focus-color: #6a0dad;
+-    -fx-faint-focus-color: transparent;
+-}
+-
+-.signup-textfield:focused {
+-    -fx-border-color: #6a0dad;
+-    -fx-border-width: 2.5px;
+-}
+-
+-/* ========== LABELS ========== */
+-.heading {
+-    -fx-font-size: 70px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #6a0dad;
+-    -fx-font-family: "Arial Black", sans-serif;
+-    -fx-text-alignment: center;
+-    -fx-alignment: center;
+-    -fx-effect: dropshadow(gaussian, rgba(180,130,255,0.7), 10, 0.4, 0, 2);
+-    -fx-padding: 40 0 25 0;
+-    -fx-letter-spacing: 1.2px;
+-}
+-.login-heading {
+-    -fx-font-size: 120px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #6a0dad;
+-    -fx-font-family: "Arial Black", sans-serif;
+-    -fx-effect: dropshadow(gaussian, rgba(180,130,255,0.7), 10, 0.4, 0, 2);
+-}
+-
+-.signup-title {
+-    -fx-font-size: 32px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #4b4453;
+-    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 2, 0, 1, 1);
+-}
+-
+-.label {
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 14px;
+-}
+-
+-/* ========== SETTINGS PAGE ========== */
+-/* ====== GLOBAL STYLES ====== */
+-.settings-screen {
+-    -fx-background-color: linear-gradient(to bottom, #CBE4E5, #E4F6EB);
+-}
+-
+-.settings-box {
+-    -fx-background-color: #FFF5B5;
+-    -fx-background-radius: 22;
+-    -fx-padding: 25;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 18, 0, 3, 4);
+-}
+-
+-/* ====== TITLE ====== */
+-.settings-title {
+-    -fx-font-size: 32px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #6F3E5B;
+-    -fx-effect: dropshadow(gaussian, #ffffff, 3, 0.6, 1, 2);
+-}
+-
+-/* ====== ICON BUTTONS ====== */
+-.icon-button {
+-    -fx-background-radius: 50;
+-    -fx-pref-width: 85;
+-    -fx-pref-height: 85;
+-    -fx-background-color: #CFFFE0;
+-    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.25), 10, 0, 2, 2);
+-    -fx-font-size: 32px;
+-}
+-
+-.icon-button:hover {
+-    -fx-scale-x: 1.07;
+-    -fx-scale-y: 1.07;
+-    -fx-background-color: derive(#CFFFE0, -8%);
+-}
+-
+-.icon-label {
+-    -fx-font-size: 14px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #333;
+-}
+-
+-/* ====== MAIN BUTTONS ====== */
+-
+-
+-.settings-button {
+-    -fx-background-color: #d473d4;  /* Darker purple */
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 18px;
+-    -fx-font-weight: bold;
+-    -fx-border-radius: 15;
+-    -fx-background-radius: 15;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 3);
+-}
+-
+-.settings-button:hover {
+-    -fx-background-color: #d4b3ff;  /* Lighter on hover */
+-}
+-/* ====== LOGOUT BUTTON ====== */
+-.logout-button {
+-    -fx-background-color: #d473d4;  /* Same darker purple */
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 16px;
+-    -fx-font-weight: bold;
+-    -fx-border-radius: 20;
+-    -fx-background-radius: 20;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+-}
+-
+-.logout-button:hover {
+-    -fx-background-color: #d4b3ff;  /* Same hover color */
+-}
+-
+-
+Index: src/main/resources/com/stylz/app/Settings.fxml
+===================================================================
+diff --git a/src/main/resources/com/stylz/app/Settings.fxml b/src/main/resources/com/stylz/app/Settings.fxml
+deleted file mode 100644
+--- a/src/main/resources/com/stylz/app/Settings.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,77 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.image.*?>
+-<?import javafx.scene.layout.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx"
+-           xmlns:fx="http://javafx.com/fxml"
+-           fx:controller="com.stylz.app.SettingsController"
+-           stylesheets="@styles.css"
+-           styleClass="settings-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Yellow Settings Box (Centered) -->
+-    <VBox alignment="TOP_CENTER" spacing="20" maxWidth="300" maxHeight="480"
+-          style="-fx-background-color: #f7f3b0;
+-                 -fx-background-radius: 20;
+-                 -fx-padding: 30;
+-                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Settings Heading Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/settings-heading.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Music and Sounds Buttons -->
+-        <HBox spacing="40" alignment="CENTER">
+-            <VBox alignment="CENTER" spacing="10">
+-                <Button styleClass="icon-button" prefWidth="80" prefHeight="80" onAction="#handleMusic">
+-                    <graphic>
+-                        <ImageView fx:id="musicImage" fitWidth="50" fitHeight="50">
+-                            <image>
+-                                <Image url="@/images/music.png"/>
+-                            </image>
+-                        </ImageView>
+-                    </graphic>
+-                </Button>
+-                <Label text="Music" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #C4A484;"/>
+-            </VBox>
+-
+-            <VBox alignment="CENTER" spacing="10">
+-                <Button styleClass="icon-button" prefWidth="80" prefHeight="80" onAction="#handleSounds">
+-                    <graphic>
+-                        <ImageView fx:id="soundsImage" fitWidth="50" fitHeight="50">
+-                            <image>
+-                                <Image url="@/images/sounds.png"/>
+-                            </image>
+-                        </ImageView>
+-                    </graphic>
+-                </Button>
+-                <Label text="Sounds" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #C4A484;"/>
+-            </VBox>
+-        </HBox>
+-
+-        <!-- Main Buttons -->
+-        <Button text="Home" styleClass="settings-button"
+-                prefWidth="250" prefHeight="50"
+-                onAction="#handleHome"
+-                style="-fx-text-fill: white;"/>
+-        <Button text="Instructions" styleClass="settings-button"
+-                prefWidth="250" prefHeight="50"
+-                onAction="#handleInstructions"
+-                style="-fx-text-fill: white;"/>
+-        <Button text="&lt;&lt;&lt; Go Back" styleClass="settings-button"
+-                prefWidth="250" prefHeight="50"
+-                onAction="#handleGoBack"
+-                style="-fx-text-fill: white;"/>
+-        <Button text="Log out" styleClass="logout-button"
+-                prefWidth="150" prefHeight="40"
+-                onAction="#handleLogout"
+-                style="-fx-text-fill: white;"/>
+-
+-    </VBox>
+-
+-</StackPane>
+Index: out/production/Outfit-Planner-Project/com/stylz/app/Homepage.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/com/stylz/app/Homepage.fxml b/out/production/Outfit-Planner-Project/com/stylz/app/Homepage.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/com/stylz/app/Homepage.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,64 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<AnchorPane xmlns="http://javafx.com/javafx"
+-            xmlns:fx="http://javafx.com/fxml"
+-            fx:controller="com.stylz.app.HomepageController"
+-            stylesheets="@styles.css"
+-            prefHeight="600.0" prefWidth="800.0">
+-
+-    <!-- Left Side: Shopping Mall Image -->
+-    <ImageView fitWidth="400" fitHeight="600" preserveRatio="false">
+-        <image>
+-            <Image url="@/images/mall-background.png"/>
+-        </image>
+-    </ImageView>
+-
+-    <!-- Right Side: Yellow Background with Menu -->
+-    <AnchorPane layoutX="400" layoutY="0" prefWidth="400" prefHeight="600"
+-                style="-fx-background-color: #f7f3b0;">
+-
+-        <VBox layoutX="25" layoutY="30" spacing="15" alignment="TOP_CENTER" prefWidth="350">
+-
+-            <!-- Welcome Header -->
+-            <VBox alignment="CENTER" spacing="5">
+-                <Label text="Welcome to Stylz"
+-                       style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #4b4453;"/>
+-                <Label text="Be your own stylist!"
+-                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #9b7ac7;"/>
+-            </VBox>
+-
+-            <!-- Menu Buttons (PINK) -->
+-            <VBox spacing="12" alignment="CENTER" VBox.vgrow="ALWAYS">
+-                <Button text="Dressing Room" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleDressingRoom"/>
+-
+-                <Button text="Store" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleStore"/>
+-
+-                <Button text="Catalog" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleCatalog"/>
+-
+-                <Button text="Instructions" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleInstructions"/>
+-
+-                <Button text="Settings" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleSettings"/>
+-            </VBox>
+-
+-            <!-- Log Out -->
+-            <Label text="&lt;&lt;&lt; Log out"
+-                   style="-fx-text-fill: #4b4453; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true; -fx-font-weight: bold;"
+-                   onMouseClicked="#handleLogout"/>
+-        </VBox>
+-    </AnchorPane>
+-
+-</AnchorPane>
+\ No newline at end of file
+Index: src/main/resources/com/stylz/app/Login.fxml
+===================================================================
+diff --git a/src/main/resources/com/stylz/app/Login.fxml b/src/main/resources/com/stylz/app/Login.fxml
+deleted file mode 100644
+--- a/src/main/resources/com/stylz/app/Login.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,61 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.image.*?>
+-<?import javafx.scene.layout.*?>
+-
+-<StackPane prefHeight="600.0" prefWidth="400.0"
+-           styleClass="login-screen"
+-           stylesheets="@styles.css"
+-           xmlns="http://javafx.com/javafx/17.0.12"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.LoginController">
+-
+-    <!-- Yellow Login Box (Centered like SignUp) -->
+-    <VBox alignment="CENTER" spacing="15" maxWidth="250" maxHeight="420"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- USER LOGIN Title Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/login-title.png" />
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitHeight="60" fitWidth="60" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png" />
+-            </image>
+-        </ImageView>
+-
+-        <!-- Username Field -->
+-        <VBox spacing="5">
+-            <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Username" />
+-            <TextField fx:id="usernameField" prefWidth="200" promptText="Enter username" styleClass="signup-textfield" />
+-            <Hyperlink onAction="#handleForgotUsername" style="-fx-text-fill: #666; -fx-font-size: 10px; -fx-padding: 0;" text="Forgot username?" />
+-        </VBox>
+-
+-        <!-- Password Field -->
+-        <VBox spacing="5">
+-            <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Password" />
+-            <PasswordField fx:id="passwordField" prefWidth="200" promptText="Enter password" styleClass="signup-textfield" />
+-            <Hyperlink onAction="#handleForgotPassword" style="-fx-text-fill: #666; -fx-font-size: 10px; -fx-padding: 0;" text="Forgot Password?" />
+-        </VBox>
+-
+-        <!-- Login Button -->
+-        <Button onAction="#handleLogin" prefHeight="35" prefWidth="150" styleClass="create-account-button" text="LOGIN" />
+-
+-        <!-- Sign Up Link -->
+-        <HBox alignment="CENTER" spacing="5">
+-            <Label style="-fx-font-size: 11px;" text="Don't have an account?" />
+-            <Hyperlink onAction="#handleGoToSignUp" style="-fx-text-fill: #9b7ac7; -fx-font-size: 11px; -fx-font-weight: bold; -fx-padding: 0;" text="Sign Up" />
+-        </HBox>
+-
+-    </VBox>
+-
+-    <!-- Exit Button -->
+-    <Button onAction="#handleExit" style="-fx-background-color: transparent; -fx-text-fill: brown; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true;"
+-            StackPane.alignment="BOTTOM_CENTER" text="EXIT" />
+-
+-</StackPane>
+Index: src/main/java/com/stylz/app/HomepageController.java
+===================================================================
+diff --git a/src/main/java/com/stylz/app/HomepageController.java b/src/main/java/com/stylz/app/HomepageController.java
+deleted file mode 100644
+--- a/src/main/java/com/stylz/app/HomepageController.java	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,67 +0,0 @@
+-package com.stylz.app;
+-
+-import javafx.fxml.FXML;
+-import javafx.fxml.FXMLLoader;
+-import javafx.scene.Scene;
+-import javafx.scene.input.MouseEvent;
+-import javafx.stage.Stage;
+-import javafx.scene.Node;
+-import javafx.event.ActionEvent;
+-
+-public class HomepageController {
+-
+-    @FXML
+-    private void handleDressingRoom(ActionEvent event) {
+-        System.out.println("Dressing Room clicked!");
+-    }
+-
+-    @FXML
+-    private void handleStore(ActionEvent event) {
+-        System.out.println("Store clicked!");
+-    }
+-
+-    @FXML
+-    private void handleCatalog(ActionEvent event) {
+-        System.out.println("Catalog clicked!");
+-    }
+-
+-    @FXML
+-    private void handleInstructions(ActionEvent event) {
+-        try {
+-            System.out.println("Instructions clicked!");
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Instructions.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @FXML
+-    private void handleSettings(ActionEvent event) {
+-        try {
+-            System.out.println("Settings clicked!");
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Settings.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @FXML
+-    private void handleLogout(MouseEvent event) {
+-        try {
+-            System.out.println("Logging out...");
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/StylezWelcome.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            System.out.println("Error loading StylezWelcome:");
+-            e.printStackTrace();
+-        }
+-    }
+-}
+\ No newline at end of file
+Index: target/classes/com/stylz/app/ResetPassword.fxml
+===================================================================
+diff --git a/target/classes/com/stylz/app/ResetPassword.fxml b/target/classes/com/stylz/app/ResetPassword.fxml
+deleted file mode 100644
+--- a/target/classes/com/stylz/app/ResetPassword.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,56 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx"
+-           xmlns:fx="http://javafx.com/fxml"
+-           fx:controller="com.stylz.app.ResetPasswordController"
+-           stylesheets="@styles.css"
+-           styleClass="login-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Yellow Reset Box (Centered) -->
+-    <VBox alignment="CENTER" spacing="15" maxWidth="210" maxHeight="300"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Title Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/Password.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitWidth="60" fitHeight="60" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Email Field -->
+-        <VBox spacing="8" alignment="CENTER">
+-            <Label text="Enter your email address"
+-                   style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <HBox alignment="CENTER_LEFT" spacing="5"
+-                  style="-fx-background-color: white; -fx-border-color: #4b4453; -fx-border-width: 2px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 6;">
+-                <Label text="📧" style="-fx-font-size: 16px;"/>
+-                <TextField fx:id="emailField" promptText="Enter your e-mail..."
+-                           style="-fx-background-color: transparent; -fx-border-width: 0;"
+-                           prefWidth="140"/>
+-            </HBox>
+-        </VBox>
+-
+-        <!-- Reset Button -->
+-        <Button text="Reset" styleClass="create-account-button"
+-                prefWidth="120" prefHeight="35"
+-                onAction="#handleReset"/>
+-
+-        <!-- Go Back Link -->
+-        <Label text="&lt;&lt;&lt; Go Back"
+-               style="-fx-text-fill: brown; -fx-font-size: 11px; -fx-cursor: hand; -fx-underline: true;"
+-               onMouseClicked="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: out/production/Outfit-Planner-Project/resources/com/stylz/app/ResetPassword.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/resources/com/stylz/app/ResetPassword.fxml b/out/production/Outfit-Planner-Project/resources/com/stylz/app/ResetPassword.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/resources/com/stylz/app/ResetPassword.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,56 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx"
+-           xmlns:fx="http://javafx.com/fxml"
+-           fx:controller="com.stylz.app.ResetPasswordController"
+-           stylesheets="@styles.css"
+-           styleClass="login-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Yellow Reset Box (Centered) -->
+-    <VBox alignment="CENTER" spacing="15" maxWidth="210" maxHeight="300"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Title Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/Password.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitWidth="60" fitHeight="60" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Email Field -->
+-        <VBox spacing="8" alignment="CENTER">
+-            <Label text="Enter your email address"
+-                   style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <HBox alignment="CENTER_LEFT" spacing="5"
+-                  style="-fx-background-color: white; -fx-border-color: #4b4453; -fx-border-width: 2px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 6;">
+-                <Label text="📧" style="-fx-font-size: 16px;"/>
+-                <TextField fx:id="emailField" promptText="Enter your e-mail..."
+-                           style="-fx-background-color: transparent; -fx-border-width: 0;"
+-                           prefWidth="140"/>
+-            </HBox>
+-        </VBox>
+-
+-        <!-- Reset Button -->
+-        <Button text="Reset" styleClass="create-account-button"
+-                prefWidth="120" prefHeight="35"
+-                onAction="#handleReset"/>
+-
+-        <!-- Go Back Link -->
+-        <Label text="&lt;&lt;&lt; Go Back"
+-               style="-fx-text-fill: brown; -fx-font-size: 11px; -fx-cursor: hand; -fx-underline: true;"
+-               onMouseClicked="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: target/classes/com/stylz/app/StylzWelcome.fxml
+===================================================================
+diff --git a/target/classes/com/stylz/app/StylzWelcome.fxml b/target/classes/com/stylz/app/StylzWelcome.fxml
+deleted file mode 100644
+--- a/target/classes/com/stylz/app/StylzWelcome.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,30 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.WelcomeController"
+-           stylesheets="@styles.css"
+-           styleClass="start-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Center everything vertically and horizontally -->
+-    <VBox alignment="CENTER" spacing="80">
+-
+-        <!-- STYLZ Logo Image (centered) -->
+-        <ImageView fx:id="logoImageView" fitWidth="300" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/Purple-layer.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- START Button (centered) -->
+-        <Button fx:id="startButton" text="Start!" styleClass="start-button"
+-                prefWidth="150" prefHeight="70"
+-                onAction="#handleStartButton"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: out/production/Outfit-Planner-Project/resources/com/stylz/app/Settings.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/resources/com/stylz/app/Settings.fxml b/out/production/Outfit-Planner-Project/resources/com/stylz/app/Settings.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/resources/com/stylz/app/Settings.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,77 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.image.*?>
+-<?import javafx.scene.layout.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx"
+-           xmlns:fx="http://javafx.com/fxml"
+-           fx:controller="com.stylz.app.SettingsController"
+-           stylesheets="@styles.css"
+-           styleClass="settings-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Yellow Settings Box (Centered) -->
+-    <VBox alignment="TOP_CENTER" spacing="20" maxWidth="300" maxHeight="480"
+-          style="-fx-background-color: #f7f3b0;
+-                 -fx-background-radius: 20;
+-                 -fx-padding: 30;
+-                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Settings Heading Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/settings-heading.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Music and Sounds Buttons -->
+-        <HBox spacing="40" alignment="CENTER">
+-            <VBox alignment="CENTER" spacing="10">
+-                <Button styleClass="icon-button" prefWidth="80" prefHeight="80" onAction="#handleMusic">
+-                    <graphic>
+-                        <ImageView fx:id="musicImage" fitWidth="50" fitHeight="50">
+-                            <image>
+-                                <Image url="@/images/music.png"/>
+-                            </image>
+-                        </ImageView>
+-                    </graphic>
+-                </Button>
+-                <Label text="Music" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #C4A484;"/>
+-            </VBox>
+-
+-            <VBox alignment="CENTER" spacing="10">
+-                <Button styleClass="icon-button" prefWidth="80" prefHeight="80" onAction="#handleSounds">
+-                    <graphic>
+-                        <ImageView fx:id="soundsImage" fitWidth="50" fitHeight="50">
+-                            <image>
+-                                <Image url="@/images/sounds.png"/>
+-                            </image>
+-                        </ImageView>
+-                    </graphic>
+-                </Button>
+-                <Label text="Sounds" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #C4A484;"/>
+-            </VBox>
+-        </HBox>
+-
+-        <!-- Main Buttons -->
+-        <Button text="Home" styleClass="settings-button"
+-                prefWidth="250" prefHeight="50"
+-                onAction="#handleHome"
+-                style="-fx-text-fill: white;"/>
+-        <Button text="Instructions" styleClass="settings-button"
+-                prefWidth="250" prefHeight="50"
+-                onAction="#handleInstructions"
+-                style="-fx-text-fill: white;"/>
+-        <Button text="&lt;&lt;&lt; Go Back" styleClass="settings-button"
+-                prefWidth="250" prefHeight="50"
+-                onAction="#handleGoBack"
+-                style="-fx-text-fill: white;"/>
+-        <Button text="Log out" styleClass="logout-button"
+-                prefWidth="150" prefHeight="40"
+-                onAction="#handleLogout"
+-                style="-fx-text-fill: white;"/>
+-
+-    </VBox>
+-
+-</StackPane>
+Index: src/main/java/com/stylz/app/Main.java
+===================================================================
+diff --git a/src/main/java/com/stylz/app/Main.java b/src/main/java/com/stylz/app/Main.java
+deleted file mode 100644
+--- a/src/main/java/com/stylz/app/Main.java	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,21 +0,0 @@
+-package com.stylz.app;
+-import javafx.application.Application;
+-import javafx.fxml.FXMLLoader;
+-import javafx.scene.Scene;
+-import javafx.stage.Stage;
+-
+-public class Main extends Application {
+-
+-    @Override
+-    public void start(Stage stage) throws Exception {
+-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/stylz/app/StylzWelcome.fxml"));
+-        Scene scene = new Scene(fxmlLoader.load());
+-        stage.setTitle("Outfit Planner");
+-        stage.setScene(scene);
+-        stage.show();
+-    }
+-
+-    public static void main(String[] args) {
+-        launch();
+-    }
+-}
+Index: target/classes/com/stylz/app/Settings.fxml
+===================================================================
+diff --git a/target/classes/com/stylz/app/Settings.fxml b/target/classes/com/stylz/app/Settings.fxml
+deleted file mode 100644
+--- a/target/classes/com/stylz/app/Settings.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,77 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.image.*?>
+-<?import javafx.scene.layout.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx"
+-           xmlns:fx="http://javafx.com/fxml"
+-           fx:controller="com.stylz.app.SettingsController"
+-           stylesheets="@styles.css"
+-           styleClass="settings-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Yellow Settings Box (Centered) -->
+-    <VBox alignment="TOP_CENTER" spacing="20" maxWidth="300" maxHeight="480"
+-          style="-fx-background-color: #f7f3b0;
+-                 -fx-background-radius: 20;
+-                 -fx-padding: 30;
+-                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Settings Heading Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/settings-heading.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Music and Sounds Buttons -->
+-        <HBox spacing="40" alignment="CENTER">
+-            <VBox alignment="CENTER" spacing="10">
+-                <Button styleClass="icon-button" prefWidth="80" prefHeight="80" onAction="#handleMusic">
+-                    <graphic>
+-                        <ImageView fx:id="musicImage" fitWidth="50" fitHeight="50">
+-                            <image>
+-                                <Image url="@/images/music.png"/>
+-                            </image>
+-                        </ImageView>
+-                    </graphic>
+-                </Button>
+-                <Label text="Music" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #C4A484;"/>
+-            </VBox>
+-
+-            <VBox alignment="CENTER" spacing="10">
+-                <Button styleClass="icon-button" prefWidth="80" prefHeight="80" onAction="#handleSounds">
+-                    <graphic>
+-                        <ImageView fx:id="soundsImage" fitWidth="50" fitHeight="50">
+-                            <image>
+-                                <Image url="@/images/sounds.png"/>
+-                            </image>
+-                        </ImageView>
+-                    </graphic>
+-                </Button>
+-                <Label text="Sounds" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #C4A484;"/>
+-            </VBox>
+-        </HBox>
+-
+-        <!-- Main Buttons -->
+-        <Button text="Home" styleClass="settings-button"
+-                prefWidth="250" prefHeight="50"
+-                onAction="#handleHome"
+-                style="-fx-text-fill: white;"/>
+-        <Button text="Instructions" styleClass="settings-button"
+-                prefWidth="250" prefHeight="50"
+-                onAction="#handleInstructions"
+-                style="-fx-text-fill: white;"/>
+-        <Button text="&lt;&lt;&lt; Go Back" styleClass="settings-button"
+-                prefWidth="250" prefHeight="50"
+-                onAction="#handleGoBack"
+-                style="-fx-text-fill: white;"/>
+-        <Button text="Log out" styleClass="logout-button"
+-                prefWidth="150" prefHeight="40"
+-                onAction="#handleLogout"
+-                style="-fx-text-fill: white;"/>
+-
+-    </VBox>
+-
+-</StackPane>
+Index: out/production/Outfit-Planner-Project/resources/com/stylz/app/Instructions.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/resources/com/stylz/app/Instructions.fxml b/out/production/Outfit-Planner-Project/resources/com/stylz/app/Instructions.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/resources/com/stylz/app/Instructions.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,75 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.InstructionsController"
+-           stylesheets="@styles.css"
+-           styleClass="instructions-screen"
+-           prefHeight="600.0" prefWidth="800.0">
+-
+-    <!-- Yellow Instructions Box (Centered) -->
+-    <VBox alignment="TOP_CENTER" spacing="20" maxWidth="600" maxHeight="500"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Image Heading -->
+-        <ImageView fitWidth="200" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/instructions-heading.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Instruction 1: Money -->
+-        <HBox spacing="15" alignment="CENTER_LEFT">
+-            <Label text="💰" style="-fx-font-size: 32px;"/>
+-            <Label text="Use your money wisely to buy some trendy items"
+-                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+-                   maxWidth="500"/>
+-        </HBox>
+-
+-        <!-- Instruction 2: Dress Up -->
+-        <HBox spacing="15" alignment="TOP_LEFT">
+-            <Label text="👕" style="-fx-font-size: 32px;"/>
+-            <VBox spacing="5">
+-                <Label text="Dress up your avatar in:"
+-                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453;"/>
+-                <HBox spacing="40">
+-                    <VBox spacing="3">
+-                        <Label text="• Tops" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                        <Label text="• Dresses" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                        <Label text="• Accessories" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                    </VBox>
+-                    <VBox spacing="3">
+-                        <Label text="• Bottoms" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                        <Label text="• Shoes" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                    </VBox>
+-                </HBox>
+-            </VBox>
+-        </HBox>
+-
+-        <!-- Instruction 3: Mix and Match -->
+-        <HBox spacing="15" alignment="CENTER_LEFT">
+-            <Label text="🎨" style="-fx-font-size: 32px;"/>
+-            <Label text="Mix and match pieces to show your style!"
+-                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+-                   maxWidth="500"/>
+-        </HBox>
+-
+-        <!-- Instruction 4: Save Outfits -->
+-        <HBox spacing="15" alignment="CENTER_LEFT">
+-            <Label text="📋" style="-fx-font-size: 32px;"/>
+-            <Label text="Save your outfits or reset to start fresh."
+-                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+-                   maxWidth="500"/>
+-        </HBox>
+-
+-        <!-- Go Back Link -->
+-        <Label text="&lt;&lt;&lt; Go Back"
+-               style="-fx-text-fill: #4b4453; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true; -fx-font-weight: bold;"
+-               onMouseClicked="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: src/main/resources/com/stylz/app/styles.css
+===================================================================
+diff --git a/src/main/resources/com/stylz/app/styles.css b/src/main/resources/com/stylz/app/styles.css
+deleted file mode 100644
+--- a/src/main/resources/com/stylz/app/styles.css	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,240 +0,0 @@
+-/* ========== GLOBAL STYLES ========== */
+-.root {
+-    -fx-font-family: "Arial", sans-serif;
+-}
+-
+-/* ========== BACKGROUNDS ========== */
+-.start-screen {
+-    -fx-background-color: #f7f3b0;
+-    -fx-background-image: url('/images/swirl-bg.png');
+-    -fx-background-size: cover;
+-    -fx-background-position: center;
+-    -fx-background-repeat: no-repeat;
+-}
+-
+-.login-screen {
+-    -fx-background-color: #bca0dc;
+-
+-}
+-
+-.signup-screen {
+-    -fx-background-color: #bca0dc;
+-}
+-
+-.instructions-screen {
+-    -fx-background-color: #f2c6de;
+-}
+-
+-/* ========== BUTTONS ========== */
+-.button {
+-    -fx-background-color: #bca0dc;
+-    -fx-text-fill: white;
+-    -fx-font-size: 16px;
+-    -fx-font-weight: bold;
+-    -fx-background-radius: 15;
+-    -fx-cursor: hand;
+-    -fx-padding: 10 25 10 25;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 2);
+-}
+-
+-.button:hover {
+-    -fx-background-color: #f2c6de;
+-}
+-
+-/* Start Button - EXACTLY like Figma */
+-.start-button {
+-    -fx-background-color: #f7f3b0;
+-    -fx-text-fill: #000000;
+-    -fx-font-size: 28px;
+-    -fx-font-weight: bold;
+-    -fx-font-family: "Arial Black", sans-serif;
+-    -fx-border-color: #9b7ac7;
+-    -fx-border-width: 5px;
+-    -fx-border-radius: 20;
+-    -fx-background-radius: 20;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 3, 5);
+-}
+-
+-.start-button:hover {
+-    -fx-background-color: #fffacd;
+-    -fx-scale-x: 1.05;
+-    -fx-scale-y: 1.05;
+-}
+-
+-.create-account-button {
+-    -fx-background-color: white;
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 14px;
+-    -fx-font-weight: bold;
+-    -fx-border-color: #4b4453;
+-    -fx-border-width: 2px;
+-    -fx-border-radius: 8;
+-    -fx-background-radius: 8;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+-}
+-
+-.create-account-button:hover {
+-    -fx-background-color: #f0f0f0;
+-}
+-
+-/* ========== HOMEPAGE BUTTONS (PINK) ========== */
+-.homepage-button {
+-    -fx-background-color: #f2c6de;
+-    -fx-text-fill: #000000;
+-    -fx-font-size: 20px;
+-    -fx-font-weight: bold;
+-    -fx-border-color: transparent;
+-    -fx-border-width: 0px;
+-    -fx-border-radius: 10;
+-    -fx-background-radius: 10;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+-}
+-
+-.homepage-button:hover {
+-    -fx-background-color: #ffd4e5;
+-    -fx-scale-x: 1.02;
+-    -fx-scale-y: 1.02;
+-}
+-
+-/* ========== TEXT FIELDS ========== */
+-.text-field {
+-    -fx-background-color: white;
+-    -fx-border-color: #bca0dc;
+-    -fx-border-radius: 8;
+-    -fx-background-radius: 8;
+-    -fx-padding: 8 12 8 12;
+-}
+-
+-/* ========== TEXT FIELDS ========== */
+-.signup-textfield {
+-    -fx-background-color: white;
+-    -fx-border-color: #4b4453;
+-    -fx-border-width: 2px;
+-    -fx-border-radius: 5;
+-    -fx-background-radius: 5;
+-    -fx-padding: 8;
+-    -fx-font-size: 12px;
+-    -fx-cursor: text;
+-
+-
+-    -fx-focus-color: #6a0dad;
+-    -fx-faint-focus-color: transparent;
+-}
+-
+-.signup-textfield:focused {
+-    -fx-border-color: #6a0dad;
+-    -fx-border-width: 2.5px;
+-}
+-
+-/* ========== LABELS ========== */
+-.heading {
+-    -fx-font-size: 70px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #6a0dad;
+-    -fx-font-family: "Arial Black", sans-serif;
+-    -fx-text-alignment: center;
+-    -fx-alignment: center;
+-    -fx-effect: dropshadow(gaussian, rgba(180,130,255,0.7), 10, 0.4, 0, 2);
+-    -fx-padding: 40 0 25 0;
+-    -fx-letter-spacing: 1.2px;
+-}
+-.login-heading {
+-    -fx-font-size: 120px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #6a0dad;
+-    -fx-font-family: "Arial Black", sans-serif;
+-    -fx-effect: dropshadow(gaussian, rgba(180,130,255,0.7), 10, 0.4, 0, 2);
+-}
+-
+-.signup-title {
+-    -fx-font-size: 32px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #4b4453;
+-    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 2, 0, 1, 1);
+-}
+-
+-.label {
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 14px;
+-}
+-
+-/* ========== SETTINGS PAGE ========== */
+-/* ====== GLOBAL STYLES ====== */
+-.settings-screen {
+-    -fx-background-color: linear-gradient(to bottom, #CBE4E5, #E4F6EB);
+-}
+-
+-.settings-box {
+-    -fx-background-color: #FFF5B5;
+-    -fx-background-radius: 22;
+-    -fx-padding: 25;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 18, 0, 3, 4);
+-}
+-
+-/* ====== TITLE ====== */
+-.settings-title {
+-    -fx-font-size: 32px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #6F3E5B;
+-    -fx-effect: dropshadow(gaussian, #ffffff, 3, 0.6, 1, 2);
+-}
+-
+-/* ====== ICON BUTTONS ====== */
+-.icon-button {
+-    -fx-background-radius: 50;
+-    -fx-pref-width: 85;
+-    -fx-pref-height: 85;
+-    -fx-background-color: #CFFFE0;
+-    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.25), 10, 0, 2, 2);
+-    -fx-font-size: 32px;
+-}
+-
+-.icon-button:hover {
+-    -fx-scale-x: 1.07;
+-    -fx-scale-y: 1.07;
+-    -fx-background-color: derive(#CFFFE0, -8%);
+-}
+-
+-.icon-label {
+-    -fx-font-size: 14px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #333;
+-}
+-
+-/* ====== MAIN BUTTONS ====== */
+-
+-
+-.settings-button {
+-    -fx-background-color: #d473d4;  /* Darker purple */
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 18px;
+-    -fx-font-weight: bold;
+-    -fx-border-radius: 15;
+-    -fx-background-radius: 15;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 3);
+-}
+-
+-.settings-button:hover {
+-    -fx-background-color: #d4b3ff;  /* Lighter on hover */
+-}
+-/* ====== LOGOUT BUTTON ====== */
+-.logout-button {
+-    -fx-background-color: #d473d4;  /* Same darker purple */
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 16px;
+-    -fx-font-weight: bold;
+-    -fx-border-radius: 20;
+-    -fx-background-radius: 20;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+-}
+-
+-.logout-button:hover {
+-    -fx-background-color: #d4b3ff;  /* Same hover color */
+-}
+-
+-
+Index: out/production/Outfit-Planner-Project/com/stylz/app/StylzWelcome.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/com/stylz/app/StylzWelcome.fxml b/out/production/Outfit-Planner-Project/com/stylz/app/StylzWelcome.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/com/stylz/app/StylzWelcome.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,30 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.WelcomeController"
+-           stylesheets="@styles.css"
+-           styleClass="start-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Center everything vertically and horizontally -->
+-    <VBox alignment="CENTER" spacing="80">
+-
+-        <!-- STYLZ Logo Image (centered) -->
+-        <ImageView fx:id="logoImageView" fitWidth="300" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/Purple-layer.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- START Button (centered) -->
+-        <Button fx:id="startButton" text="Start!" styleClass="start-button"
+-                prefWidth="150" prefHeight="70"
+-                onAction="#handleStartButton"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: target/classes/com/stylz/app/LoginRegister.fxml
+===================================================================
+diff --git a/target/classes/com/stylz/app/LoginRegister.fxml b/target/classes/com/stylz/app/LoginRegister.fxml
+deleted file mode 100644
+--- a/target/classes/com/stylz/app/LoginRegister.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,39 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.LoginRegisterController"
+-           stylesheets="@styles.css"
+-           prefHeight="600.0" prefWidth="400.0"
+-           style="-fx-background-image: url('/images/purplepic.jpg'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat;">
+-
+-    <!-- Center everything -->
+-    <VBox alignment="CENTER" spacing="40">
+-
+-        <!-- Welcome Title -->
+-        <Label text="Welcome to STYLZ!"
+-               style="-fx-font-size: 27px; -fx-font-weight: bolder; -fx-text-fill: #ffffff; -fx-font-family: 'Verdana Bold', sans-serif;"/>
+-
+-        <!-- Subtitle -->
+-        <Label text="Please choose an option to continue"
+-               style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #ffffff;"/>
+-
+-        <!-- Buttons -->
+-        <VBox spacing="20" alignment="CENTER">
+-            <!-- Register Button -->
+-            <Button text="Register" styleClass="button"
+-                    prefWidth="150" prefHeight="50"
+-                    onAction="#handleRegister"/>
+-
+-            <!-- Login Button -->
+-            <Button text="Log In" styleClass="button"
+-                    prefWidth="150" prefHeight="50"
+-                    onAction="#handleLogin"/>
+-        </VBox>
+-
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: src/main/java/com/stylz/app/LoginController.java
+===================================================================
+diff --git a/src/main/java/com/stylz/app/LoginController.java b/src/main/java/com/stylz/app/LoginController.java
+deleted file mode 100644
+--- a/src/main/java/com/stylz/app/LoginController.java	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,91 +0,0 @@
+-package com.stylz.app;
+-
+-import javafx.fxml.FXML;
+-import javafx.fxml.FXMLLoader;
+-import javafx.scene.Scene;
+-import javafx.scene.control.TextField;
+-import javafx.scene.control.PasswordField;
+-import javafx.stage.Stage;
+-import javafx.scene.Node;
+-import javafx.event.ActionEvent;
+-import javafx.scene.input.MouseEvent;
+-
+-public class LoginController {
+-
+-    @FXML
+-    private TextField usernameField;
+-
+-    @FXML
+-    private PasswordField passwordField;
+-
+-    @FXML
+-    private void handleLogin() {
+-        String username = usernameField.getText();
+-        String password = passwordField.getText();
+-
+-        if (username.isEmpty() || password.isEmpty()) {
+-            System.out.println("Please fill in all fields!");
+-            return;
+-        }
+-
+-        System.out.println("Login successful for: " + username);
+-
+-        try {
+-            // Navigate to Homepage after login
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) usernameField.getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @FXML
+-    private void handleGoToSignUp(ActionEvent event) {
+-        try {
+-            // Navigate to Sign Up screen
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/SignUp.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-
+-
+-    @FXML
+-    private void handleForgotUsername(ActionEvent event) {
+-        try {
+-            System.out.println("Forgot username clicked!");
+-            // Navigate to Reset Password screen (same as forgot password)
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/ResetPassword.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @FXML
+-    private void handleForgotPassword(ActionEvent event) {
+-        try {
+-            System.out.println("Forgot password clicked!");
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/ResetPassword.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-    @FXML
+-    private void handleExit(ActionEvent event) {
+-        System.out.println("Exiting application...");
+-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-        stage.close();
+-    }
+-}
+\ No newline at end of file
+Index: out/production/Outfit-Planner-Project/resources/com/stylz/app/LoginRegister.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/resources/com/stylz/app/LoginRegister.fxml b/out/production/Outfit-Planner-Project/resources/com/stylz/app/LoginRegister.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/resources/com/stylz/app/LoginRegister.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,39 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.LoginRegisterController"
+-           stylesheets="@styles.css"
+-           prefHeight="600.0" prefWidth="400.0"
+-           style="-fx-background-image: url('/images/purplepic.jpg'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat;">
+-
+-    <!-- Center everything -->
+-    <VBox alignment="CENTER" spacing="40">
+-
+-        <!-- Welcome Title -->
+-        <Label text="Welcome to STYLZ!"
+-               style="-fx-font-size: 27px; -fx-font-weight: bolder; -fx-text-fill: #ffffff; -fx-font-family: 'Verdana Bold', sans-serif;"/>
+-
+-        <!-- Subtitle -->
+-        <Label text="Please choose an option to continue"
+-               style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #ffffff;"/>
+-
+-        <!-- Buttons -->
+-        <VBox spacing="20" alignment="CENTER">
+-            <!-- Register Button -->
+-            <Button text="Register" styleClass="button"
+-                    prefWidth="150" prefHeight="50"
+-                    onAction="#handleRegister"/>
+-
+-            <!-- Login Button -->
+-            <Button text="Log In" styleClass="button"
+-                    prefWidth="150" prefHeight="50"
+-                    onAction="#handleLogin"/>
+-        </VBox>
+-
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: out/production/Outfit-Planner-Project/com/stylz/app/styles.css
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/com/stylz/app/styles.css b/out/production/Outfit-Planner-Project/com/stylz/app/styles.css
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/com/stylz/app/styles.css	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,240 +0,0 @@
+-/* ========== GLOBAL STYLES ========== */
+-.root {
+-    -fx-font-family: "Arial", sans-serif;
+-}
+-
+-/* ========== BACKGROUNDS ========== */
+-.start-screen {
+-    -fx-background-color: #f7f3b0;
+-    -fx-background-image: url('/images/swirl-bg.png');
+-    -fx-background-size: cover;
+-    -fx-background-position: center;
+-    -fx-background-repeat: no-repeat;
+-}
+-
+-.login-screen {
+-    -fx-background-color: #bca0dc;
+-
+-}
+-
+-.signup-screen {
+-    -fx-background-color: #bca0dc;
+-}
+-
+-.instructions-screen {
+-    -fx-background-color: #f2c6de;
+-}
+-
+-/* ========== BUTTONS ========== */
+-.button {
+-    -fx-background-color: #bca0dc;
+-    -fx-text-fill: white;
+-    -fx-font-size: 16px;
+-    -fx-font-weight: bold;
+-    -fx-background-radius: 15;
+-    -fx-cursor: hand;
+-    -fx-padding: 10 25 10 25;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 2);
+-}
+-
+-.button:hover {
+-    -fx-background-color: #f2c6de;
+-}
+-
+-/* Start Button - EXACTLY like Figma */
+-.start-button {
+-    -fx-background-color: #f7f3b0;
+-    -fx-text-fill: #000000;
+-    -fx-font-size: 28px;
+-    -fx-font-weight: bold;
+-    -fx-font-family: "Arial Black", sans-serif;
+-    -fx-border-color: #9b7ac7;
+-    -fx-border-width: 5px;
+-    -fx-border-radius: 20;
+-    -fx-background-radius: 20;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 3, 5);
+-}
+-
+-.start-button:hover {
+-    -fx-background-color: #fffacd;
+-    -fx-scale-x: 1.05;
+-    -fx-scale-y: 1.05;
+-}
+-
+-.create-account-button {
+-    -fx-background-color: white;
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 14px;
+-    -fx-font-weight: bold;
+-    -fx-border-color: #4b4453;
+-    -fx-border-width: 2px;
+-    -fx-border-radius: 8;
+-    -fx-background-radius: 8;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+-}
+-
+-.create-account-button:hover {
+-    -fx-background-color: #f0f0f0;
+-}
+-
+-/* ========== HOMEPAGE BUTTONS (PINK) ========== */
+-.homepage-button {
+-    -fx-background-color: #f2c6de;
+-    -fx-text-fill: #000000;
+-    -fx-font-size: 20px;
+-    -fx-font-weight: bold;
+-    -fx-border-color: transparent;
+-    -fx-border-width: 0px;
+-    -fx-border-radius: 10;
+-    -fx-background-radius: 10;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+-}
+-
+-.homepage-button:hover {
+-    -fx-background-color: #ffd4e5;
+-    -fx-scale-x: 1.02;
+-    -fx-scale-y: 1.02;
+-}
+-
+-/* ========== TEXT FIELDS ========== */
+-.text-field {
+-    -fx-background-color: white;
+-    -fx-border-color: #bca0dc;
+-    -fx-border-radius: 8;
+-    -fx-background-radius: 8;
+-    -fx-padding: 8 12 8 12;
+-}
+-
+-/* ========== TEXT FIELDS ========== */
+-.signup-textfield {
+-    -fx-background-color: white;
+-    -fx-border-color: #4b4453;
+-    -fx-border-width: 2px;
+-    -fx-border-radius: 5;
+-    -fx-background-radius: 5;
+-    -fx-padding: 8;
+-    -fx-font-size: 12px;
+-    -fx-cursor: text;
+-
+-
+-    -fx-focus-color: #6a0dad;
+-    -fx-faint-focus-color: transparent;
+-}
+-
+-.signup-textfield:focused {
+-    -fx-border-color: #6a0dad;
+-    -fx-border-width: 2.5px;
+-}
+-
+-/* ========== LABELS ========== */
+-.heading {
+-    -fx-font-size: 70px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #6a0dad;
+-    -fx-font-family: "Arial Black", sans-serif;
+-    -fx-text-alignment: center;
+-    -fx-alignment: center;
+-    -fx-effect: dropshadow(gaussian, rgba(180,130,255,0.7), 10, 0.4, 0, 2);
+-    -fx-padding: 40 0 25 0;
+-    -fx-letter-spacing: 1.2px;
+-}
+-.login-heading {
+-    -fx-font-size: 120px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #6a0dad;
+-    -fx-font-family: "Arial Black", sans-serif;
+-    -fx-effect: dropshadow(gaussian, rgba(180,130,255,0.7), 10, 0.4, 0, 2);
+-}
+-
+-.signup-title {
+-    -fx-font-size: 32px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #4b4453;
+-    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 2, 0, 1, 1);
+-}
+-
+-.label {
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 14px;
+-}
+-
+-/* ========== SETTINGS PAGE ========== */
+-/* ====== GLOBAL STYLES ====== */
+-.settings-screen {
+-    -fx-background-color: linear-gradient(to bottom, #CBE4E5, #E4F6EB);
+-}
+-
+-.settings-box {
+-    -fx-background-color: #FFF5B5;
+-    -fx-background-radius: 22;
+-    -fx-padding: 25;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 18, 0, 3, 4);
+-}
+-
+-/* ====== TITLE ====== */
+-.settings-title {
+-    -fx-font-size: 32px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #6F3E5B;
+-    -fx-effect: dropshadow(gaussian, #ffffff, 3, 0.6, 1, 2);
+-}
+-
+-/* ====== ICON BUTTONS ====== */
+-.icon-button {
+-    -fx-background-radius: 50;
+-    -fx-pref-width: 85;
+-    -fx-pref-height: 85;
+-    -fx-background-color: #CFFFE0;
+-    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.25), 10, 0, 2, 2);
+-    -fx-font-size: 32px;
+-}
+-
+-.icon-button:hover {
+-    -fx-scale-x: 1.07;
+-    -fx-scale-y: 1.07;
+-    -fx-background-color: derive(#CFFFE0, -8%);
+-}
+-
+-.icon-label {
+-    -fx-font-size: 14px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #333;
+-}
+-
+-/* ====== MAIN BUTTONS ====== */
+-
+-
+-.settings-button {
+-    -fx-background-color: #d473d4;  /* Darker purple */
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 18px;
+-    -fx-font-weight: bold;
+-    -fx-border-radius: 15;
+-    -fx-background-radius: 15;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 3);
+-}
+-
+-.settings-button:hover {
+-    -fx-background-color: #d4b3ff;  /* Lighter on hover */
+-}
+-/* ====== LOGOUT BUTTON ====== */
+-.logout-button {
+-    -fx-background-color: #d473d4;  /* Same darker purple */
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 16px;
+-    -fx-font-weight: bold;
+-    -fx-border-radius: 20;
+-    -fx-background-radius: 20;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+-}
+-
+-.logout-button:hover {
+-    -fx-background-color: #d4b3ff;  /* Same hover color */
+-}
+-
+-
+Index: target/classes/com/stylz/app/Homepage.fxml
+===================================================================
+diff --git a/target/classes/com/stylz/app/Homepage.fxml b/target/classes/com/stylz/app/Homepage.fxml
+deleted file mode 100644
+--- a/target/classes/com/stylz/app/Homepage.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,64 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<AnchorPane xmlns="http://javafx.com/javafx"
+-            xmlns:fx="http://javafx.com/fxml"
+-            fx:controller="com.stylz.app.HomepageController"
+-            stylesheets="@styles.css"
+-            prefHeight="600.0" prefWidth="800.0">
+-
+-    <!-- Left Side: Shopping Mall Image -->
+-    <ImageView fitWidth="400" fitHeight="600" preserveRatio="false">
+-        <image>
+-            <Image url="@/images/mall-background.png"/>
+-        </image>
+-    </ImageView>
+-
+-    <!-- Right Side: Yellow Background with Menu -->
+-    <AnchorPane layoutX="400" layoutY="0" prefWidth="400" prefHeight="600"
+-                style="-fx-background-color: #f7f3b0;">
+-
+-        <VBox layoutX="25" layoutY="30" spacing="15" alignment="TOP_CENTER" prefWidth="350">
+-
+-            <!-- Welcome Header -->
+-            <VBox alignment="CENTER" spacing="5">
+-                <Label text="Welcome to Stylz"
+-                       style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #4b4453;"/>
+-                <Label text="Be your own stylist!"
+-                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #9b7ac7;"/>
+-            </VBox>
+-
+-            <!-- Menu Buttons (PINK) -->
+-            <VBox spacing="12" alignment="CENTER" VBox.vgrow="ALWAYS">
+-                <Button text="Dressing Room" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleDressingRoom"/>
+-
+-                <Button text="Store" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleStore"/>
+-
+-                <Button text="Catalog" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleCatalog"/>
+-
+-                <Button text="Instructions" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleInstructions"/>
+-
+-                <Button text="Settings" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleSettings"/>
+-            </VBox>
+-
+-            <!-- Log Out -->
+-            <Label text="&lt;&lt;&lt; Log out"
+-                   style="-fx-text-fill: #4b4453; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true; -fx-font-weight: bold;"
+-                   onMouseClicked="#handleLogout"/>
+-        </VBox>
+-    </AnchorPane>
+-
+-</AnchorPane>
+\ No newline at end of file
+Index: src/main/resources/com/stylz/app/SignUp.fxml
+===================================================================
+diff --git a/src/main/resources/com/stylz/app/SignUp.fxml b/src/main/resources/com/stylz/app/SignUp.fxml
+deleted file mode 100644
+--- a/src/main/resources/com/stylz/app/SignUp.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,63 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx"
+-           xmlns:fx="http://javafx.com/fxml"
+-           fx:controller="com.stylz.app.SignUpController"
+-           stylesheets="@styles.css"
+-           styleClass="signup-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Background Pane to absorb clicks outside the form -->
+-    <Pane prefWidth="400" prefHeight="600" />
+-
+-    <!-- Yellow Sign Up Box (Centered) -->
+-    <VBox fx:id="mainVBox" alignment="CENTER" spacing="15" maxWidth="250" maxHeight="420"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);"
+-          focusTraversable="true">
+-
+-        <!-- SIGN UP Title Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/signup-title.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitWidth="60" fitHeight="60" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Username Section -->
+-        <VBox spacing="5" alignment="CENTER_LEFT">
+-            <Label text="Username" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <TextField fx:id="usernameField" promptText="Enter a username" styleClass="signup-textfield" prefWidth="200"/>
+-        </VBox>
+-
+-        <!-- Password Section -->
+-        <VBox spacing="5" alignment="CENTER_LEFT">
+-            <Label text="Password" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <PasswordField fx:id="passwordField" promptText="Enter a password" styleClass="signup-textfield" prefWidth="200"/>
+-        </VBox>
+-
+-        <!-- Confirm Password Section -->
+-        <VBox spacing="5" alignment="CENTER_LEFT">
+-            <Label text="Confirm Password" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <PasswordField fx:id="confirmPasswordField" promptText="Enter password again" styleClass="signup-textfield" prefWidth="200"/>
+-        </VBox>
+-
+-        <!-- Create Account Button -->
+-        <Button text="Create Account" styleClass="create-account-button" prefWidth="180" prefHeight="35" onAction="#handleCreateAccount"/>
+-    </VBox>
+-
+-    <!-- Go Back Link (Bottom Center) -->
+-    <VBox alignment="BOTTOM_CENTER" StackPane.alignment="BOTTOM_CENTER">
+-        <Hyperlink text="&lt;&lt;&lt; Go Back" style="-fx-text-fill: brown; -fx-font-size: 14px;" onAction="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+Index: out/production/Outfit-Planner-Project/com/stylz/app/LoginRegister.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/com/stylz/app/LoginRegister.fxml b/out/production/Outfit-Planner-Project/com/stylz/app/LoginRegister.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/com/stylz/app/LoginRegister.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,39 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.LoginRegisterController"
+-           stylesheets="@styles.css"
+-           prefHeight="600.0" prefWidth="400.0"
+-           style="-fx-background-image: url('/images/purplepic.jpg'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat;">
+-
+-    <!-- Center everything -->
+-    <VBox alignment="CENTER" spacing="40">
+-
+-        <!-- Welcome Title -->
+-        <Label text="Welcome to STYLZ!"
+-               style="-fx-font-size: 27px; -fx-font-weight: bolder; -fx-text-fill: #ffffff; -fx-font-family: 'Verdana Bold', sans-serif;"/>
+-
+-        <!-- Subtitle -->
+-        <Label text="Please choose an option to continue"
+-               style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #ffffff;"/>
+-
+-        <!-- Buttons -->
+-        <VBox spacing="20" alignment="CENTER">
+-            <!-- Register Button -->
+-            <Button text="Register" styleClass="button"
+-                    prefWidth="150" prefHeight="50"
+-                    onAction="#handleRegister"/>
+-
+-            <!-- Login Button -->
+-            <Button text="Log In" styleClass="button"
+-                    prefWidth="150" prefHeight="50"
+-                    onAction="#handleLogin"/>
+-        </VBox>
+-
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: out/production/Outfit-Planner-Project/com/stylz/app/ResetPassword.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/com/stylz/app/ResetPassword.fxml b/out/production/Outfit-Planner-Project/com/stylz/app/ResetPassword.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/com/stylz/app/ResetPassword.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,56 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx"
+-           xmlns:fx="http://javafx.com/fxml"
+-           fx:controller="com.stylz.app.ResetPasswordController"
+-           stylesheets="@styles.css"
+-           styleClass="login-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Yellow Reset Box (Centered) -->
+-    <VBox alignment="CENTER" spacing="15" maxWidth="210" maxHeight="300"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Title Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/Password.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitWidth="60" fitHeight="60" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Email Field -->
+-        <VBox spacing="8" alignment="CENTER">
+-            <Label text="Enter your email address"
+-                   style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <HBox alignment="CENTER_LEFT" spacing="5"
+-                  style="-fx-background-color: white; -fx-border-color: #4b4453; -fx-border-width: 2px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 6;">
+-                <Label text="📧" style="-fx-font-size: 16px;"/>
+-                <TextField fx:id="emailField" promptText="Enter your e-mail..."
+-                           style="-fx-background-color: transparent; -fx-border-width: 0;"
+-                           prefWidth="140"/>
+-            </HBox>
+-        </VBox>
+-
+-        <!-- Reset Button -->
+-        <Button text="Reset" styleClass="create-account-button"
+-                prefWidth="120" prefHeight="35"
+-                onAction="#handleReset"/>
+-
+-        <!-- Go Back Link -->
+-        <Label text="&lt;&lt;&lt; Go Back"
+-               style="-fx-text-fill: brown; -fx-font-size: 11px; -fx-cursor: hand; -fx-underline: true;"
+-               onMouseClicked="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: target/classes/com/stylz/app/Instructions.fxml
+===================================================================
+diff --git a/target/classes/com/stylz/app/Instructions.fxml b/target/classes/com/stylz/app/Instructions.fxml
+deleted file mode 100644
+--- a/target/classes/com/stylz/app/Instructions.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,75 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.InstructionsController"
+-           stylesheets="@styles.css"
+-           styleClass="instructions-screen"
+-           prefHeight="600.0" prefWidth="800.0">
+-
+-    <!-- Yellow Instructions Box (Centered) -->
+-    <VBox alignment="TOP_CENTER" spacing="20" maxWidth="600" maxHeight="500"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Image Heading -->
+-        <ImageView fitWidth="200" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/instructions-heading.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Instruction 1: Money -->
+-        <HBox spacing="15" alignment="CENTER_LEFT">
+-            <Label text="💰" style="-fx-font-size: 32px;"/>
+-            <Label text="Use your money wisely to buy some trendy items"
+-                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+-                   maxWidth="500"/>
+-        </HBox>
+-
+-        <!-- Instruction 2: Dress Up -->
+-        <HBox spacing="15" alignment="TOP_LEFT">
+-            <Label text="👕" style="-fx-font-size: 32px;"/>
+-            <VBox spacing="5">
+-                <Label text="Dress up your avatar in:"
+-                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453;"/>
+-                <HBox spacing="40">
+-                    <VBox spacing="3">
+-                        <Label text="• Tops" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                        <Label text="• Dresses" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                        <Label text="• Accessories" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                    </VBox>
+-                    <VBox spacing="3">
+-                        <Label text="• Bottoms" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                        <Label text="• Shoes" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                    </VBox>
+-                </HBox>
+-            </VBox>
+-        </HBox>
+-
+-        <!-- Instruction 3: Mix and Match -->
+-        <HBox spacing="15" alignment="CENTER_LEFT">
+-            <Label text="🎨" style="-fx-font-size: 32px;"/>
+-            <Label text="Mix and match pieces to show your style!"
+-                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+-                   maxWidth="500"/>
+-        </HBox>
+-
+-        <!-- Instruction 4: Save Outfits -->
+-        <HBox spacing="15" alignment="CENTER_LEFT">
+-            <Label text="📋" style="-fx-font-size: 32px;"/>
+-            <Label text="Save your outfits or reset to start fresh."
+-                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+-                   maxWidth="500"/>
+-        </HBox>
+-
+-        <!-- Go Back Link -->
+-        <Label text="&lt;&lt;&lt; Go Back"
+-               style="-fx-text-fill: #4b4453; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true; -fx-font-weight: bold;"
+-               onMouseClicked="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: out/production/Outfit-Planner-Project/com/stylz/app/SignUp.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/com/stylz/app/SignUp.fxml b/out/production/Outfit-Planner-Project/com/stylz/app/SignUp.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/com/stylz/app/SignUp.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,63 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx"
+-           xmlns:fx="http://javafx.com/fxml"
+-           fx:controller="com.stylz.app.SignUpController"
+-           stylesheets="@styles.css"
+-           styleClass="signup-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Background Pane to absorb clicks outside the form -->
+-    <Pane prefWidth="400" prefHeight="600" />
+-
+-    <!-- Yellow Sign Up Box (Centered) -->
+-    <VBox fx:id="mainVBox" alignment="CENTER" spacing="15" maxWidth="250" maxHeight="420"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);"
+-          focusTraversable="true">
+-
+-        <!-- SIGN UP Title Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/signup-title.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitWidth="60" fitHeight="60" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Username Section -->
+-        <VBox spacing="5" alignment="CENTER_LEFT">
+-            <Label text="Username" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <TextField fx:id="usernameField" promptText="Enter a username" styleClass="signup-textfield" prefWidth="200"/>
+-        </VBox>
+-
+-        <!-- Password Section -->
+-        <VBox spacing="5" alignment="CENTER_LEFT">
+-            <Label text="Password" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <PasswordField fx:id="passwordField" promptText="Enter a password" styleClass="signup-textfield" prefWidth="200"/>
+-        </VBox>
+-
+-        <!-- Confirm Password Section -->
+-        <VBox spacing="5" alignment="CENTER_LEFT">
+-            <Label text="Confirm Password" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <PasswordField fx:id="confirmPasswordField" promptText="Enter password again" styleClass="signup-textfield" prefWidth="200"/>
+-        </VBox>
+-
+-        <!-- Create Account Button -->
+-        <Button text="Create Account" styleClass="create-account-button" prefWidth="180" prefHeight="35" onAction="#handleCreateAccount"/>
+-    </VBox>
+-
+-    <!-- Go Back Link (Bottom Center) -->
+-    <VBox alignment="BOTTOM_CENTER" StackPane.alignment="BOTTOM_CENTER">
+-        <Hyperlink text="&lt;&lt;&lt; Go Back" style="-fx-text-fill: brown; -fx-font-size: 14px;" onAction="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+Index: src/main/java/com/stylz/app/LoginRegisterController.java
+===================================================================
+diff --git a/src/main/java/com/stylz/app/LoginRegisterController.java b/src/main/java/com/stylz/app/LoginRegisterController.java
+deleted file mode 100644
+--- a/src/main/java/com/stylz/app/LoginRegisterController.java	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,47 +0,0 @@
+-package com.stylz.app;
+-
+-import javafx.fxml.FXML;
+-import javafx.fxml.FXMLLoader;
+-import javafx.scene.Scene;
+-import javafx.stage.Stage;
+-import javafx.event.ActionEvent;
+-import javafx.scene.Node;
+-
+-public class LoginRegisterController {
+-
+-    @FXML
+-    private void handleRegister(ActionEvent event) {
+-        try {
+-            System.out.println("Register button clicked!");
+-
+-            // Load the Sign Up screen
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/SignUp.fxml"));
+-            Scene scene = new Scene(loader.load());
+-
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-            stage.show();
+-
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @FXML
+-    private void handleLogin(ActionEvent event) {
+-        try {
+-            System.out.println("Login button clicked!");
+-
+-            // Load the Login screen
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Login.fxml"));
+-            Scene scene = new Scene(loader.load());
+-
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-            stage.show();
+-
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-}
+\ No newline at end of file
+Index: out/production/Outfit-Planner-Project/com/stylz/app/Login.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/com/stylz/app/Login.fxml b/out/production/Outfit-Planner-Project/com/stylz/app/Login.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/com/stylz/app/Login.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,61 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.image.*?>
+-<?import javafx.scene.layout.*?>
+-
+-<StackPane prefHeight="600.0" prefWidth="400.0"
+-           styleClass="login-screen"
+-           stylesheets="@styles.css"
+-           xmlns="http://javafx.com/javafx/17.0.12"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.LoginController">
+-
+-    <!-- Yellow Login Box (Centered like SignUp) -->
+-    <VBox alignment="CENTER" spacing="15" maxWidth="250" maxHeight="420"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- USER LOGIN Title Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/login-title.png" />
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitHeight="60" fitWidth="60" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png" />
+-            </image>
+-        </ImageView>
+-
+-        <!-- Username Field -->
+-        <VBox spacing="5">
+-            <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Username" />
+-            <TextField fx:id="usernameField" prefWidth="200" promptText="Enter username" styleClass="signup-textfield" />
+-            <Hyperlink onAction="#handleForgotUsername" style="-fx-text-fill: #666; -fx-font-size: 10px; -fx-padding: 0;" text="Forgot username?" />
+-        </VBox>
+-
+-        <!-- Password Field -->
+-        <VBox spacing="5">
+-            <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Password" />
+-            <PasswordField fx:id="passwordField" prefWidth="200" promptText="Enter password" styleClass="signup-textfield" />
+-            <Hyperlink onAction="#handleForgotPassword" style="-fx-text-fill: #666; -fx-font-size: 10px; -fx-padding: 0;" text="Forgot Password?" />
+-        </VBox>
+-
+-        <!-- Login Button -->
+-        <Button onAction="#handleLogin" prefHeight="35" prefWidth="150" styleClass="create-account-button" text="LOGIN" />
+-
+-        <!-- Sign Up Link -->
+-        <HBox alignment="CENTER" spacing="5">
+-            <Label style="-fx-font-size: 11px;" text="Don't have an account?" />
+-            <Hyperlink onAction="#handleGoToSignUp" style="-fx-text-fill: #9b7ac7; -fx-font-size: 11px; -fx-font-weight: bold; -fx-padding: 0;" text="Sign Up" />
+-        </HBox>
+-
+-    </VBox>
+-
+-    <!-- Exit Button -->
+-    <Button onAction="#handleExit" style="-fx-background-color: transparent; -fx-text-fill: brown; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true;"
+-            StackPane.alignment="BOTTOM_CENTER" text="EXIT" />
+-
+-</StackPane>
+Index: target/classes/com/stylz/app/styles.css
+===================================================================
+diff --git a/target/classes/com/stylz/app/styles.css b/target/classes/com/stylz/app/styles.css
+deleted file mode 100644
+--- a/target/classes/com/stylz/app/styles.css	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,240 +0,0 @@
+-/* ========== GLOBAL STYLES ========== */
+-.root {
+-    -fx-font-family: "Arial", sans-serif;
+-}
+-
+-/* ========== BACKGROUNDS ========== */
+-.start-screen {
+-    -fx-background-color: #f7f3b0;
+-    -fx-background-image: url('/images/swirl-bg.png');
+-    -fx-background-size: cover;
+-    -fx-background-position: center;
+-    -fx-background-repeat: no-repeat;
+-}
+-
+-.login-screen {
+-    -fx-background-color: #bca0dc;
+-
+-}
+-
+-.signup-screen {
+-    -fx-background-color: #bca0dc;
+-}
+-
+-.instructions-screen {
+-    -fx-background-color: #f2c6de;
+-}
+-
+-/* ========== BUTTONS ========== */
+-.button {
+-    -fx-background-color: #bca0dc;
+-    -fx-text-fill: white;
+-    -fx-font-size: 16px;
+-    -fx-font-weight: bold;
+-    -fx-background-radius: 15;
+-    -fx-cursor: hand;
+-    -fx-padding: 10 25 10 25;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 2);
+-}
+-
+-.button:hover {
+-    -fx-background-color: #f2c6de;
+-}
+-
+-/* Start Button - EXACTLY like Figma */
+-.start-button {
+-    -fx-background-color: #f7f3b0;
+-    -fx-text-fill: #000000;
+-    -fx-font-size: 28px;
+-    -fx-font-weight: bold;
+-    -fx-font-family: "Arial Black", sans-serif;
+-    -fx-border-color: #9b7ac7;
+-    -fx-border-width: 5px;
+-    -fx-border-radius: 20;
+-    -fx-background-radius: 20;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 3, 5);
+-}
+-
+-.start-button:hover {
+-    -fx-background-color: #fffacd;
+-    -fx-scale-x: 1.05;
+-    -fx-scale-y: 1.05;
+-}
+-
+-.create-account-button {
+-    -fx-background-color: white;
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 14px;
+-    -fx-font-weight: bold;
+-    -fx-border-color: #4b4453;
+-    -fx-border-width: 2px;
+-    -fx-border-radius: 8;
+-    -fx-background-radius: 8;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+-}
+-
+-.create-account-button:hover {
+-    -fx-background-color: #f0f0f0;
+-}
+-
+-/* ========== HOMEPAGE BUTTONS (PINK) ========== */
+-.homepage-button {
+-    -fx-background-color: #f2c6de;
+-    -fx-text-fill: #000000;
+-    -fx-font-size: 20px;
+-    -fx-font-weight: bold;
+-    -fx-border-color: transparent;
+-    -fx-border-width: 0px;
+-    -fx-border-radius: 10;
+-    -fx-background-radius: 10;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+-}
+-
+-.homepage-button:hover {
+-    -fx-background-color: #ffd4e5;
+-    -fx-scale-x: 1.02;
+-    -fx-scale-y: 1.02;
+-}
+-
+-/* ========== TEXT FIELDS ========== */
+-.text-field {
+-    -fx-background-color: white;
+-    -fx-border-color: #bca0dc;
+-    -fx-border-radius: 8;
+-    -fx-background-radius: 8;
+-    -fx-padding: 8 12 8 12;
+-}
+-
+-/* ========== TEXT FIELDS ========== */
+-.signup-textfield {
+-    -fx-background-color: white;
+-    -fx-border-color: #4b4453;
+-    -fx-border-width: 2px;
+-    -fx-border-radius: 5;
+-    -fx-background-radius: 5;
+-    -fx-padding: 8;
+-    -fx-font-size: 12px;
+-    -fx-cursor: text;
+-
+-
+-    -fx-focus-color: #6a0dad;
+-    -fx-faint-focus-color: transparent;
+-}
+-
+-.signup-textfield:focused {
+-    -fx-border-color: #6a0dad;
+-    -fx-border-width: 2.5px;
+-}
+-
+-/* ========== LABELS ========== */
+-.heading {
+-    -fx-font-size: 70px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #6a0dad;
+-    -fx-font-family: "Arial Black", sans-serif;
+-    -fx-text-alignment: center;
+-    -fx-alignment: center;
+-    -fx-effect: dropshadow(gaussian, rgba(180,130,255,0.7), 10, 0.4, 0, 2);
+-    -fx-padding: 40 0 25 0;
+-    -fx-letter-spacing: 1.2px;
+-}
+-.login-heading {
+-    -fx-font-size: 120px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #6a0dad;
+-    -fx-font-family: "Arial Black", sans-serif;
+-    -fx-effect: dropshadow(gaussian, rgba(180,130,255,0.7), 10, 0.4, 0, 2);
+-}
+-
+-.signup-title {
+-    -fx-font-size: 32px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #4b4453;
+-    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 2, 0, 1, 1);
+-}
+-
+-.label {
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 14px;
+-}
+-
+-/* ========== SETTINGS PAGE ========== */
+-/* ====== GLOBAL STYLES ====== */
+-.settings-screen {
+-    -fx-background-color: linear-gradient(to bottom, #CBE4E5, #E4F6EB);
+-}
+-
+-.settings-box {
+-    -fx-background-color: #FFF5B5;
+-    -fx-background-radius: 22;
+-    -fx-padding: 25;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 18, 0, 3, 4);
+-}
+-
+-/* ====== TITLE ====== */
+-.settings-title {
+-    -fx-font-size: 32px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #6F3E5B;
+-    -fx-effect: dropshadow(gaussian, #ffffff, 3, 0.6, 1, 2);
+-}
+-
+-/* ====== ICON BUTTONS ====== */
+-.icon-button {
+-    -fx-background-radius: 50;
+-    -fx-pref-width: 85;
+-    -fx-pref-height: 85;
+-    -fx-background-color: #CFFFE0;
+-    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.25), 10, 0, 2, 2);
+-    -fx-font-size: 32px;
+-}
+-
+-.icon-button:hover {
+-    -fx-scale-x: 1.07;
+-    -fx-scale-y: 1.07;
+-    -fx-background-color: derive(#CFFFE0, -8%);
+-}
+-
+-.icon-label {
+-    -fx-font-size: 14px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: #333;
+-}
+-
+-/* ====== MAIN BUTTONS ====== */
+-
+-
+-.settings-button {
+-    -fx-background-color: #d473d4;  /* Darker purple */
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 18px;
+-    -fx-font-weight: bold;
+-    -fx-border-radius: 15;
+-    -fx-background-radius: 15;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 3);
+-}
+-
+-.settings-button:hover {
+-    -fx-background-color: #d4b3ff;  /* Lighter on hover */
+-}
+-/* ====== LOGOUT BUTTON ====== */
+-.logout-button {
+-    -fx-background-color: #d473d4;  /* Same darker purple */
+-    -fx-text-fill: #4b4453;
+-    -fx-font-size: 16px;
+-    -fx-font-weight: bold;
+-    -fx-border-radius: 20;
+-    -fx-background-radius: 20;
+-    -fx-cursor: hand;
+-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+-}
+-
+-.logout-button:hover {
+-    -fx-background-color: #d4b3ff;  /* Same hover color */
+-}
+-
+-
+Index: src/main/java/com/stylz/app/ResetPasswordController.java
+===================================================================
+diff --git a/src/main/java/com/stylz/app/ResetPasswordController.java b/src/main/java/com/stylz/app/ResetPasswordController.java
+deleted file mode 100644
+--- a/src/main/java/com/stylz/app/ResetPasswordController.java	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,57 +0,0 @@
+-package com.stylz.app;
+-
+-import javafx.fxml.FXML;
+-import javafx.fxml.FXMLLoader;
+-import javafx.scene.Scene;
+-import javafx.scene.control.TextField;
+-import javafx.scene.input.MouseEvent;
+-import javafx.stage.Stage;
+-import javafx.scene.Node;
+-import javafx.event.ActionEvent;
+-
+-public class ResetPasswordController {
+-
+-    @FXML
+-    private TextField emailField;
+-
+-    @FXML
+-    private void handleReset(ActionEvent event) {
+-        String email = emailField.getText();
+-
+-        if (email.isEmpty()) {
+-            System.out.println("Please enter your email!");
+-            return;
+-        }
+-
+-        // Validate email format
+-        if (!email.contains("@")) {
+-            System.out.println("Please enter a valid email!");
+-            return;
+-        }
+-
+-        System.out.println("Reset link sent to: " + email);
+-
+-        try {
+-            // Navigate to Authentication screen
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Authentication.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @FXML
+-    private void handleGoBack(MouseEvent event) {
+-        try {
+-            // Go back to Login screen
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Login.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-}
+\ No newline at end of file
+Index: out/production/Outfit-Planner-Project/resources/com/stylz/app/Authentication.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/resources/com/stylz/app/Authentication.fxml b/out/production/Outfit-Planner-Project/resources/com/stylz/app/Authentication.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/resources/com/stylz/app/Authentication.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,48 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.AuthenticationController"
+-           stylesheets="@styles.css"
+-           styleClass="login-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Centered Authentication Box -->
+-    <VBox alignment="CENTER" spacing="20" maxWidth="210" maxHeight="280"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Title Image -->
+-        <ImageView fitWidth="150" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/Authentication.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitWidth="55" fitHeight="55" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Message -->
+-        <Label text="Check your email for link to reset"
+-               style="-fx-font-size: 14px; -fx-text-fill: #4b4453; -fx-wrap-text: true; -fx-text-alignment: center;"
+-               maxWidth="160"/>
+-
+-        <!-- Continue Button -->
+-        <Button text="Continue >" styleClass="create-account-button"
+-                prefWidth="130" prefHeight="30"
+-                onAction="#handleContinue"/>
+-
+-        <!-- Go Back Link -->
+-        <Label text="&lt;&lt;&lt; Go Back"
+-               style="-fx-text-fill: #4b4453; -fx-font-size: 10px; -fx-cursor: hand; -fx-underline: true;"
+-               onMouseClicked="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: target/classes/com/stylz/app/Authentication.fxml
+===================================================================
+diff --git a/target/classes/com/stylz/app/Authentication.fxml b/target/classes/com/stylz/app/Authentication.fxml
+deleted file mode 100644
+--- a/target/classes/com/stylz/app/Authentication.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,48 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.AuthenticationController"
+-           stylesheets="@styles.css"
+-           styleClass="login-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Centered Authentication Box -->
+-    <VBox alignment="CENTER" spacing="20" maxWidth="210" maxHeight="280"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Title Image -->
+-        <ImageView fitWidth="150" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/Authentication.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitWidth="55" fitHeight="55" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Message -->
+-        <Label text="Check your email for link to reset"
+-               style="-fx-font-size: 14px; -fx-text-fill: #4b4453; -fx-wrap-text: true; -fx-text-alignment: center;"
+-               maxWidth="160"/>
+-
+-        <!-- Continue Button -->
+-        <Button text="Continue >" styleClass="create-account-button"
+-                prefWidth="130" prefHeight="30"
+-                onAction="#handleContinue"/>
+-
+-        <!-- Go Back Link -->
+-        <Label text="&lt;&lt;&lt; Go Back"
+-               style="-fx-text-fill: #4b4453; -fx-font-size: 10px; -fx-cursor: hand; -fx-underline: true;"
+-               onMouseClicked="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: out/production/Outfit-Planner-Project/resources/com/stylz/app/Login.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/resources/com/stylz/app/Login.fxml b/out/production/Outfit-Planner-Project/resources/com/stylz/app/Login.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/resources/com/stylz/app/Login.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,61 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.image.*?>
+-<?import javafx.scene.layout.*?>
+-
+-<StackPane prefHeight="600.0" prefWidth="400.0"
+-           styleClass="login-screen"
+-           stylesheets="@styles.css"
+-           xmlns="http://javafx.com/javafx/17.0.12"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.LoginController">
+-
+-    <!-- Yellow Login Box (Centered like SignUp) -->
+-    <VBox alignment="CENTER" spacing="15" maxWidth="250" maxHeight="420"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- USER LOGIN Title Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/login-title.png" />
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitHeight="60" fitWidth="60" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png" />
+-            </image>
+-        </ImageView>
+-
+-        <!-- Username Field -->
+-        <VBox spacing="5">
+-            <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Username" />
+-            <TextField fx:id="usernameField" prefWidth="200" promptText="Enter username" styleClass="signup-textfield" />
+-            <Hyperlink onAction="#handleForgotUsername" style="-fx-text-fill: #666; -fx-font-size: 10px; -fx-padding: 0;" text="Forgot username?" />
+-        </VBox>
+-
+-        <!-- Password Field -->
+-        <VBox spacing="5">
+-            <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Password" />
+-            <PasswordField fx:id="passwordField" prefWidth="200" promptText="Enter password" styleClass="signup-textfield" />
+-            <Hyperlink onAction="#handleForgotPassword" style="-fx-text-fill: #666; -fx-font-size: 10px; -fx-padding: 0;" text="Forgot Password?" />
+-        </VBox>
+-
+-        <!-- Login Button -->
+-        <Button onAction="#handleLogin" prefHeight="35" prefWidth="150" styleClass="create-account-button" text="LOGIN" />
+-
+-        <!-- Sign Up Link -->
+-        <HBox alignment="CENTER" spacing="5">
+-            <Label style="-fx-font-size: 11px;" text="Don't have an account?" />
+-            <Hyperlink onAction="#handleGoToSignUp" style="-fx-text-fill: #9b7ac7; -fx-font-size: 11px; -fx-font-weight: bold; -fx-padding: 0;" text="Sign Up" />
+-        </HBox>
+-
+-    </VBox>
+-
+-    <!-- Exit Button -->
+-    <Button onAction="#handleExit" style="-fx-background-color: transparent; -fx-text-fill: brown; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true;"
+-            StackPane.alignment="BOTTOM_CENTER" text="EXIT" />
+-
+-</StackPane>
+Index: src/main/java/com/stylz/app/InstructionsController.java
+===================================================================
+diff --git a/src/main/java/com/stylz/app/InstructionsController.java b/src/main/java/com/stylz/app/InstructionsController.java
+deleted file mode 100644
+--- a/src/main/java/com/stylz/app/InstructionsController.java	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,24 +0,0 @@
+-package com.stylz.app;
+-
+-import javafx.fxml.FXML;
+-import javafx.fxml.FXMLLoader;
+-import javafx.scene.Scene;
+-import javafx.scene.input.MouseEvent;
+-import javafx.stage.Stage;
+-import javafx.scene.Node;
+-
+-public class InstructionsController {
+-
+-    @FXML
+-    private void handleGoBack(MouseEvent event) {
+-        try {
+-            // Go back to Homepage
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-}
+\ No newline at end of file
+Index: src/main/java/com/stylz/app/SignUpController.java
+===================================================================
+diff --git a/src/main/java/com/stylz/app/SignUpController.java b/src/main/java/com/stylz/app/SignUpController.java
+deleted file mode 100644
+--- a/src/main/java/com/stylz/app/SignUpController.java	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,64 +0,0 @@
+-package com.stylz.app;
+-
+-import javafx.fxml.FXML;
+-import javafx.fxml.FXMLLoader;
+-import javafx.scene.Scene;
+-import javafx.scene.control.TextField;
+-import javafx.scene.control.PasswordField;
+-import javafx.scene.layout.VBox;
+-import javafx.stage.Stage;
+-import javafx.scene.Node;
+-import javafx.event.ActionEvent;
+-
+-public class SignUpController {
+-
+-    @FXML
+-    private TextField usernameField;
+-
+-    @FXML
+-    private PasswordField passwordField;
+-
+-    @FXML
+-    private PasswordField confirmPasswordField;
+-
+-    @FXML
+-    private VBox mainVBox;
+-
+-    @FXML
+-    public void initialize() {
+-        // Request focus to ensure text fields work immediately
+-        mainVBox.requestFocus();
+-    }
+-
+-    @FXML
+-    private void handleCreateAccount(ActionEvent event) {
+-        String username = usernameField.getText();
+-        String password = passwordField.getText();
+-        String confirmPassword = confirmPasswordField.getText();
+-
+-        if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+-            System.out.println("Please fill in all fields!");
+-            return;
+-        }
+-
+-        if (!password.equals(confirmPassword)) {
+-            System.out.println("Passwords don't match!");
+-            return;
+-        }
+-
+-        System.out.println("Account created for: " + username);
+-        // Save to database later
+-    }
+-
+-    @FXML
+-    private void handleGoBack(ActionEvent event) {
+-        try {
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/LoginRegister.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-}
+Index: out/production/Outfit-Planner-Project/com/stylz/app/Authentication.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/com/stylz/app/Authentication.fxml b/out/production/Outfit-Planner-Project/com/stylz/app/Authentication.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/com/stylz/app/Authentication.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,48 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.AuthenticationController"
+-           stylesheets="@styles.css"
+-           styleClass="login-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Centered Authentication Box -->
+-    <VBox alignment="CENTER" spacing="20" maxWidth="210" maxHeight="280"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Title Image -->
+-        <ImageView fitWidth="150" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/Authentication.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitWidth="55" fitHeight="55" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Message -->
+-        <Label text="Check your email for link to reset"
+-               style="-fx-font-size: 14px; -fx-text-fill: #4b4453; -fx-wrap-text: true; -fx-text-alignment: center;"
+-               maxWidth="160"/>
+-
+-        <!-- Continue Button -->
+-        <Button text="Continue >" styleClass="create-account-button"
+-                prefWidth="130" prefHeight="30"
+-                onAction="#handleContinue"/>
+-
+-        <!-- Go Back Link -->
+-        <Label text="&lt;&lt;&lt; Go Back"
+-               style="-fx-text-fill: #4b4453; -fx-font-size: 10px; -fx-cursor: hand; -fx-underline: true;"
+-               onMouseClicked="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: out/production/Outfit-Planner-Project/resources/com/stylz/app/Homepage.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/resources/com/stylz/app/Homepage.fxml b/out/production/Outfit-Planner-Project/resources/com/stylz/app/Homepage.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/resources/com/stylz/app/Homepage.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,64 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<AnchorPane xmlns="http://javafx.com/javafx"
+-            xmlns:fx="http://javafx.com/fxml"
+-            fx:controller="com.stylz.app.HomepageController"
+-            stylesheets="@styles.css"
+-            prefHeight="600.0" prefWidth="800.0">
+-
+-    <!-- Left Side: Shopping Mall Image -->
+-    <ImageView fitWidth="400" fitHeight="600" preserveRatio="false">
+-        <image>
+-            <Image url="@/images/mall-background.png"/>
+-        </image>
+-    </ImageView>
+-
+-    <!-- Right Side: Yellow Background with Menu -->
+-    <AnchorPane layoutX="400" layoutY="0" prefWidth="400" prefHeight="600"
+-                style="-fx-background-color: #f7f3b0;">
+-
+-        <VBox layoutX="25" layoutY="30" spacing="15" alignment="TOP_CENTER" prefWidth="350">
+-
+-            <!-- Welcome Header -->
+-            <VBox alignment="CENTER" spacing="5">
+-                <Label text="Welcome to Stylz"
+-                       style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #4b4453;"/>
+-                <Label text="Be your own stylist!"
+-                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #9b7ac7;"/>
+-            </VBox>
+-
+-            <!-- Menu Buttons (PINK) -->
+-            <VBox spacing="12" alignment="CENTER" VBox.vgrow="ALWAYS">
+-                <Button text="Dressing Room" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleDressingRoom"/>
+-
+-                <Button text="Store" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleStore"/>
+-
+-                <Button text="Catalog" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleCatalog"/>
+-
+-                <Button text="Instructions" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleInstructions"/>
+-
+-                <Button text="Settings" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleSettings"/>
+-            </VBox>
+-
+-            <!-- Log Out -->
+-            <Label text="&lt;&lt;&lt; Log out"
+-                   style="-fx-text-fill: #4b4453; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true; -fx-font-weight: bold;"
+-                   onMouseClicked="#handleLogout"/>
+-        </VBox>
+-    </AnchorPane>
+-
+-</AnchorPane>
+\ No newline at end of file
+Index: out/production/Outfit-Planner-Project/com/stylz/app/Settings.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/com/stylz/app/Settings.fxml b/out/production/Outfit-Planner-Project/com/stylz/app/Settings.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/com/stylz/app/Settings.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,77 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.image.*?>
+-<?import javafx.scene.layout.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx"
+-           xmlns:fx="http://javafx.com/fxml"
+-           fx:controller="com.stylz.app.SettingsController"
+-           stylesheets="@styles.css"
+-           styleClass="settings-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Yellow Settings Box (Centered) -->
+-    <VBox alignment="TOP_CENTER" spacing="20" maxWidth="300" maxHeight="480"
+-          style="-fx-background-color: #f7f3b0;
+-                 -fx-background-radius: 20;
+-                 -fx-padding: 30;
+-                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Settings Heading Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/settings-heading.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Music and Sounds Buttons -->
+-        <HBox spacing="40" alignment="CENTER">
+-            <VBox alignment="CENTER" spacing="10">
+-                <Button styleClass="icon-button" prefWidth="80" prefHeight="80" onAction="#handleMusic">
+-                    <graphic>
+-                        <ImageView fx:id="musicImage" fitWidth="50" fitHeight="50">
+-                            <image>
+-                                <Image url="@/images/music.png"/>
+-                            </image>
+-                        </ImageView>
+-                    </graphic>
+-                </Button>
+-                <Label text="Music" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #C4A484;"/>
+-            </VBox>
+-
+-            <VBox alignment="CENTER" spacing="10">
+-                <Button styleClass="icon-button" prefWidth="80" prefHeight="80" onAction="#handleSounds">
+-                    <graphic>
+-                        <ImageView fx:id="soundsImage" fitWidth="50" fitHeight="50">
+-                            <image>
+-                                <Image url="@/images/sounds.png"/>
+-                            </image>
+-                        </ImageView>
+-                    </graphic>
+-                </Button>
+-                <Label text="Sounds" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #C4A484;"/>
+-            </VBox>
+-        </HBox>
+-
+-        <!-- Main Buttons -->
+-        <Button text="Home" styleClass="settings-button"
+-                prefWidth="250" prefHeight="50"
+-                onAction="#handleHome"
+-                style="-fx-text-fill: white;"/>
+-        <Button text="Instructions" styleClass="settings-button"
+-                prefWidth="250" prefHeight="50"
+-                onAction="#handleInstructions"
+-                style="-fx-text-fill: white;"/>
+-        <Button text="&lt;&lt;&lt; Go Back" styleClass="settings-button"
+-                prefWidth="250" prefHeight="50"
+-                onAction="#handleGoBack"
+-                style="-fx-text-fill: white;"/>
+-        <Button text="Log out" styleClass="logout-button"
+-                prefWidth="150" prefHeight="40"
+-                onAction="#handleLogout"
+-                style="-fx-text-fill: white;"/>
+-
+-    </VBox>
+-
+-</StackPane>
+Index: src/main/java/com/stylz/app/WelcomeController.java
+===================================================================
+diff --git a/src/main/java/com/stylz/app/WelcomeController.java b/src/main/java/com/stylz/app/WelcomeController.java
+deleted file mode 100644
+--- a/src/main/java/com/stylz/app/WelcomeController.java	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,67 +0,0 @@
+-package com.stylz.app;
+-
+-import javafx.animation.*;
+-import javafx.fxml.FXML;
+-import javafx.fxml.FXMLLoader;
+-import javafx.scene.Parent;
+-import javafx.scene.Scene;
+-import javafx.scene.control.Button;
+-import javafx.scene.image.ImageView;
+-import javafx.stage.Stage;
+-import javafx.util.Duration;
+-
+-public class WelcomeController {
+-
+-    @FXML
+-    private ImageView logoImageView;
+-
+-    @FXML
+-    private Button startButton;
+-
+-    @FXML
+-    public void initialize() {
+-        // Fade animation for logo
+-        fadeAnimation();
+-
+-        // Wiggle animation for start button
+-        wiggleAnimation();
+-    }
+-
+-    private void fadeAnimation() {
+-        FadeTransition fade = new FadeTransition(Duration.seconds(2), logoImageView);
+-        fade.setFromValue(0.3);
+-        fade.setToValue(1.0);
+-        fade.setCycleCount(Animation.INDEFINITE);
+-        fade.setAutoReverse(true);
+-        fade.play();
+-    }
+-
+-    private void wiggleAnimation() {
+-        RotateTransition rotate = new RotateTransition(Duration.millis(100), startButton);
+-        rotate.setByAngle(5);
+-        rotate.setCycleCount(2);
+-        rotate.setAutoReverse(true);
+-
+-        SequentialTransition wiggle = new SequentialTransition(rotate);
+-        wiggle.setCycleCount(Animation.INDEFINITE);
+-        wiggle.setDelay(Duration.seconds(2));
+-        wiggle.play();
+-    }
+-
+-    @FXML
+-    private void handleStartButton() {
+-        try {
+-            // Load the LoginRegister page
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/LoginRegister.fxml"));
+-            Parent root = loader.load();
+-
+-            // Get the current stage and set the new scene
+-            Stage stage = (Stage) startButton.getScene().getWindow();
+-            stage.setScene(new Scene(root, 400, 600));
+-            stage.show();
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-            System.out.println("Error loading LoginRegister page: " + e.getMessage());
+-        }
+-    }
+-}
+\ No newline at end of file
+Index: src/main/resources/com/stylz/app/Homepage.fxml
+===================================================================
+diff --git a/src/main/resources/com/stylz/app/Homepage.fxml b/src/main/resources/com/stylz/app/Homepage.fxml
+deleted file mode 100644
+--- a/src/main/resources/com/stylz/app/Homepage.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,64 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<AnchorPane xmlns="http://javafx.com/javafx"
+-            xmlns:fx="http://javafx.com/fxml"
+-            fx:controller="com.stylz.app.HomepageController"
+-            stylesheets="@styles.css"
+-            prefHeight="600.0" prefWidth="800.0">
+-
+-    <!-- Left Side: Shopping Mall Image -->
+-    <ImageView fitWidth="400" fitHeight="600" preserveRatio="false">
+-        <image>
+-            <Image url="@/images/mall-background.png"/>
+-        </image>
+-    </ImageView>
+-
+-    <!-- Right Side: Yellow Background with Menu -->
+-    <AnchorPane layoutX="400" layoutY="0" prefWidth="400" prefHeight="600"
+-                style="-fx-background-color: #f7f3b0;">
+-
+-        <VBox layoutX="25" layoutY="30" spacing="15" alignment="TOP_CENTER" prefWidth="350">
+-
+-            <!-- Welcome Header -->
+-            <VBox alignment="CENTER" spacing="5">
+-                <Label text="Welcome to Stylz"
+-                       style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #4b4453;"/>
+-                <Label text="Be your own stylist!"
+-                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #9b7ac7;"/>
+-            </VBox>
+-
+-            <!-- Menu Buttons (PINK) -->
+-            <VBox spacing="12" alignment="CENTER" VBox.vgrow="ALWAYS">
+-                <Button text="Dressing Room" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleDressingRoom"/>
+-
+-                <Button text="Store" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleStore"/>
+-
+-                <Button text="Catalog" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleCatalog"/>
+-
+-                <Button text="Instructions" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleInstructions"/>
+-
+-                <Button text="Settings" styleClass="homepage-button"
+-                        prefWidth="250" prefHeight="50"
+-                        onAction="#handleSettings"/>
+-            </VBox>
+-
+-            <!-- Log Out -->
+-            <Label text="&lt;&lt;&lt; Log out"
+-                   style="-fx-text-fill: #4b4453; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true; -fx-font-weight: bold;"
+-                   onMouseClicked="#handleLogout"/>
+-        </VBox>
+-    </AnchorPane>
+-
+-</AnchorPane>
+\ No newline at end of file
+Index: src/main/resources/com/stylz/app/Authentication.fxml
+===================================================================
+diff --git a/src/main/resources/com/stylz/app/Authentication.fxml b/src/main/resources/com/stylz/app/Authentication.fxml
+deleted file mode 100644
+--- a/src/main/resources/com/stylz/app/Authentication.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,48 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.AuthenticationController"
+-           stylesheets="@styles.css"
+-           styleClass="login-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Centered Authentication Box -->
+-    <VBox alignment="CENTER" spacing="20" maxWidth="210" maxHeight="280"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Title Image -->
+-        <ImageView fitWidth="150" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/Authentication.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitWidth="55" fitHeight="55" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Message -->
+-        <Label text="Check your email for link to reset"
+-               style="-fx-font-size: 14px; -fx-text-fill: #4b4453; -fx-wrap-text: true; -fx-text-alignment: center;"
+-               maxWidth="160"/>
+-
+-        <!-- Continue Button -->
+-        <Button text="Continue >" styleClass="create-account-button"
+-                prefWidth="130" prefHeight="30"
+-                onAction="#handleContinue"/>
+-
+-        <!-- Go Back Link -->
+-        <Label text="&lt;&lt;&lt; Go Back"
+-               style="-fx-text-fill: #4b4453; -fx-font-size: 10px; -fx-cursor: hand; -fx-underline: true;"
+-               onMouseClicked="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: out/production/Outfit-Planner-Project/com/stylz/app/Instructions.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/com/stylz/app/Instructions.fxml b/out/production/Outfit-Planner-Project/com/stylz/app/Instructions.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/com/stylz/app/Instructions.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,75 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.InstructionsController"
+-           stylesheets="@styles.css"
+-           styleClass="instructions-screen"
+-           prefHeight="600.0" prefWidth="800.0">
+-
+-    <!-- Yellow Instructions Box (Centered) -->
+-    <VBox alignment="TOP_CENTER" spacing="20" maxWidth="600" maxHeight="500"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Image Heading -->
+-        <ImageView fitWidth="200" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/instructions-heading.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Instruction 1: Money -->
+-        <HBox spacing="15" alignment="CENTER_LEFT">
+-            <Label text="💰" style="-fx-font-size: 32px;"/>
+-            <Label text="Use your money wisely to buy some trendy items"
+-                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+-                   maxWidth="500"/>
+-        </HBox>
+-
+-        <!-- Instruction 2: Dress Up -->
+-        <HBox spacing="15" alignment="TOP_LEFT">
+-            <Label text="👕" style="-fx-font-size: 32px;"/>
+-            <VBox spacing="5">
+-                <Label text="Dress up your avatar in:"
+-                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453;"/>
+-                <HBox spacing="40">
+-                    <VBox spacing="3">
+-                        <Label text="• Tops" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                        <Label text="• Dresses" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                        <Label text="• Accessories" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                    </VBox>
+-                    <VBox spacing="3">
+-                        <Label text="• Bottoms" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                        <Label text="• Shoes" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                    </VBox>
+-                </HBox>
+-            </VBox>
+-        </HBox>
+-
+-        <!-- Instruction 3: Mix and Match -->
+-        <HBox spacing="15" alignment="CENTER_LEFT">
+-            <Label text="🎨" style="-fx-font-size: 32px;"/>
+-            <Label text="Mix and match pieces to show your style!"
+-                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+-                   maxWidth="500"/>
+-        </HBox>
+-
+-        <!-- Instruction 4: Save Outfits -->
+-        <HBox spacing="15" alignment="CENTER_LEFT">
+-            <Label text="📋" style="-fx-font-size: 32px;"/>
+-            <Label text="Save your outfits or reset to start fresh."
+-                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+-                   maxWidth="500"/>
+-        </HBox>
+-
+-        <!-- Go Back Link -->
+-        <Label text="&lt;&lt;&lt; Go Back"
+-               style="-fx-text-fill: #4b4453; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true; -fx-font-weight: bold;"
+-               onMouseClicked="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: src/main/resources/com/stylz/app/Instructions.fxml
+===================================================================
+diff --git a/src/main/resources/com/stylz/app/Instructions.fxml b/src/main/resources/com/stylz/app/Instructions.fxml
+deleted file mode 100644
+--- a/src/main/resources/com/stylz/app/Instructions.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,75 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.InstructionsController"
+-           stylesheets="@styles.css"
+-           styleClass="instructions-screen"
+-           prefHeight="600.0" prefWidth="800.0">
+-
+-    <!-- Yellow Instructions Box (Centered) -->
+-    <VBox alignment="TOP_CENTER" spacing="20" maxWidth="600" maxHeight="500"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+-
+-        <!-- Image Heading -->
+-        <ImageView fitWidth="200" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/instructions-heading.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Instruction 1: Money -->
+-        <HBox spacing="15" alignment="CENTER_LEFT">
+-            <Label text="💰" style="-fx-font-size: 32px;"/>
+-            <Label text="Use your money wisely to buy some trendy items"
+-                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+-                   maxWidth="500"/>
+-        </HBox>
+-
+-        <!-- Instruction 2: Dress Up -->
+-        <HBox spacing="15" alignment="TOP_LEFT">
+-            <Label text="👕" style="-fx-font-size: 32px;"/>
+-            <VBox spacing="5">
+-                <Label text="Dress up your avatar in:"
+-                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453;"/>
+-                <HBox spacing="40">
+-                    <VBox spacing="3">
+-                        <Label text="• Tops" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                        <Label text="• Dresses" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                        <Label text="• Accessories" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                    </VBox>
+-                    <VBox spacing="3">
+-                        <Label text="• Bottoms" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                        <Label text="• Shoes" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+-                    </VBox>
+-                </HBox>
+-            </VBox>
+-        </HBox>
+-
+-        <!-- Instruction 3: Mix and Match -->
+-        <HBox spacing="15" alignment="CENTER_LEFT">
+-            <Label text="🎨" style="-fx-font-size: 32px;"/>
+-            <Label text="Mix and match pieces to show your style!"
+-                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+-                   maxWidth="500"/>
+-        </HBox>
+-
+-        <!-- Instruction 4: Save Outfits -->
+-        <HBox spacing="15" alignment="CENTER_LEFT">
+-            <Label text="📋" style="-fx-font-size: 32px;"/>
+-            <Label text="Save your outfits or reset to start fresh."
+-                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4b4453; -fx-wrap-text: true;"
+-                   maxWidth="500"/>
+-        </HBox>
+-
+-        <!-- Go Back Link -->
+-        <Label text="&lt;&lt;&lt; Go Back"
+-               style="-fx-text-fill: #4b4453; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true; -fx-font-weight: bold;"
+-               onMouseClicked="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: src/main/java/com/stylz/app/AuthenticationController.java
+===================================================================
+diff --git a/src/main/java/com/stylz/app/AuthenticationController.java b/src/main/java/com/stylz/app/AuthenticationController.java
+deleted file mode 100644
+--- a/src/main/java/com/stylz/app/AuthenticationController.java	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,39 +0,0 @@
+-package com.stylz.app;
+-
+-import javafx.fxml.FXML;
+-import javafx.fxml.FXMLLoader;
+-import javafx.scene.Scene;
+-import javafx.scene.input.MouseEvent;
+-import javafx.stage.Stage;
+-import javafx.scene.Node;
+-import javafx.event.ActionEvent;
+-
+-public class AuthenticationController {
+-
+-    @FXML
+-    private void handleContinue(ActionEvent event) {
+-        try {
+-            System.out.println("Continuing to login...");
+-            // Navigate back to Login screen
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Login.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @FXML
+-    private void handleGoBack(MouseEvent event) {
+-        try {
+-            // Go back to Reset Password screen
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/ResetPassword.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-}
+\ No newline at end of file
+Index: target/classes/com/stylz/app/SignUp.fxml
+===================================================================
+diff --git a/target/classes/com/stylz/app/SignUp.fxml b/target/classes/com/stylz/app/SignUp.fxml
+deleted file mode 100644
+--- a/target/classes/com/stylz/app/SignUp.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,63 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx"
+-           xmlns:fx="http://javafx.com/fxml"
+-           fx:controller="com.stylz.app.SignUpController"
+-           stylesheets="@styles.css"
+-           styleClass="signup-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Background Pane to absorb clicks outside the form -->
+-    <Pane prefWidth="400" prefHeight="600" />
+-
+-    <!-- Yellow Sign Up Box (Centered) -->
+-    <VBox fx:id="mainVBox" alignment="CENTER" spacing="15" maxWidth="250" maxHeight="420"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);"
+-          focusTraversable="true">
+-
+-        <!-- SIGN UP Title Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/signup-title.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitWidth="60" fitHeight="60" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Username Section -->
+-        <VBox spacing="5" alignment="CENTER_LEFT">
+-            <Label text="Username" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <TextField fx:id="usernameField" promptText="Enter a username" styleClass="signup-textfield" prefWidth="200"/>
+-        </VBox>
+-
+-        <!-- Password Section -->
+-        <VBox spacing="5" alignment="CENTER_LEFT">
+-            <Label text="Password" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <PasswordField fx:id="passwordField" promptText="Enter a password" styleClass="signup-textfield" prefWidth="200"/>
+-        </VBox>
+-
+-        <!-- Confirm Password Section -->
+-        <VBox spacing="5" alignment="CENTER_LEFT">
+-            <Label text="Confirm Password" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <PasswordField fx:id="confirmPasswordField" promptText="Enter password again" styleClass="signup-textfield" prefWidth="200"/>
+-        </VBox>
+-
+-        <!-- Create Account Button -->
+-        <Button text="Create Account" styleClass="create-account-button" prefWidth="180" prefHeight="35" onAction="#handleCreateAccount"/>
+-    </VBox>
+-
+-    <!-- Go Back Link (Bottom Center) -->
+-    <VBox alignment="BOTTOM_CENTER" StackPane.alignment="BOTTOM_CENTER">
+-        <Hyperlink text="&lt;&lt;&lt; Go Back" style="-fx-text-fill: brown; -fx-font-size: 14px;" onAction="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+Index: out/production/Outfit-Planner-Project/resources/com/stylz/app/StylzWelcome.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/resources/com/stylz/app/StylzWelcome.fxml b/out/production/Outfit-Planner-Project/resources/com/stylz/app/StylzWelcome.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/resources/com/stylz/app/StylzWelcome.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,30 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx/21"
+-           xmlns:fx="http://javafx.com/fxml/1"
+-           fx:controller="com.stylz.app.WelcomeController"
+-           stylesheets="@styles.css"
+-           styleClass="start-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Center everything vertically and horizontally -->
+-    <VBox alignment="CENTER" spacing="80">
+-
+-        <!-- STYLZ Logo Image (centered) -->
+-        <ImageView fx:id="logoImageView" fitWidth="300" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/Purple-layer.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- START Button (centered) -->
+-        <Button fx:id="startButton" text="Start!" styleClass="start-button"
+-                prefWidth="150" prefHeight="70"
+-                onAction="#handleStartButton"/>
+-    </VBox>
+-
+-</StackPane>
+\ No newline at end of file
+Index: src/main/java/com/stylz/app/SettingsController.java
+===================================================================
+diff --git a/src/main/java/com/stylz/app/SettingsController.java b/src/main/java/com/stylz/app/SettingsController.java
+deleted file mode 100644
+--- a/src/main/java/com/stylz/app/SettingsController.java	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,103 +0,0 @@
+-package com.stylz.app;
+-
+-import javafx.animation.*;
+-import javafx.fxml.FXML;
+-import javafx.fxml.FXMLLoader;
+-import javafx.scene.Scene;
+-import javafx.scene.image.ImageView;
+-import javafx.stage.Stage;
+-import javafx.scene.Node;
+-import javafx.event.ActionEvent;
+-import javafx.util.Duration;
+-
+-public class SettingsController {
+-
+-    @FXML
+-    private ImageView musicImage;
+-
+-    @FXML
+-    private ImageView soundsImage;
+-
+-    private void playPopEffect(ImageView image) {
+-        ScaleTransition pop = new ScaleTransition(Duration.millis(300), image);
+-        pop.setFromX(1.0);
+-        pop.setFromY(1.0);
+-        pop.setToX(1.3);
+-        pop.setToY(1.3);
+-        pop.setCycleCount(2);
+-        pop.setAutoReverse(true);
+-        pop.play();
+-
+-        // Rotation animation
+-        RotateTransition rotate = new RotateTransition(Duration.millis(400), image);
+-        rotate.setFromAngle(0);
+-        rotate.setToAngle(10);
+-        rotate.setCycleCount(2);
+-        rotate.setAutoReverse(true);
+-
+-        // Play both animations together
+-        ParallelTransition combined = new ParallelTransition(pop, rotate);
+-        combined.play();
+-    }
+-
+-    @FXML
+-    private void handleMusic(ActionEvent event) {
+-        System.out.println("Music settings clicked!");
+-        playPopEffect(musicImage);
+-    }
+-
+-    @FXML
+-    private void handleSounds(ActionEvent event) {
+-        System.out.println("Sounds settings clicked!");
+-        playPopEffect(soundsImage);
+-    }
+-
+-    @FXML
+-    private void handleHome(ActionEvent event) {
+-        try {
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @FXML
+-    private void handleInstructions(ActionEvent event) {
+-        try {
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Instructions.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @FXML
+-    private void handleGoBack(ActionEvent event) {
+-        try {
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @FXML
+-    private void handleLogout(ActionEvent event) {
+-        try {
+-            System.out.println("Logging out...");
+-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/StylzWelcome.fxml"));
+-            Scene scene = new Scene(loader.load());
+-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            stage.setScene(scene);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-}
+\ No newline at end of file
+Index: out/production/Outfit-Planner-Project/resources/com/stylz/app/SignUp.fxml
+===================================================================
+diff --git a/out/production/Outfit-Planner-Project/resources/com/stylz/app/SignUp.fxml b/out/production/Outfit-Planner-Project/resources/com/stylz/app/SignUp.fxml
+deleted file mode 100644
+--- a/out/production/Outfit-Planner-Project/resources/com/stylz/app/SignUp.fxml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ /dev/null	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
+@@ -1,63 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
+-<?import javafx.scene.image.*?>
+-
+-<StackPane xmlns="http://javafx.com/javafx"
+-           xmlns:fx="http://javafx.com/fxml"
+-           fx:controller="com.stylz.app.SignUpController"
+-           stylesheets="@styles.css"
+-           styleClass="signup-screen"
+-           prefHeight="600.0" prefWidth="400.0">
+-
+-    <!-- Background Pane to absorb clicks outside the form -->
+-    <Pane prefWidth="400" prefHeight="600" />
+-
+-    <!-- Yellow Sign Up Box (Centered) -->
+-    <VBox fx:id="mainVBox" alignment="CENTER" spacing="15" maxWidth="250" maxHeight="420"
+-          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);"
+-          focusTraversable="true">
+-
+-        <!-- SIGN UP Title Image -->
+-        <ImageView fitWidth="180" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/signup-title.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- User Icon Image -->
+-        <ImageView fitWidth="60" fitHeight="60" preserveRatio="true">
+-            <image>
+-                <Image url="@/images/user-icon.png"/>
+-            </image>
+-        </ImageView>
+-
+-        <!-- Username Section -->
+-        <VBox spacing="5" alignment="CENTER_LEFT">
+-            <Label text="Username" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <TextField fx:id="usernameField" promptText="Enter a username" styleClass="signup-textfield" prefWidth="200"/>
+-        </VBox>
+-
+-        <!-- Password Section -->
+-        <VBox spacing="5" alignment="CENTER_LEFT">
+-            <Label text="Password" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <PasswordField fx:id="passwordField" promptText="Enter a password" styleClass="signup-textfield" prefWidth="200"/>
+-        </VBox>
+-
+-        <!-- Confirm Password Section -->
+-        <VBox spacing="5" alignment="CENTER_LEFT">
+-            <Label text="Confirm Password" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+-            <PasswordField fx:id="confirmPasswordField" promptText="Enter password again" styleClass="signup-textfield" prefWidth="200"/>
+-        </VBox>
+-
+-        <!-- Create Account Button -->
+-        <Button text="Create Account" styleClass="create-account-button" prefWidth="180" prefHeight="35" onAction="#handleCreateAccount"/>
+-    </VBox>
+-
+-    <!-- Go Back Link (Bottom Center) -->
+-    <VBox alignment="BOTTOM_CENTER" StackPane.alignment="BOTTOM_CENTER">
+-        <Hyperlink text="&lt;&lt;&lt; Go Back" style="-fx-text-fill: brown; -fx-font-size: 14px;" onAction="#handleGoBack"/>
+-    </VBox>
+-
+-</StackPane>
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><project xmlns=\"http://maven.apache.org/POM/4.0.0\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0\n                             http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n    <modelVersion>4.0.0</modelVersion>\n\n    <groupId>com.stylz</groupId>\n    <artifactId>OutfitPlannerProject</artifactId> <!-- restored project name -->\n    <version>1.0-SNAPSHOT</version>\n\n    <properties>\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\n        <maven.compiler.source>17</maven.compiler.source>\n        <maven.compiler.target>17</maven.compiler.target>\n        <javafx.version>21.0.1</javafx.version>\n    </properties>\n\n    <dependencies>\n        <!-- JavaFX modules -->\n        <dependency>\n            <groupId>org.openjfx</groupId>\n            <artifactId>javafx-controls</artifactId>\n            <version>${javafx.version}</version>\n        </dependency>\n        <dependency>\n            <groupId>org.openjfx</groupId>\n            <artifactId>javafx-fxml</artifactId>\n            <version>${javafx.version}</version>\n        </dependency>\n        <dependency>\n            <groupId>org.openjfx</groupId>\n            <artifactId>javafx-base</artifactId>\n            <version>${javafx.version}</version>\n        </dependency>\n        <dependency>\n            <groupId>org.openjfx</groupId>\n            <artifactId>javafx-graphics</artifactId>\n            <version>${javafx.version}</version>\n        </dependency>\n        <dependency>\n            <groupId>org.openjfx</groupId>\n            <artifactId>javafx-web</artifactId>\n            <version>${javafx.version}</version>\n        </dependency>\n\n        <!-- OkHttp & Okio for REST calls -->\n        <dependency>\n            <groupId>com.squareup.okhttp3</groupId>\n            <artifactId>okhttp</artifactId>\n            <version>4.11.0</version>\n        </dependency>\n        <dependency>\n            <groupId>com.squareup.okio</groupId>\n            <artifactId>okio</artifactId>\n            <version>3.5.0</version>\n        </dependency>\n\n        <!-- Gson for JSON parsing -->\n        <dependency>\n            <groupId>com.google.code.gson</groupId>\n            <artifactId>gson</artifactId>\n            <version>2.10.1</version>\n        </dependency>\n    </dependencies>\n\n    <build>\n        <plugins>\n            <!-- Compiler plugin -->\n            <plugin>\n                <groupId>org.apache.maven.plugins</groupId>\n                <artifactId>maven-compiler-plugin</artifactId>\n                <version>3.11.0</version>\n                <configuration>\n                    <source>17</source>\n                    <target>17</target>\n                </configuration>\n            </plugin>\n\n            <!-- JavaFX Maven plugin to run the app -->\n            <plugin>\n                <groupId>org.openjfx</groupId>\n                <artifactId>javafx-maven-plugin</artifactId>\n                <version>0.0.8</version>\n                <executions>\n                    <execution>\n                        <goals>\n                            <goal>run</goal>\n                        </goals>\n                    </execution>\n                </executions>\n                <configuration>\n                    <mainClass>com.stylz.app.Main</mainClass>\n                </configuration>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 01bc70a01c822dd842c9b97a12df99316ab08481)
++++ b/pom.xml	(date 1762538335988)
+@@ -1,97 +1,74 @@
++<?xml version="1.0" encoding="UTF-8"?>
+ <project xmlns="http://maven.apache.org/POM/4.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+-    <modelVersion>4.0.0</modelVersion>
++         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
++  <modelVersion>4.0.0</modelVersion>
+ 
+-    <groupId>com.stylz</groupId>
+-    <artifactId>OutfitPlannerProject</artifactId> <!-- restored project name -->
+-    <version>1.0-SNAPSHOT</version>
++  <groupId>Group</groupId>
++  <artifactId>STYLZ</artifactId>
++  <version>1.0-SNAPSHOT</version>
++  <name>STYLZ</name>
+ 
+-    <properties>
+-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+-        <maven.compiler.source>17</maven.compiler.source>
+-        <maven.compiler.target>17</maven.compiler.target>
+-        <javafx.version>21.0.1</javafx.version>
+-    </properties>
++  <properties>
++    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
++<junit.version>5.12.1</junit.version>  </properties>
+ 
+-    <dependencies>
+-        <!-- JavaFX modules -->
+-        <dependency>
+-            <groupId>org.openjfx</groupId>
+-            <artifactId>javafx-controls</artifactId>
+-            <version>${javafx.version}</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.openjfx</groupId>
+-            <artifactId>javafx-fxml</artifactId>
+-            <version>${javafx.version}</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.openjfx</groupId>
+-            <artifactId>javafx-base</artifactId>
+-            <version>${javafx.version}</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.openjfx</groupId>
+-            <artifactId>javafx-graphics</artifactId>
+-            <version>${javafx.version}</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.openjfx</groupId>
+-            <artifactId>javafx-web</artifactId>
+-            <version>${javafx.version}</version>
+-        </dependency>
+-
+-        <!-- OkHttp & Okio for REST calls -->
+-        <dependency>
+-            <groupId>com.squareup.okhttp3</groupId>
+-            <artifactId>okhttp</artifactId>
+-            <version>4.11.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.squareup.okio</groupId>
+-            <artifactId>okio</artifactId>
+-            <version>3.5.0</version>
+-        </dependency>
+-
+-        <!-- Gson for JSON parsing -->
+-        <dependency>
+-            <groupId>com.google.code.gson</groupId>
+-            <artifactId>gson</artifactId>
+-            <version>2.10.1</version>
+-        </dependency>
+-    </dependencies>
++  <dependencies>
++    <dependency>
++      <groupId>org.openjfx</groupId>
++      <artifactId>javafx-controls</artifactId>
++      <version>21.0.6</version>
++    </dependency>
++    <dependency>
++      <groupId>org.openjfx</groupId>
++      <artifactId>javafx-fxml</artifactId>
++      <version>21.0.6</version>
++    </dependency>
++
++<dependency>
++      <groupId>org.junit.jupiter</groupId>
++      <artifactId>junit-jupiter-api</artifactId>
++      <version>${junit.version}</version>
++      <scope>test</scope>
++    </dependency>
++    <dependency>
++      <groupId>org.junit.jupiter</groupId>
++      <artifactId>junit-jupiter-engine</artifactId>
++      <version>${junit.version}</version>
++      <scope>test</scope>
++    </dependency>  </dependencies>
+ 
+-    <build>
+-        <plugins>
+-            <!-- Compiler plugin -->
+-            <plugin>
+-                <groupId>org.apache.maven.plugins</groupId>
+-                <artifactId>maven-compiler-plugin</artifactId>
+-                <version>3.11.0</version>
+-                <configuration>
+-                    <source>17</source>
+-                    <target>17</target>
+-                </configuration>
+-            </plugin>
+-
+-            <!-- JavaFX Maven plugin to run the app -->
+-            <plugin>
+-                <groupId>org.openjfx</groupId>
+-                <artifactId>javafx-maven-plugin</artifactId>
+-                <version>0.0.8</version>
+-                <executions>
+-                    <execution>
+-                        <goals>
+-                            <goal>run</goal>
+-                        </goals>
+-                    </execution>
+-                </executions>
+-                <configuration>
+-                    <mainClass>com.stylz.app.Main</mainClass>
+-                </configuration>
+-            </plugin>
+-        </plugins>
+-    </build>
+-</project>
++  <build>
++    <plugins>
++      <plugin>
++        <groupId>org.apache.maven.plugins</groupId>
++        <artifactId>maven-compiler-plugin</artifactId>
++        <version>3.13.0</version>
++        <configuration>
++          <source>24</source>
++          <target>24</target>
++        </configuration>
++      </plugin>
++      <plugin>
++        <groupId>org.openjfx</groupId>
++        <artifactId>javafx-maven-plugin</artifactId>
++        <version>0.0.8</version>
++        <executions>
++          <execution>
++            <!-- Default configuration for running with: mvn clean javafx:run -->
++            <id>default-cli</id>
++            <configuration>
++              <mainClass>group.stylz/group.stylz.HelloApplication</mainClass>
++              <launcher>app</launcher>
++              <jlinkZipName>app</jlinkZipName>
++              <jlinkImageName>app</jlinkImageName>
++              <noManPages>true</noManPages>
++              <stripDebug>true</stripDebug>
++              <noHeaderFiles>true</noHeaderFiles>
++            </configuration>
++          </execution>
++        </executions>
++      </plugin>
++    </plugins>
++  </build>
++</project>
+\ No newline at end of file
