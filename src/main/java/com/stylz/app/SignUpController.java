@@ -1,5 +1,7 @@
 package com.stylz.app;
 
+import com.google.firebase.auth.UserRecord;
+import com.google.firebase.auth.FirebaseAuth;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -46,8 +48,19 @@ public class SignUpController {
             return;
         }
 
-        System.out.println("Account created for: " + username);
-        // Save to database later
+        try {
+            FirestoreContext.init();
+
+            UserRecord.CreateRequest request = new UserRecord.CreateRequest()
+                    .setEmail(username)
+                    .setPassword(password);
+
+            UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
+            System.out.println(userRecord.getEmail());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
