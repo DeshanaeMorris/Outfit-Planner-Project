@@ -5,6 +5,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.VBox;
@@ -34,6 +35,8 @@ public class SignUpController {
 
     @FXML
     private void handleCreateAccount(ActionEvent event) {
+        System.out.println("Create Account button clicked");
+
         String username = usernameField.getText();
         String password = passwordField.getText();
         String confirmPassword = confirmPasswordField.getText();
@@ -45,6 +48,14 @@ public class SignUpController {
 
         if (!password.equals(confirmPassword)) {
             System.out.println("Passwords don't match!");
+            showAlert("Password Error", "Passwords don't match.");
+            showAlert("Missing Information", "Please fill in all fields.");
+            return;
+        }
+
+        if (password.length() < 6) {
+            System.out.println("Password too short!");
+            showAlert("Password Error", "Password must be at least 6 characters long.");
             return;
         }
 
@@ -56,7 +67,15 @@ public class SignUpController {
                     .setPassword(password);
 
             UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
-            System.out.println(userRecord.getEmail());
+            System.out.println("User created: " + userRecord.getEmail());
+            showAlert("Success", "Account created for: " + userRecord.getEmail());
+
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/LoginRegister.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,5 +92,13 @@ public class SignUpController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
