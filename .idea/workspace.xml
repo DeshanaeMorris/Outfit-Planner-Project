@@ -4,13 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c40726c-e452-4bd2-8324-d97e6990658c" name="Changes" comment="Initializing Firebase connection (errors)">
+    <list default="true" id="6c40726c-e452-4bd2-8324-d97e6990658c" name="Changes" comment="save for pull">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/group/stylz/HelloApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/group/stylz/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/group/stylz/Launcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/group/stylz/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/FirestoreContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stylz/app/FirestoreContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/HomepageController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/InstructionsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/LoginRegisterController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/ResetPasswordController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/SettingsController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stylz/app/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/stylz/app/SignUp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/stylz/app/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stylz/app/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/stylz/app/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stylz/app/ResetPasswordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/stylz/app/ResetPasswordController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/Authentication.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/Homepage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/Instructions.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/Login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/LoginRegister.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/ResetPassword.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/Settings.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Authentication.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Component 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Password.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Purple-layer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/instructions-heading.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/login-title.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/music.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/purplebg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/purplepic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/settings-heading.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/signup-title.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/sounds.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/swirl-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/user-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/stylz/app/AuthenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/stylz/app/AuthenticationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/stylz/app/SignUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/stylz/app/SignUpController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/stylz/app/WelcomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/stylz/app/WelcomeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
@@ -65,23 +103,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.OutfitPlannerProject [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;jada&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Maven.OutfitPlannerProject [org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile].executor": "Run",
+    "Maven.OutfitPlannerProject [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Merging jada",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propCompiler"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Outfit-Planner-Project" />
