@@ -10,37 +10,49 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="786.0" prefWidth="808.0" style="-fx-background-color: #FFB6D9;"
-            stylesheets="@styles.css" xmlns="http://javafx.com/javafx/24.0.1"
+<AnchorPane prefHeight="600" prefWidth="800" style="-fx-background-color: #FFB6D9;"
+            stylesheets="@styles.css"
+            styleClass="dressingRoom-screen"
+            xmlns="http://javafx.com/javafx/24.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.stylz.app.DressingRoomController">
+
+    <VBox alignment="TOP_LEFT"  spacing="30" VBox.vgrow="ALWAYS">
+        <Button onAction="#handleGoBack" text="Go Back" />
+        <Button onAction="#handleSave" prefHeight="42.0" prefWidth="103.0" text="SAVE" />
+        <Button onAction="#handleReset" prefHeight="41.0" text="RESET"/>
+        <Button onAction="#handleFinish" prefHeight="41.0" text="FINISH">
+        </Button>
+    </VBox>
+
+
 
     <!--Clothing - Left side -->
     <VBox alignment="TOP_CENTER" layoutX="20" layoutY="50" spacing="25">
         <VBox alignment="CENTER" onMouseClicked="#selectWhiteTop" spacing="8" style="-fx-cursor: hand;">
-            <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
+            <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
                 <Image url="@/images/top-image.png" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Top" />
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectBlueShorts" spacing="8" style="-fx-cursor: hand;">
-            <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
+            <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
                 <Image url="@/images/bottom-image.png" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Bottom" />
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectBlackHeels" spacing="8" style="-fx-cursor: hand;">
-            <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
+            <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
                 <Image url="@/images/shoes-icon.png" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Shoes" />
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectWhiteDress" spacing="8" style="-fx-cursor: hand;">
-            <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-               <Image url="@/images/dresses-image.png" />
+            <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
+                <Image url="@/images/dresses-image.png" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Dress" />
         </VBox>
@@ -60,13 +72,11 @@
 
         </StackPane>
     </VBox>
-
-    <!--Right Side: Accessories-->
     <!-- Accessories -->
     <VBox alignment="TOP_CENTER" layoutX="600" layoutY="50" spacing="25">
         <VBox alignment="CENTER" onMouseClicked="#selectHat" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-               <Image url="@/images/hat-image.png" />
+                <Image url="@/images/hat-image.png" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Hat" />
         </VBox>
@@ -93,13 +103,4 @@
         </VBox>
     </VBox>
 
-    <!-- Bottom buttons -->
-    <HBox alignment="CENTER" layoutX="250" layoutY="600" spacing="15">
-        <Button onAction="#handleSave" prefHeight="42.0" prefWidth="103.0" text="SAVE" />
-        <Button onAction="#handleReset" prefHeight="41.0" text="RESET">
-         <rotationAxis>
-            <Point3D z="2.0" />
-         </rotationAxis></Button>
-        <Button onAction="#goBack" text="Go Back" />
-    </HBox>
 </AnchorPane>

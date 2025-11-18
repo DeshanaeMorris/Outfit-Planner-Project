@@ -8,7 +8,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/stylz/app/Login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/stylz/app/StylzWelcome.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Outfit Planner");
         stage.setScene(scene);

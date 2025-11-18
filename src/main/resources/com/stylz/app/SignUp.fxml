@@ -55,7 +55,7 @@
     <!-- Go Back Link (Bottom Center) -->
     <VBox alignment="BOTTOM_CENTER"
           StackPane.alignment="BOTTOM_CENTER"
-            pickOnBounds="false">
+          pickOnBounds="false">
         <Hyperlink text="&lt;&lt;&lt; Go Back"
                    style="-fx-text-fill: brown; -fx-font-size: 14px;"
                    onAction="#handleGoBack"/>

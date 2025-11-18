@@ -14,13 +14,18 @@ import java.io.IOException;
 public class DressingRoomController {
 
     // Model display layers
-    @FXML private ImageView modelTop;
-    @FXML private ImageView modelBottom;
-    @FXML private ImageView modelShoes;
+    @FXML
+    private ImageView modelTop;
+    @FXML
+    private ImageView modelBottom;
+    @FXML
+    private ImageView modelShoes;
     // For hat/sunglasses
-    @FXML private ImageView modelAccessory1;
+    @FXML
+    private ImageView modelAccessory1;
     // For bag/jewelry
-    @FXML private ImageView modelAccessory2;
+    @FXML
+    private ImageView modelAccessory2;
 
     //Initialize method
     @FXML
@@ -168,33 +173,38 @@ public class DressingRoomController {
         System.out.println("Shoes: " + (modelShoes.getImage() != null ? "Selected" : "None"));
         System.out.println("Accessory 1: " + (modelAccessory1.getImage() != null ? "Selected" : "None"));
         System.out.println("Accessory 2: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
-        System.out.println("==================");
 
     }
 
-
     @FXML
-    private void goBack(ActionEvent event) {
-        try {
-            // Load the homepage FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Homepage.fxml"));
-            Parent homepageRoot = loader.load();
-
-            // Get the current stage (window) from the event source
+    private void handleFinish(ActionEvent event) {
+        try{
+            System.out.println("Finish!!");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/GameEnd.fxml"));
+            Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+        }catch (Exception e){
+            System.out.println("Error loading main.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
 
-            // Create new scene with the homepage
+        System.out.println("Finished Outfit!");
+    }
+    @FXML
+    private void handleGoBack(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
+            Parent homepageRoot = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene homepageScene = new Scene(homepageRoot);
-
-            // Set the scene and show it
             stage.setScene(homepageScene);
             stage.show();
 
-            System.out.println("Successfully navigated back to homepage");
+            System.out.println("Returned to Homepage!");
         } catch (IOException e) {
             System.err.println("Error loading homepage: " + e.getMessage());
             e.printStackTrace();
-
         }
     }
 }
