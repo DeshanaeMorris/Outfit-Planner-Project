@@ -55,12 +55,12 @@ public class HomepageController {
     private void handleLogout(MouseEvent event) {
         try {
             System.out.println("Logging out...");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/StylezWelcome.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/StylzWelcome.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
         } catch (Exception e) {
-            System.out.println("Error loading StylezWelcome:");
+            System.out.println("Error loading StylzWelcome:");
             e.printStackTrace();
         }
     }
