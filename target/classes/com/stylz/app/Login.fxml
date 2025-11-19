@@ -19,16 +19,12 @@
 
         <!-- USER LOGIN Title Image -->
         <ImageView fitWidth="180" preserveRatio="true">
-            <image>
                 <Image url="@/images/login-title.png" />
-            </image>
         </ImageView>
 
         <!-- User Icon Image -->
         <ImageView fitHeight="60" fitWidth="60" preserveRatio="true">
-            <image>
                 <Image url="@/images/user-icon.png" />
-            </image>
         </ImageView>
 
         <!-- Username Field -->
@@ -44,6 +40,13 @@
             <PasswordField fx:id="passwordField" prefWidth="200" promptText="Enter password" styleClass="signup-textfield" />
             <Hyperlink onAction="#handleForgotPassword" style="-fx-text-fill: #666; -fx-font-size: 10px; -fx-padding: 0;" text="Forgot Password?" />
         </VBox>
+
+        <!-- Message Label -->
+        <Label fx:id="messageLabel"
+                textFill="red"
+                style="-fx-font-size: 12px; -fx-font-weight: bold;"
+                text="none"
+                alignment="CENTER"/>
 
         <!-- Login Button -->
         <Button onAction="#handleLogin" prefHeight="35" prefWidth="150" styleClass="create-account-button" text="LOGIN" />

@@ -15,16 +15,17 @@ public class HomepageController {
     @FXML
     private void handleDressingRoom(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/DressingRoom.fxml"));
-            Parent dressingRoomRoot = loader.load();
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene dressingRoomScene = new Scene(dressingRoomRoot);
-            stage.setScene(dressingRoomScene);
-            stage.show();
+            System.out.println("Dressing Room clicked!");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/ModelSelection.fxml"));
+            Parent root = loader.load();
 
-            System.out.println("Navigated to Dressing Room!");
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
-            System.err.println("Error loading Dressing Room: " + e.getMessage());
+            System.err.println("Error loading Model Selection: " + e.getMessage());
             e.printStackTrace();
         }
     }

@@ -22,12 +22,23 @@ public class DressingRoomController {
     // For bag/jewelry
     @FXML private ImageView modelAccessory2;
 
+    @FXML private ImageView modelBase;
+
+
     //Initialize method
     @FXML
     private void initialize() {
-        System.out.println("Dressing Room loaded successfully!");
+        try {
+            // Load selected model from ModelSelectionController
+            Image selected = new Image(
+                    getClass().getResourceAsStream(ModelSelectionController.selectedModelPath)
+            );
+            modelBase.setImage(selected);
+            System.out.println("Loaded selected model: " + ModelSelectionController.selectedModelPath);
+        } catch (Exception e) {
+            System.out.println("Error loading selected model: " + e.getMessage());
+        }
     }
-
     //Select white top
 
     @FXML

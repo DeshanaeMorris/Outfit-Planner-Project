@@ -49,9 +49,11 @@
     <!--Center part: Model-->
     <VBox alignment="CENTER" layoutX="260" layoutY="50">
         <StackPane prefHeight="520" prefWidth="280" style="-fx-background-color: #F5F5DC; -fx-border-color: black; -fx-border-width: 4;">
-            <ImageView fitHeight="520" fitWidth="280" preserveRatio="true">
-                <Image url="@/images/model-doll.png" />
-            </ImageView>
+
+            <!-- Base model that changes when user selects a model -->
+            <ImageView fx:id="modelBase" fitHeight="520" fitWidth="280" preserveRatio="true" />
+
+            <!-- Clothing layers -->
             <ImageView fx:id="modelTop" fitHeight="520" fitWidth="280" preserveRatio="true" />
             <ImageView fx:id="modelBottom" fitHeight="520" fitWidth="280" preserveRatio="true" />
             <ImageView fx:id="modelShoes" fitHeight="520" fitWidth="280" preserveRatio="true" />
