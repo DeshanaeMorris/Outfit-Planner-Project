@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<!--suppress JavaFxUnresolvedFxIdReference, JavaFxUnresolvedFxIdReference -->
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stylz.app.OnlineStoreController"
+            prefWidth="800" prefHeight="600">
+
+    <!-- TOP BAR -->
+    <top>
+        <HBox spacing="10" padding="10" style="-fx-background-color: #6F4FF2;" alignment="CENTER_LEFT">
+            <Label fx:id="backButton" text="< Back" style="-fx-font-size: 20px; -fx-text-fill: white;" onMouseClicked="#handleBack"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Label fx:id="balanceLabel" text="Balance: $100.00" style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+        </HBox>
+    </top>
+
+    <!-- CENTER CONTENT -->
+    <center>
+        <HBox spacing="40" padding="20">
+
+            <!-- LEFT: Items -->
+            <VBox spacing="20">
+                <Label text="Tops"/>
+                <HBox spacing="10">
+                    <ImageView fx:id="topYellow" fitWidth="100" fitHeight="100" pickOnBounds="true" preserveRatio="true"
+                               onMouseClicked="#selectTopYellow">
+                        <Image url="@/images/top-yellow.png"/>
+                    </ImageView>
+                    <ImageView fx:id="topPink" fitWidth="100" fitHeight="100" pickOnBounds="true" preserveRatio="true"
+                               onMouseClicked="#selectTopPink">
+                        <Image url="@/images/top-pink.png"/>
+                    </ImageView>
+
+                    <ImageView fx:id="topGreen" fitWidth="100" fitHeight="100" pickOnBounds="true" preserveRatio="true"
+                               onMouseClicked="#selectTopGreen">
+                        <Image url="@/images/top-green.png"/>
+                    </ImageView>
+                </HBox>
+
+                <Label text="Bottoms"/>
+                <HBox spacing="10">
+                    <ImageView fx:id="bottomYellow" fitWidth="100" fitHeight="100" pickOnBounds="true"
+                               preserveRatio="true"
+                               onMouseClicked="#selectBottomYellow">
+                        <Image url="@/images/bottom-yellow.png"/>
+                    </ImageView>
+
+                    <ImageView fx:id="bottomPink" fitWidth="100" fitHeight="100" pickOnBounds="true"
+                               preserveRatio="true"
+                               onMouseClicked="#selectBottomPink">
+                        <Image url="@/images/bottom-pink.png"/>
+                    </ImageView>
+
+                    <ImageView fx:id="bottomGreen" fitWidth="100" fitHeight="100" pickOnBounds="true"
+                               preserveRatio="true"
+                               onMouseClicked="#selectBottomGreen">
+                        <Image url="@/images/bottom-green.png"/>
+                    </ImageView>
+
+                </HBox>
+            </VBox>
+
+            <!-- RIGHT: Total Panel -->
+            <VBox spacing="20" alignment="TOP_CENTER">
+                <Label text="Total"/>
+                <Label fx:id="totalPrice" text="\$0" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+                <Button text="Checkout" onAction="#handleCheckout"/>
+            </VBox>
+
+        </HBox>
+    </center>
+
+</BorderPane>

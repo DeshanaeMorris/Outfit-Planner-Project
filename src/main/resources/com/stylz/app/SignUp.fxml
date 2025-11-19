@@ -51,7 +51,6 @@
         <Button text="Create Account" styleClass="create-account-button" prefWidth="180" prefHeight="35" onAction="#handleCreateAccount"/>
     </VBox>
 
-
     <!-- Go Back Link (Bottom Center) -->
     <VBox alignment="BOTTOM_CENTER"
           StackPane.alignment="BOTTOM_CENTER"
@@ -60,6 +59,5 @@
                    style="-fx-text-fill: brown; -fx-font-size: 14px;"
                    onAction="#handleGoBack"/>
     </VBox>
-
 
 </StackPane>
