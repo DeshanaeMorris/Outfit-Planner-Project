@@ -8,21 +8,28 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
 public class DressingRoomController {
 
     // Model display layers
-    @FXML private ImageView modelTop;
-    @FXML private ImageView modelBottom;
-    @FXML private ImageView modelShoes;
+    @FXML
+    private ImageView modelTop;
+    @FXML
+    private ImageView modelBottom;
+    @FXML
+    private ImageView modelShoes;
     // For hat/sunglasses
-    @FXML private ImageView modelAccessory1;
+    @FXML
+    private ImageView modelAccessory1;
     // For bag/jewelry
-    @FXML private ImageView modelAccessory2;
+    @FXML
+    private ImageView modelAccessory2;
 
-    @FXML private ImageView modelBase;
+    @FXML
+    private ImageView modelBase;
 
 
     //Initialize method
@@ -161,7 +168,28 @@ public class DressingRoomController {
     }
 
     @FXML
-    private void handleReset(ActionEvent event) {
+    private void handleChangeModel(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/ChangeModelPopup.fxml"));
+            AnchorPane popup = loader.load();
+
+            // Link popup to this controller
+            ChangeModelPopupController popupController = loader.getController();
+            popupController.setParent(this);
+
+            // Add popup ON TOP of dressing room
+            AnchorPane root = (AnchorPane) ((Node) event.getSource()).getScene().getRoot();
+            root.getChildren().add(popup);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error opening popup.");
+        }
+
+    }
+
+    @FXML
+    public void handleReset() {
         modelTop.setImage(null);
         modelBottom.setImage(null);
         modelShoes.setImage(null);
