@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.stylz.app.SignUpController"
+           stylesheets="@styles.css"
+           styleClass="signup-screen"
+           prefHeight="600.0" prefWidth="400.0">
+
+
+    <!-- Yellow Sign Up Box (Centered) -->
+    <VBox fx:id="mainVBox" alignment="CENTER" spacing="15" maxWidth="250" maxHeight="420"
+          style="-fx-background-color: #f7f3b0; -fx-background-radius: 20; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 4);">
+
+        <!-- SIGN UP Title Image -->
+        <ImageView fitWidth="180" preserveRatio="true">
+            <image>
+                <Image url="@/images/signup-title.png"/>
+            </image>
+        </ImageView>
+
+        <!-- User Icon Image -->
+        <ImageView fitWidth="60" fitHeight="60" preserveRatio="true">
+            <image>
+                <Image url="@/images/user-icon.png"/>
+            </image>
+        </ImageView>
+
+        <!-- Username Section -->
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Username" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+            <TextField fx:id="usernameField" promptText="Enter a username" styleClass="signup-textfield" prefWidth="200"/>
+        </VBox>
+
+        <!-- Password Section -->
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Password" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+            <PasswordField fx:id="passwordField" promptText="Enter a password" styleClass="signup-textfield" prefWidth="200"/>
+        </VBox>
+
+        <!-- Confirm Password Section -->
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Confirm Password" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+            <PasswordField fx:id="confirmPasswordField" promptText="Enter password again" styleClass="signup-textfield" prefWidth="200"/>
+        </VBox>
+
+        <!-- Create Account Button -->
+        <Button text="Create Account" styleClass="create-account-button" prefWidth="180" prefHeight="35" onAction="#handleCreateAccount"/>
+    </VBox>
+
+    <!-- Go Back Link (Bottom Center) -->
+    <VBox alignment="BOTTOM_CENTER"
+          StackPane.alignment="BOTTOM_CENTER"
+            pickOnBounds="false">
+        <Hyperlink text="&lt;&lt;&lt; Go Back"
+                   style="-fx-text-fill: brown; -fx-font-size: 14px;"
+                   onAction="#handleGoBack"/>
+    </VBox>
+
+</StackPane>
