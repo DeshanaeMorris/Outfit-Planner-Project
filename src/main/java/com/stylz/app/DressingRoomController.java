@@ -11,10 +11,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.SQLOutput;
+
 
 public class DressingRoomController {
 
     // Model display layers
+    @FXML
+    private AnchorPane rootPane;
     @FXML
     private ImageView modelTop;
     @FXML
@@ -27,7 +31,10 @@ public class DressingRoomController {
     // For bag/jewelry
     @FXML
     private ImageView modelAccessory2;
-
+    @FXML
+    private ImageView modelAccessory3; // for sunglasses
+    @FXML
+    private ImageView modelAccessory4;
     @FXML
     private ImageView modelBase;
 
@@ -51,7 +58,7 @@ public class DressingRoomController {
     @FXML
     private void selectWhiteTop(MouseEvent event) {
         try {
-            Image topImage = new Image(getClass().getResourceAsStream("/images/top-image.png"));
+            Image topImage = new Image(getClass().getResourceAsStream("/images/DisplayTop1.PNG"));
             modelTop.setImage(topImage);
             System.out.println("White top selected");
         } catch (Exception e) {
@@ -63,7 +70,7 @@ public class DressingRoomController {
     @FXML
     private void selectPinkShirt(MouseEvent event) {
         try {
-            Image shirtImage = new Image(getClass().getResourceAsStream("/images/pink-shirt.png"));
+            Image shirtImage = new Image(getClass().getResourceAsStream("/images/Top2-pic.png"));
             modelTop.setImage(shirtImage);
             System.out.println("Pink shirt selected");
         } catch (Exception e) {
@@ -75,7 +82,7 @@ public class DressingRoomController {
     @FXML
     private void selectBlueShorts(MouseEvent event) {
         try {
-            Image shortsImage = new Image(getClass().getResourceAsStream("/images/bottom-image.png"));
+            Image shortsImage = new Image(getClass().getResourceAsStream("/images/Bottom1-pic.png"));
             modelBottom.setImage(shortsImage);
             System.out.println("Blue shorts selected");
         } catch (Exception e) {
@@ -99,7 +106,7 @@ public class DressingRoomController {
     @FXML
     private void selectBlackHeels(MouseEvent event) {
         try {
-            Image shoesImage = new Image(getClass().getResourceAsStream("/images/shoes-icon.png"));
+            Image shoesImage = new Image(getClass().getResourceAsStream("/images/Shoes1-pic.png"));
             modelShoes.setImage(shoesImage);
             System.out.println("Black heels selected");
         } catch (Exception e) {
@@ -112,7 +119,7 @@ public class DressingRoomController {
     @FXML
     private void selectWhiteDress(MouseEvent event) {
         try {
-            Image dressImage = new Image(getClass().getResourceAsStream("/images/dresses-image.png"));
+            Image dressImage = new Image(getClass().getResourceAsStream("/images/Dress1-pic.png"));
             modelTop.setImage(dressImage);
             modelBottom.setImage(null); // Clear bottom since dress covers it
             System.out.println("White dress selected");
@@ -124,7 +131,7 @@ public class DressingRoomController {
     @FXML
     private void selectHat(MouseEvent event) {
         try {
-            Image hatImage = new Image(getClass().getResourceAsStream("/images/hat-image.png"));
+            Image hatImage = new Image(getClass().getResourceAsStream("/images/Hat1-pic.png"));
             modelAccessory1.setImage(hatImage);
             System.out.println("Hat selected");
         } catch (Exception e) {
@@ -135,7 +142,7 @@ public class DressingRoomController {
     @FXML
     private void selectBag(MouseEvent event) {
         try {
-            Image bagImage = new Image(getClass().getResourceAsStream("/images/bag-image.png"));
+            Image bagImage = new Image(getClass().getResourceAsStream("/images/Bag1-pic.png"));
             modelAccessory2.setImage(bagImage);
             System.out.println("Bag selected");
         } catch (Exception e) {
@@ -147,8 +154,8 @@ public class DressingRoomController {
     @FXML
     private void selectJewelry(MouseEvent event) {
         try {
-            Image jewelryImage = new Image(getClass().getResourceAsStream("/images/jewelry-image.png"));
-            modelAccessory2.setImage(jewelryImage);
+            Image jewelryImage = new Image(getClass().getResourceAsStream("/images/Jewelry1.PNG"));
+            modelAccessory3.setImage(jewelryImage);
             System.out.println("Jewelry selected");
         } catch (Exception e) {
             System.out.println("Error loading jewelry: " + e.getMessage());
@@ -159,8 +166,8 @@ public class DressingRoomController {
     @FXML
     private void selectSunglasses(MouseEvent event) {
         try {
-            Image sunglassesImage = new Image(getClass().getResourceAsStream("/images/sunglasses.png"));
-            modelAccessory1.setImage(sunglassesImage);
+            Image sunglassesImage = new Image(getClass().getResourceAsStream("/images/Glasses1-pic.png"));
+            modelAccessory4.setImage(sunglassesImage);
             System.out.println("Sunglasses selected");
         } catch (Exception e) {
             System.out.println("Error loading sunglasses: " + e.getMessage());
@@ -195,6 +202,8 @@ public class DressingRoomController {
         modelShoes.setImage(null);
         modelAccessory1.setImage(null);
         modelAccessory2.setImage(null);
+        modelAccessory3.setImage(null);
+        modelAccessory4.setImage(null);
         System.out.println("Outfit reset - all clothing cleared!");
     }
 
@@ -207,6 +216,8 @@ public class DressingRoomController {
         System.out.println("Shoes: " + (modelShoes.getImage() != null ? "Selected" : "None"));
         System.out.println("Accessory 1: " + (modelAccessory1.getImage() != null ? "Selected" : "None"));
         System.out.println("Accessory 2: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
+        System.out.println("Accessory 3: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
+        System.out.println("Accessory 4: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
         System.out.println("==================");
 
     }

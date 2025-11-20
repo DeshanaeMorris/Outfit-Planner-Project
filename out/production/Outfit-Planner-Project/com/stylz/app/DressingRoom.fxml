@@ -53,6 +53,8 @@
             <ImageView fx:id="modelShoes" fitWidth="280" fitHeight="520" preserveRatio="true"/>
             <ImageView fx:id="modelAccessory1" fitWidth="280" fitHeight="520" preserveRatio="true"/>
             <ImageView fx:id="modelAccessory2" fitWidth="280" fitHeight="520" preserveRatio="true"/>
+            <ImageView fx:id="modelAccessory3" fitHeight="520" fitWidth="280" preserveRatio="true" />
+
 
         </StackPane>
     </VBox>
