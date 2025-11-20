@@ -23,6 +23,8 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
+
+
     @FXML
     private void handleLogin() {
 
@@ -32,7 +34,6 @@ public class LoginController {
         if (username.isEmpty() || password.isEmpty()) {
             messageLabel.setText("Please fill in all fields!");
             return;
-
         }
 
         String token = FirebaseAuthService.login(username, password);
@@ -40,6 +41,7 @@ public class LoginController {
 
         if (token != null) {
             messageLabel.setText("Login Success!");
+            System.out.println("Login successful for: " + username);
 
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
@@ -49,11 +51,10 @@ public class LoginController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else{
+        } else {
             messageLabel.setText("Login Failed!");
+            System.out.println("Login failed for: " + username);
         }
-
-        System.out.println("Login successful for: " + username);
     }
 
     @FXML

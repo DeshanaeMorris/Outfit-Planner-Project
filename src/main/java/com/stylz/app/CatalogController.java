@@ -63,7 +63,7 @@ public class CatalogController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Scene scene = new Scene(loader.load());
 
-            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles.css")).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/stylz/app/styles.css")).toExternalForm());
 
             Stage stage = getCurrentStage();
             if (stage != null) {

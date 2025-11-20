@@ -1,9 +1,15 @@
 package com.stylz.app;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.scene.Node;
+
+import java.io.IOException;
 
 public class OnlineStoreController {
 
@@ -11,7 +17,8 @@ public class OnlineStoreController {
     private Label totalPrice;
 
     @FXML
-    private ImageView topYellow, topPink,topGreen, bottomYellow, bottomPink, bottomGreen;
+    private ImageView topYellow, topPink, topGreen,
+            bottomYellow, bottomPink, bottomGreen;
 
     private int total = 0;
 
@@ -64,10 +71,22 @@ public class OnlineStoreController {
     @FXML
     private void handleCheckout() {
         System.out.println("Checking out with total: $" + total);
+        // later you can show a confirmation screen here if you want
     }
 
     @FXML
     private void handleBack(MouseEvent event) {
-        System.out.println("Back button clicked");
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/stylz/app/Homepage.fxml")
+            );
+            Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) ((Node) event.getSource())
+                    .getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
