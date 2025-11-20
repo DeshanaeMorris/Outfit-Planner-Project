@@ -5,14 +5,29 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
 import javafx.scene.Node;
 import javafx.event.ActionEvent;
+import java.io.IOException;
 
 public class HomepageController {
 
     @FXML
     private void handleDressingRoom(ActionEvent event) {
-        System.out.println("Dressing Room clicked!");
+        try {
+            System.out.println("Dressing Room clicked!");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/ModelSelection.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.err.println("Error loading Model Selection: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -55,7 +70,7 @@ public class HomepageController {
     private void handleLogout(MouseEvent event) {
         try {
             System.out.println("Logging out...");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/StylezWelcome.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/StylzWelcome.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -64,4 +79,22 @@ public class HomepageController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void goBack(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
+            Parent homepageRoot = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene homepageScene = new Scene(homepageRoot);
+            stage.setScene(homepageScene);
+            stage.show();
+
+            System.out.println("Returned to Homepage!");
+        } catch (IOException e) {
+            System.err.println("Error loading homepage: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 }

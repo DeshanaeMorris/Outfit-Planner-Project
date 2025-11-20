@@ -3,14 +3,19 @@ package com.stylz.app;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.event.ActionEvent;
-import javafx.scene.input.MouseEvent;
+import com.stylz.app.Firebase.FirebaseAuthService;
+
 
 public class LoginController {
+
+    @FXML
+    private Label messageLabel;
 
     @FXML
     private TextField usernameField;
@@ -20,25 +25,35 @@ public class LoginController {
 
     @FXML
     private void handleLogin() {
+
         String username = usernameField.getText();
         String password = passwordField.getText();
 
         if (username.isEmpty() || password.isEmpty()) {
-            System.out.println("Please fill in all fields!");
+            messageLabel.setText("Please fill in all fields!");
             return;
+
+        }
+
+        String token = FirebaseAuthService.login(username, password);
+        System.out.println("TOKEN = " + token);
+
+        if (token != null) {
+            messageLabel.setText("Login Success!");
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
+                Scene scene = new Scene(loader.load());
+                Stage stage = (Stage) usernameField.getScene().getWindow();
+                stage.setScene(scene);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else{
+            messageLabel.setText("Login Failed!");
         }
 
         System.out.println("Login successful for: " + username);
-
-        try {
-            // Navigate to Homepage after login
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
-            Scene scene = new Scene(loader.load());
-            Stage stage = (Stage) usernameField.getScene().getWindow();
-            stage.setScene(scene);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @FXML
