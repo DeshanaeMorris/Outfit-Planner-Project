@@ -1,0 +1,14 @@
+com/stylz/app/HomepageController.class
+com/stylz/app/SignUpController.class
+com/stylz/app/SettingsController.class
+com/stylz/app/LoginRegisterController.class
+com/stylz/app/AuthenticationController.class
+com/stylz/app/DressingRoomController.class
+com/stylz/app/ResetPasswordController.class
+com/stylz/app/WelcomeController.class
+com/stylz/app/ChangeModelPopupController.class
+com/stylz/app/ModelSelectionController.class
+com/stylz/app/Firebase/FirebaseAuthService.class
+com/stylz/app/LoginController.class
+com/stylz/app/InstructionsController.class
+com/stylz/app/Main.class
