@@ -95,7 +95,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.stylz.app.SignUpController</mainClass>
+                    <mainClass>com.stylz.app.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
