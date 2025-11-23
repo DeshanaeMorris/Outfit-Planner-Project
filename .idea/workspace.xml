@@ -4,42 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c40726c-e452-4bd2-8324-d97e6990658c" name="Changes" comment="sign up authentication">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/HomepageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/InstructionsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/LoginRegisterController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/ResetPasswordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/SettingsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/Authentication.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/Homepage.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/Instructions.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/Login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/LoginRegister.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/ResetPassword.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/stylz/app/Settings.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Authentication.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Component 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Password.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Purple-layer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/instructions-heading.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/login-title.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/music.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/purplebg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/purplepic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/settings-heading.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/signup-title.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/sounds.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/swirl-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/user-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stylz/app/AuthenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/stylz/app/AuthenticationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stylz/app/SignUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/stylz/app/SignUpController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stylz/app/WelcomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/stylz/app/WelcomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-    </list>
+    <list default="true" id="6c40726c-e452-4bd2-8324-d97e6990658c" name="Changes" comment="new stuff" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763344814288</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="new stuff">
+      <option name="closed" value="true" />
+      <created>1763936137742</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1763936137742</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,6 +184,7 @@
     <MESSAGE value="Initializing Firebase connection (errors)" />
     <MESSAGE value="pull from main" />
     <MESSAGE value="sign up authentication" />
-    <option name="LAST_COMMIT_MESSAGE" value="sign up authentication" />
+    <MESSAGE value="new stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="new stuff" />
   </component>
 </project>
