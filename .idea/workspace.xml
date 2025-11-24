@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c40726c-e452-4bd2-8324-d97e6990658c" name="Changes" comment="updating main">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/music.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/sounds.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/Firebase/FirebaseAuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stylz/app/Firebase/FirebaseAuthService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763938915736</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="updating main">
+      <option name="closed" value="true" />
+      <created>1763946941654</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1763946941654</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -5,6 +5,12 @@ import okhttp3.*;
 import java.io.IOException;
 
 public class FirebaseAuthService {
+    private static String currentUserUid;
+
+    public static String getCurrentUserUid() {
+        return currentUserUid;
+    }
+
     private static final String API_KEY = "AIzaSyBESor64BavEICoPXFx29qS6nc8vcKEW_0";
     private static final String LOGIN_URL =
             "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + API_KEY;
@@ -39,6 +45,8 @@ public class FirebaseAuthService {
             String responseString = response.body().string();
 
             JsonObject jsonResponse = gson.fromJson(responseString, JsonObject.class);
+
+            currentUserUid = jsonResponse.get("localId").getAsString();
 
             return jsonResponse.get("idToken").getAsString();
 
@@ -77,6 +85,8 @@ public class FirebaseAuthService {
 
             String responseString = response.body().string();
             JsonObject jsonResponse = gson.fromJson(responseString, JsonObject.class);
+
+            currentUserUid = jsonResponse.get("localId").getAsString();
 
             return jsonResponse.get("idToken").getAsString();
 
