@@ -84,8 +84,6 @@ public class GameEndController {
     @FXML
     public void handleGoCatalog(ActionEvent event) {
         try {
-            // Save outfit and go to catalog
-            // TODO: Add code here to save the current outfit to database/file
             System.out.println("Saving outfit to catalog...");
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Catalog.fxml"));
