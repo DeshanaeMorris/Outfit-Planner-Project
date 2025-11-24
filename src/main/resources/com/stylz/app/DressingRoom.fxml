@@ -8,59 +8,80 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.shape.Rectangle?>
-<AnchorPane fx:id="rootPane" prefHeight="786.0" prefWidth="808.0" style="-fx-background-color: #FFB6D9;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stylz.app.DressingRoomController">
+
+<AnchorPane fx:id="rootPane" prefHeight="786.0" prefWidth="808.0" style="-fx-background-color: #FFB6D9;"
+            stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.stylz.app.DressingRoomController">
 
     <!--Clothing - Left side -->
     <VBox alignment="TOP_CENTER" layoutX="20" layoutY="50" spacing="25">
         <VBox alignment="CENTER" onMouseClicked="#selectWhiteTop" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <Image url="@/images/DisplayTop1.PNG" />
+                <Image url="@/images/DisplayTop1.PNG"/>
             </ImageView>
-            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Top" />
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Top"/>
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectBlueShorts" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <Image url="@/images/DisplayBottom1.PNG" />
+                <Image url="@/images/DisplayBottom1.PNG"/>
             </ImageView>
-            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Bottom" />
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Bottom"/>
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectBlackHeels" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <Image url="@/images/DisplayShoes1.PNG" />
+                <Image url="@/images/DisplayShoes1.PNG"/>
             </ImageView>
-            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Shoes" />
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Shoes"/>
         </VBox>
 
-        <VBox alignment="CENTER" onMouseClicked="#selectWhiteDress" spacing="8" style="-fx-cursor: hand;">
+        <VBox alignment="CENTER" onMouseClicked="#selectDress" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-               <Image url="@/images/DisplayDress.PNG" />
+                <Image url="@/images/DisplayDress.PNG"/>
             </ImageView>
-            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Dress" />
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Dress"/>
         </VBox>
     </VBox>
 
-    <!--Center part: Model-->
-    <VBox alignment="CENTER" layoutX="260" layoutY="50">
-        <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520" prefWidth="280" style="-fx-background-color: #F5F5DC; -fx-border-color: black; -fx-border-width: 4;">
+    <!-- Change Model button - positioned above the model frame -->
+    <VBox alignment="TOP_CENTER" layoutX="264" layoutY="10" spacing="10" prefWidth="280">
+        <!-- Change Model button - positioned above the model frame -->
+        <Button onAction="#handleChangeModel" prefHeight="35.0" prefWidth="196.0" text="Change Model"
+                style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #bb9fdb; -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand;"/>
+
+        <!--Center part: Model-->
+        <!--    <VBox alignment="CENTER" layoutX="260" layoutY="50">-->
+        <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                   prefHeight="520" prefWidth="280"
+                   style="-fx-background-color: #F5F5DC; -fx-border-color: black; -fx-border-width: 4;">
             <clip>
-                <Rectangle width="280" height="520" />
+                <Rectangle width="280" height="520"/>
             </clip>
 
             <!-- Base model that changes when user selects a model -->
             <ImageView fx:id="modelBase" fitHeight="520" fitWidth="280" preserveRatio="true"/>
 
             <!-- Clothing layers -->
-            <ImageView fx:id="modelTop" fitHeight="100.0" fitWidth="100.0" preserveRatio="true" translateX="-2.0" translateY="-104.0"/>
-            <ImageView fx:id="modelBottom" fitHeight="520" fitWidth="270.0" preserveRatio="true" translateX="15.0" translateY="55.0"/>
-            <ImageView fx:id="modelShoes" fitHeight="520" fitWidth="140.0" preserveRatio="true" translateX="3.0" translateY="180.0"/>
-            <ImageView fx:id="modelAccessory1" fitHeight="700.0" fitWidth="700.0" preserveRatio="true" translateX="-164.0" translateY="-24.0"/>
-            <ImageView fx:id="modelAccessory2" fitHeight="730.0" fitWidth="730.0" preserveRatio="true" translateX="79.0" translateY="-8.5"/>
-            <ImageView fx:id="modelAccessory3" fitHeight="700.0" fitWidth="700.0" preserveRatio="true" translateX="73.0" translateY="-8.0"/>
-            <ImageView fx:id="modelAccessory4" fitHeight="710.0" fitWidth="710.0" preserveRatio="true" translateX="244.0" translateY="-11.0"/>
+            <ImageView fx:id="modelTop" fitHeight="100.0" fitWidth="100.0" preserveRatio="true" translateX="-2.0"
+                       translateY="-104.0"/>
+            <ImageView fx:id="modelBottom" fitHeight="520" fitWidth="270.0" preserveRatio="true" translateX="15.0"
+                       translateY="55.0"/>
+            <ImageView fx:id="modelShoes" fitHeight="520" fitWidth="140.0" preserveRatio="true" translateX="3.0"
+                       translateY="180.0"/>
+
+            <ImageView fx:id="modelDress" fitHeight="520" fitWidth="140.0" preserveRatio="true" translateX="3.0"
+                       translateY="180.0"/>
+
+            <ImageView fx:id="modelAccessory1" fitHeight="700.0" fitWidth="700.0" preserveRatio="true"
+                       translateX="-164.0" translateY="-24.0"/>
+            <ImageView fx:id="modelAccessory2" fitHeight="730.0" fitWidth="730.0" preserveRatio="true" translateX="79.0"
+                       translateY="-8.5"/>
+            <ImageView fx:id="modelAccessory3" fitHeight="700.0" fitWidth="700.0" preserveRatio="true" translateX="73.0"
+                       translateY="-8.0"/>
+            <ImageView fx:id="modelAccessory4" fitHeight="710.0" fitWidth="710.0" preserveRatio="true"
+                       translateX="244.0" translateY="-11.0"/>
         </StackPane>
     </VBox>
 
@@ -69,41 +90,49 @@
     <VBox alignment="TOP_CENTER" layoutX="600" layoutY="50" spacing="25">
         <VBox alignment="CENTER" onMouseClicked="#selectHat" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-               <Image url="@/images/DisplayHat1.PNG" />
+                <Image url="@/images/DisplayHat1.PNG"/>
             </ImageView>
-            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Hat" />
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Hat"/>
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectBag" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <Image url="@/images/DisplayBag1.PNG" />
+                <Image url="@/images/DisplayBag1.PNG"/>
             </ImageView>
-            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Bag" />
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Bag"/>
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectJewelry" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <Image url="@/images/DisplayJewelry1.png" />
+                <Image url="@/images/DisplayJewelry1.png"/>
             </ImageView>
-            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Jewelry" />
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Jewelry"/>
         </VBox>
 
         <VBox alignment="CENTER" onMouseClicked="#selectSunglasses" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-                <Image url="@/images/DisplayGlasses1.PNG" />
+                <Image url="@/images/DisplayGlasses1.PNG"/>
             </ImageView>
-            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Sunglasses" />
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Sunglasses"/>
         </VBox>
     </VBox>
 
     <!-- Bottom buttons -->
-    <!-- Bottom buttons -->
     <HBox alignment="CENTER" layoutX="165.0" layoutY="600" prefHeight="42.0" prefWidth="470.0" spacing="15">
-        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleSave" prefHeight="42.0" prefWidth="105.0" text="SAVE" HBox.hgrow="NEVER" />
-        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleReset" prefHeight="41.0" prefWidth="113.0" text="RESET" HBox.hgrow="NEVER" />
-        <Button onAction="#goBack" prefHeight="41.0" prefWidth="119.0" text="Go Back" />
+        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                onAction="#handleSave" prefHeight="42.0" prefWidth="105.0" text="SAVE" HBox.hgrow="NEVER"/>
+        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                onAction="#handleReset" prefHeight="41.0" prefWidth="113.0" text="RESET" HBox.hgrow="NEVER"/>
+        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                onAction="#handleGoBack" prefHeight="41.0" prefWidth="119.0" text="Go Back" HBox.hgrow="NEVER"/>
 
     </HBox>
-    <Button layoutX="306.0" layoutY="662.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleChangeModel" prefHeight="41.0" prefWidth="196.0" text="Change Model" />
+
+    <!-- FINISH button with heartbeat animation - centered below other buttons -->
+    <Button fx:id="finishButton" layoutX="306.0" layoutY="662" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" onAction="#handleFinish" prefHeight="50.0" prefWidth="196.0"
+            text="FINISH"
+            styleClass="heartbeat-button"
+            style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-background-color: #bb9fdb; -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand;"/>
 
 </AnchorPane>

@@ -12,6 +12,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLOutput;
+import javafx.animation.Animation;
+import javafx.animation.ScaleTransition;
+import javafx.animation.SequentialTransition;
+import javafx.scene.control.Button;
+import javafx.util.Duration;
 
 
 public class DressingRoomController {
@@ -37,6 +42,8 @@ public class DressingRoomController {
     private ImageView modelAccessory4;
     @FXML
     private ImageView modelBase;
+    @FXML
+    private Button finishButton;
 
 
     //Initialize method
@@ -52,7 +59,35 @@ public class DressingRoomController {
         } catch (Exception e) {
             System.out.println("Error loading selected model: " + e.getMessage());
         }
+        if (finishButton != null) {
+            createHeartbeatAnimation(finishButton);
+
+        }
     }
+
+        private void createHeartbeatAnimation(Button button) {
+            ScaleTransition beat1 = new ScaleTransition(Duration.millis(280), button);
+            beat1.setToX(1.15);
+            beat1.setToY(1.15);
+
+            ScaleTransition relax1 = new ScaleTransition(Duration.millis(280), button);
+            relax1.setToX(1.0);
+            relax1.setToY(1.0);
+
+            ScaleTransition beat2 = new ScaleTransition(Duration.millis(280), button);
+            beat2.setToX(1.15);
+            beat2.setToY(1.15);
+
+            ScaleTransition relax2 = new ScaleTransition(Duration.millis(560), button);
+            relax2.setToX(1.0);
+            relax2.setToY(1.0);
+
+            SequentialTransition heartbeat = new SequentialTransition(
+                    beat1, relax1, beat2, relax2
+            );
+            heartbeat.setCycleCount(Animation.INDEFINITE);
+            heartbeat.play();
+        }
     //Select white top
 
     @FXML
@@ -117,7 +152,7 @@ public class DressingRoomController {
 
     //
     @FXML
-    private void selectWhiteDress(MouseEvent event) {
+    private void selectDress(MouseEvent event) {
         try {
             Image dressImage = new Image(getClass().getResourceAsStream("/images/Dress1-pic.png"));
             modelTop.setImage(dressImage);
@@ -224,27 +259,36 @@ public class DressingRoomController {
 
 
     @FXML
-    private void goBack(ActionEvent event) {
+    private void handleGoBack(ActionEvent event) {
         try {
-            // Load the homepage FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Homepage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
             Parent homepageRoot = loader.load();
-
-            // Get the current stage (window) from the event source
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            // Create new scene with the homepage
             Scene homepageScene = new Scene(homepageRoot);
-
-            // Set the scene and show it
             stage.setScene(homepageScene);
             stage.show();
 
-            System.out.println("Successfully navigated back to homepage");
+            System.out.println("Returned to Homepage!");
         } catch (IOException e) {
             System.err.println("Error loading homepage: " + e.getMessage());
             e.printStackTrace();
-
         }
     }
+
+    @FXML
+    private void handleFinish(ActionEvent event) {
+        try{
+            System.out.println("Finish!!");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/GameEnd.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+        }catch (Exception e){
+            System.out.println("Error loading main.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        System.out.println("Finished Outfit!");
+    }
+
 }

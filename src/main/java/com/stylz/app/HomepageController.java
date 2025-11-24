@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Node;
 import javafx.event.ActionEvent;
 import java.io.IOException;
+import java.util.Objects;
 
 public class HomepageController {
 
@@ -32,14 +33,56 @@ public class HomepageController {
 
     @FXML
     private void handleStore(ActionEvent event) {
-        System.out.println("Store clicked!");
+        try {
+            System.out.println("Store clicked!");
+
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/stylz/app/OnlineStore.fxml")
+            );
+            Parent storeRoot = loader.load();
+
+            Scene storeScene = new Scene(storeRoot);
+            // 🔹 IMPORTANT: attach styles.css
+            storeScene.getStylesheets().add(
+                    Objects.requireNonNull(
+                            getClass().getResource("/com/stylz/app/styles.css")
+                    ).toExternalForm()
+            );
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(storeScene);
+            stage.show();
+
+            System.out.println("Navigated to Online Store!");
+        } catch (IOException e) {
+            System.err.println("Error loading OnlineStore: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
+
+
+
 
     @FXML
     private void handleCatalog(ActionEvent event) {
-        System.out.println("Catalog clicked!");
-    }
+        try {
+            System.out.println("Catalog clicked!");
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Catalog.fxml"));
+            Parent catalogRoot = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene catalogScene = new Scene(catalogRoot);
+
+            stage.setScene(catalogScene);
+            stage.show();
+
+            System.out.println("Navigated to Catalog!");
+        } catch (IOException e) {
+            System.err.println("Error loading Catalog: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
     @FXML
     private void handleInstructions(ActionEvent event) {
         try {

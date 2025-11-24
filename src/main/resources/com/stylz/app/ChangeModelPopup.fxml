@@ -6,7 +6,7 @@
 <?import javafx.geometry.*?>
 
 <AnchorPane fx:id="popupRoot"
-            xmlns="http://javafx.com/javafx/25"
+            xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.stylz.app.ChangeModelPopupController"
             AnchorPane.topAnchor="0"

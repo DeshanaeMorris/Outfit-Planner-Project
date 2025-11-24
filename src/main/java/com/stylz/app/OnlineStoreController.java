@@ -1,9 +1,16 @@
 package com.stylz.app;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+
+import java.io.IOException;
+import java.util.Objects;
 
 public class OnlineStoreController {
 
@@ -69,5 +76,31 @@ public class OnlineStoreController {
     @FXML
     private void handleBack(MouseEvent event) {
         System.out.println("Back button clicked");
+        navigateTo("Homepage.fxml", "STYLZ Co. - Home");
+    }
+
+    private void navigateTo(String fxmlFile, String title) {
+        try {
+            String fxmlPath = "/com/stylz/app/" + fxmlFile;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Scene scene = new Scene(loader.load());
+
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/stylz/app/styles.css")).toExternalForm());
+
+            Stage stage = getCurrentStage();
+            if (stage != null) {
+                stage.setScene(scene);
+                stage.setTitle(title);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading " + fxmlFile + ": " + e.getMessage());
+        }
+    }
+    private Stage getCurrentStage() {
+        return (Stage) Stage.getWindows().stream()
+                .filter(Window::isShowing)
+                .findFirst()
+                .orElse(null);
     }
 }
