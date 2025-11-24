@@ -1,4 +1,7 @@
 package com.stylz.app;
+import com.stylz.app.Firebase.FirebaseAuthService;
+import com.stylz.app.Firebase.OutfitService;
+import com.stylz.app.model.Outfit;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,10 +14,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DressingRoomController {
+    private final OutfitService outfitService = new OutfitService();
 
     // Model display layers
     @FXML
@@ -210,15 +215,38 @@ public class DressingRoomController {
 
     @FXML
     private void handleSave(ActionEvent event) {
-        System.out.println("=== OUTFIT SAVED ===");
-        System.out.println("Top: " + (modelTop.getImage() != null ? "Selected" : "None"));
-        System.out.println("Bottom: " + (modelBottom.getImage() != null ? "Selected" : "None"));
-        System.out.println("Shoes: " + (modelShoes.getImage() != null ? "Selected" : "None"));
-        System.out.println("Accessory 1: " + (modelAccessory1.getImage() != null ? "Selected" : "None"));
-        System.out.println("Accessory 2: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
-        System.out.println("Accessory 3: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
-        System.out.println("Accessory 4: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
-        System.out.println("==================");
+        try {
+            String uid = FirebaseAuthService.getCurrentUserUid();
+
+            if (uid == null) {
+                System.out.println("ERROR: No user logged in.");
+                return;
+            }
+
+            // Build item list based on what's selected
+            List<String> selectedItems = new ArrayList<>();
+
+            if (modelTop.getImage() != null) selectedItems.add("top");
+            if (modelBottom.getImage() != null) selectedItems.add("bottom");
+            if (modelShoes.getImage() != null) selectedItems.add("shoes");
+            if (modelAccessory1.getImage() != null) selectedItems.add("accessory1");
+            if (modelAccessory2.getImage() != null) selectedItems.add("accessory2");
+            if (modelAccessory3.getImage() != null) selectedItems.add("accessory3");
+            if (modelAccessory4.getImage() != null) selectedItems.add("accessory4");
+
+            // Create Outfit object
+            Outfit outfit = new Outfit(uid, selectedItems);
+
+            // Save to Firestore
+            outfitService.saveOutfit(outfit);
+
+            System.out.println("Outfit saved for user: " + uid);
+            System.out.println("Items: " + selectedItems);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Failed to save outfit.");
+        }
 
     }
 

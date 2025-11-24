@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c40726c-e452-4bd2-8324-d97e6990658c" name="Changes" comment="updating main">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/Firebase/FirebaseAuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stylz/app/Firebase/FirebaseAuthService.java" afterDir="false" />
+    <list default="true" id="6c40726c-e452-4bd2-8324-d97e6990658c" name="Changes" comment="Added user UID support">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stylz/app/DressingRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stylz/app/DressingRoomController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -190,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763946941654</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added user UID support">
+      <option name="closed" value="true" />
+      <created>1763949014356</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1763949014356</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -227,6 +235,18 @@
     <MESSAGE value="main class" />
     <MESSAGE value="login code" />
     <MESSAGE value="updating main" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating main" />
+    <MESSAGE value="Added user UID support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added user UID support" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stylz/app/DressingRoomController.java</url>
+          <line>207</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

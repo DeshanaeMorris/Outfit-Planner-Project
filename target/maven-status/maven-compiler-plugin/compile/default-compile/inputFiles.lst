@@ -3,6 +3,7 @@
 /Users/jadajohnson/IdeaProjects/Outfit-Planner-Project/src/main/java/group/stylz/HelloController.java
 /Users/jadajohnson/IdeaProjects/Outfit-Planner-Project/src/main/java/com/stylz/app/InstructionsController.java
 /Users/jadajohnson/IdeaProjects/Outfit-Planner-Project/src/main/java/group/stylz/HelloApplication.java
+/Users/jadajohnson/IdeaProjects/Outfit-Planner-Project/src/main/java/com/stylz/app/model/Outfit.java
 /Users/jadajohnson/IdeaProjects/Outfit-Planner-Project/src/main/java/com/stylz/app/SettingsController.java
 /Users/jadajohnson/IdeaProjects/Outfit-Planner-Project/src/main/java/com/stylz/app/ResetPasswordController.java
 /Users/jadajohnson/IdeaProjects/Outfit-Planner-Project/src/main/java/com/stylz/app/Firebase/FirebaseAuthService.java
@@ -16,3 +17,4 @@
 /Users/jadajohnson/IdeaProjects/Outfit-Planner-Project/src/main/java/com/stylz/app/LoginRegisterController.java
 /Users/jadajohnson/IdeaProjects/Outfit-Planner-Project/src/main/java/com/stylz/app/ChangeModelPopupController.java
 /Users/jadajohnson/IdeaProjects/Outfit-Planner-Project/src/main/java/com/stylz/app/Main.java
+/Users/jadajohnson/IdeaProjects/Outfit-Planner-Project/src/main/java/com/stylz/app/Firebase/OutfitService.java
