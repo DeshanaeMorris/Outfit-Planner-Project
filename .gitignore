@@ -14,3 +14,4 @@ target/
 # OS system files
 .DS_Store
 Thumbs.db
+/src/main/resources/com/stylz/app/key.json
