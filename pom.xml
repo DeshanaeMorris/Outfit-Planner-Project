@@ -2,12 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+                            http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
 
     <groupId>com.stylz</groupId>
     <artifactId>OutfitPlannerProject</artifactId>
     <version>1.0-SNAPSHOT</version>
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,6 +17,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <javafx.version>21.0.2</javafx.version>
     </properties>
+
 
     <dependencies>
         <!-- JavaFX modules -->
@@ -44,7 +47,8 @@
             <version>${javafx.version}</version>
         </dependency>
 
-        <!-- OkHttp & Okio for REST calls -->
+
+        <!-- OkHttp & Okio -->
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
@@ -56,17 +60,29 @@
             <version>3.5.0</version>
         </dependency>
 
-        <!-- Gson for JSON parsing -->
+
+        <!-- Gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.10.1</version>
         </dependency>
 
+
+        <!-- ✅ JUnit 5 for testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
+
 
     <build>
         <plugins>
+
+
             <!-- Compiler plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -78,23 +94,22 @@
                 </configuration>
             </plugin>
 
-            <!-- JavaFX Maven plugin to run the app -->
+
+            <!-- JavaFX Maven plugin -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
 
+
                 <executions>
                     <execution>
-                        <!-- default execution used by 'mvn javafx:run' -->
                         <id>default-cli</id>
                         <goals>
                             <goal>run</goal>
                         </goals>
                         <configuration>
                             <mainClass>com.stylz.app.Main</mainClass>
-
-                            <!-- JVM args go here -->
                             <options>
                                 <option>--enable-native-access=javafx.graphics</option>
                             </options>
@@ -102,6 +117,22 @@
                     </execution>
                 </executions>
             </plugin>
+
+
+            <!-- ✅ Maven Surefire plugin → makes JUnit run correctly -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <useModulePath>false</useModulePath>
+                </configuration>
+            </plugin>
+
+
         </plugins>
     </build>
+
+
 </project>
+
