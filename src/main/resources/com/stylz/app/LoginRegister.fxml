@@ -8,7 +8,7 @@
            fx:controller="com.stylz.app.LoginRegisterController"
            stylesheets="@styles.css"
            prefHeight="600.0" prefWidth="400.0"
-           style="-fx-background-image: url('/images/purplepic.jpg'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat;">
+           style="-fx-background-image: url('/images/LoginBackground1.jpg'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat;">
 
     <!-- Center everything -->
     <VBox alignment="CENTER" spacing="40">

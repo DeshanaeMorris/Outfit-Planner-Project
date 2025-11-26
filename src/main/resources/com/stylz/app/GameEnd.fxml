@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stylz.app.GameEndController"
+            stylesheets="@styles.css"
+            styleClass="endOfGame-screen"
+            prefHeight="786.0" prefWidth="808.0">
+
+    <VBox alignment="TOP_CENTER" layoutX="264" layoutY="30" spacing="20" prefWidth="280">
+
+        <!-- AMAZING! Title -->
+        <Label text="AMAZING!"
+               style="-fx-font-size: 40px; -fx-font-weight: bold; -fx-text-fill: white;
+                      -fx-effect: dropshadow(gaussian, rgba(255,215,0,0.8), 20, 0.7, 0, 0);
+                      -fx-font-family: 'Arial Black', sans-serif; -fx-letter-spacing: 5px;"/>
+
+        <!-- Model Frame -->
+        <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                   prefHeight="520" prefWidth="280"
+                   style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 4;">
+            <clip>
+                <Rectangle width="280" height="520" />
+            </clip>
+
+            <ImageView fx:id="modelBase" fitHeight="520" fitWidth="280" preserveRatio="true"/>
+        </StackPane>
+
+    </VBox>
+
+    <!-- Left Side Buttons -->
+    <VBox spacing="30" AnchorPane.leftAnchor="40" AnchorPane.topAnchor="250">
+        <Button text="Replay?" onAction="#handleReplay" prefWidth="200" prefHeight="50"
+                style="-fx-background-color: white; -fx-font-size: 20px;
+                       -fx-font-weight: bold; -fx-text-fill: black; -fx-cursor: hand;"/>
+
+        <Button text="&lt;&lt; Back" onAction="#handleGoBack" prefWidth="200" prefHeight="50"
+                style="-fx-background-color: white; -fx-font-size: 20px;
+                       -fx-font-weight: bold; -fx-text-fill: black; -fx-cursor: hand;"/>
+    </VBox>
+
+    <!-- Right Side Buttons -->
+    <VBox spacing="30" AnchorPane.rightAnchor="40" AnchorPane.topAnchor="250">
+        <Button text="Save to Catalog" onAction="#handleGoCatalog" prefWidth="200" prefHeight="50"
+                style="-fx-background-color: white; -fx-font-size: 20px;
+                       -fx-font-weight: bold; -fx-text-fill: black; -fx-cursor: hand;"/>
+
+        <Button text="Log Out" onAction="#handleLogOut" prefWidth="200" prefHeight="50"
+                style="-fx-background-color: white; -fx-font-size: 20px;
+                       -fx-font-weight: bold; -fx-text-fill: black; -fx-cursor: hand;"/>
+    </VBox>
+
+
+</AnchorPane>
