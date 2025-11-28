@@ -8,10 +8,13 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.event.ActionEvent;
 
+
 public class AuthenticationController {
 
     @FXML
     private void handleContinue(ActionEvent event) {
+
+
         try {
             System.out.println("Continuing to login...");
             // Navigate back to Login screen
@@ -22,6 +25,13 @@ public class AuthenticationController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    private void showAlert(String title, String message) {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     @FXML
