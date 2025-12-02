@@ -11,7 +11,7 @@
 
 <StackPane prefHeight="600.0" prefWidth="800"
            styleClass="catalog-screen"
-           stylesheets="@styles.css"
+           stylesheets="@../../../styles.css"
            xmlns="http://javafx.com/javafx/21"
            xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="com.stylz.app.CatalogController">

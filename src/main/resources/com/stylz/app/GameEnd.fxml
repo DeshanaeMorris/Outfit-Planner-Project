@@ -11,7 +11,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.stylz.app.GameEndController"
-            stylesheets="@styles.css"
+            stylesheets="@../../../styles.css"
             styleClass="endOfGame-screen"
             prefHeight="786.0" prefWidth="808.0">
 

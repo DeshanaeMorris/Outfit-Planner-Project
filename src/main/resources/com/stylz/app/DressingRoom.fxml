@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.shape.Rectangle?>
-<AnchorPane fx:id="rootPane" prefHeight="786.0" prefWidth="808.0" style="-fx-background-color: #FFB6D9;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stylz.app.DressingRoomController">
+<AnchorPane fx:id="rootPane" prefHeight="786.0" prefWidth="808.0" style="-fx-background-color: #FFB6D9;" stylesheets="@../../../styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stylz.app.DressingRoomController">
 
     <!--Clothing - Left side -->
     <VBox alignment="TOP_CENTER" layoutX="20" layoutY="50" spacing="25">

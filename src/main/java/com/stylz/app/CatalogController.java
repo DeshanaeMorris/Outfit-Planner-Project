@@ -15,13 +15,13 @@ import java.util.Objects;
 public class CatalogController {
 
     @FXML
-    private void handleLogout() {
+    private void handleLogout(javafx.event.ActionEvent event){
         System.out.println("Logging Lout from Catalog...");
         navigateTo("Login.fxml", "STYLZ Co. - Login");
     }
 
     @FXML
-    private void handleHome() {
+    private void handleHome(javafx.event.ActionEvent event){
         System.out.println("Going to Home from Catalog...");
         navigateTo("Homepage.fxml", "STYLZ Co. - Home");
     }
@@ -52,7 +52,7 @@ public class CatalogController {
 
     }
     @FXML
-    private void handleGoBack() {
+    private void handleGoBack(javafx.scene.input.MouseEvent event){
         System.out.println("Going back from Catalog...");
         navigateTo("Homepage.fxml", "STYLZ Co. - Home");
     }

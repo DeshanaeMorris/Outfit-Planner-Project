@@ -1,5 +1,6 @@
 package com.stylz.app;
 
+import com.stylz.app.Firebase.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,7 +11,6 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.event.ActionEvent;
 import com.stylz.app.Firebase.FirebaseAuthService;
-
 
 public class LoginController {
 
@@ -32,15 +32,23 @@ public class LoginController {
         if (username.isEmpty() || password.isEmpty()) {
             messageLabel.setText("Please fill in all fields!");
             return;
-
         }
 
         String token = FirebaseAuthService.login(username, password);
         System.out.println("TOKEN = " + token);
 
+        String uid = FirebaseAuthService.getCurrentUserUid();
+        System.out.println("Logged in as UID: " + uid);
+
         if (token != null) {
+            // Store UID globally
+            UserSession.setUserId(uid);
+
+            System.out.println("Stored UID in session = " + UserSession.getUserId());
+
             messageLabel.setText("Login Success!");
 
+            // Navigate to home screen
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
                 Scene scene = new Scene(loader.load());
@@ -49,7 +57,8 @@ public class LoginController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else{
+
+        } else {
             messageLabel.setText("Login Failed!");
         }
 
@@ -59,7 +68,6 @@ public class LoginController {
     @FXML
     private void handleGoToSignUp(ActionEvent event) {
         try {
-            // Navigate to Sign Up screen
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/SignUp.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -69,13 +77,9 @@ public class LoginController {
         }
     }
 
-
-
     @FXML
     private void handleForgotUsername(ActionEvent event) {
         try {
-            System.out.println("Forgot username clicked!");
-            // Navigate to Reset Password screen (same as forgot password)
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/ResetPassword.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -88,7 +92,6 @@ public class LoginController {
     @FXML
     private void handleForgotPassword(ActionEvent event) {
         try {
-            System.out.println("Forgot password clicked!");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/ResetPassword.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -97,9 +100,9 @@ public class LoginController {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void handleExit(ActionEvent event) {
-        System.out.println("Exiting application...");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
