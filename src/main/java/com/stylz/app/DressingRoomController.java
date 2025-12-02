@@ -1,4 +1,7 @@
 package com.stylz.app;
+import com.stylz.app.Firebase.FirebaseAuthService;
+import com.stylz.app.Firebase.OutfitService;
+import com.stylz.app.model.Outfit;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,6 +15,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.animation.Animation;
 import javafx.animation.ScaleTransition;
 import javafx.animation.SequentialTransition;
@@ -20,6 +26,7 @@ import javafx.util.Duration;
 
 
 public class DressingRoomController {
+    private final OutfitService outfitService = new OutfitService();
 
     // Model display layers
     @FXML
@@ -30,6 +37,8 @@ public class DressingRoomController {
     private ImageView modelBottom;
     @FXML
     private ImageView modelShoes;
+    @FXML
+    private ImageView modelDress;
     // For hat/sunglasses
     @FXML
     private ImageView modelAccessory1;
@@ -64,7 +73,7 @@ public class DressingRoomController {
 
         }
     }
-
+        //Finish button animation
         private void createHeartbeatAnimation(Button button) {
             ScaleTransition beat1 = new ScaleTransition(Duration.millis(280), button);
             beat1.setToX(1.15);
@@ -137,7 +146,7 @@ public class DressingRoomController {
         }
     }
 
-    //heels
+    //shoes
     @FXML
     private void selectBlackHeels(MouseEvent event) {
         try {
@@ -150,19 +159,20 @@ public class DressingRoomController {
     }
 
 
-    //
+    //Dress
     @FXML
-    private void selectDress(MouseEvent event) {
+    private void selectWhiteDress(MouseEvent event) {
         try {
-            Image dressImage = new Image(getClass().getResourceAsStream("/images/Dress1-pic.png"));
-            modelTop.setImage(dressImage);
+            Image dressImage = new Image(getClass().getResourceAsStream("/images/Dress1-picFitted.png"));
+            modelDress.setImage(dressImage);
+            modelTop.setImage(null);
             modelBottom.setImage(null); // Clear bottom since dress covers it
-            System.out.println("White dress selected");
+            System.out.println("Pink dress selected");
         } catch (Exception e) {
             System.out.println("Error loading dress: " + e.getMessage());
         }
     }
-
+    //hat
     @FXML
     private void selectHat(MouseEvent event) {
         try {
@@ -173,7 +183,7 @@ public class DressingRoomController {
             System.out.println("Error loading hat: " + e.getMessage());
         }
     }
-
+    //bag selection
     @FXML
     private void selectBag(MouseEvent event) {
         try {
@@ -185,7 +195,7 @@ public class DressingRoomController {
         }
     }
 
-
+    //jewelry
     @FXML
     private void selectJewelry(MouseEvent event) {
         try {
@@ -197,7 +207,7 @@ public class DressingRoomController {
         }
     }
 
-
+    //sunglasses
     @FXML
     private void selectSunglasses(MouseEvent event) {
         try {
@@ -208,7 +218,7 @@ public class DressingRoomController {
             System.out.println("Error loading sunglasses: " + e.getMessage());
         }
     }
-
+    //To choose a model and change
     @FXML
     private void handleChangeModel(ActionEvent event) {
         try {
@@ -229,12 +239,13 @@ public class DressingRoomController {
         }
 
     }
-
+    //To reset the model clothing
     @FXML
     public void handleReset() {
         modelTop.setImage(null);
         modelBottom.setImage(null);
         modelShoes.setImage(null);
+        modelDress.setImage(null);
         modelAccessory1.setImage(null);
         modelAccessory2.setImage(null);
         modelAccessory3.setImage(null);
@@ -242,29 +253,60 @@ public class DressingRoomController {
         System.out.println("Outfit reset - all clothing cleared!");
     }
 
-
+    //Save the outfit in firebase
     @FXML
     private void handleSave(ActionEvent event) {
-        System.out.println("=== OUTFIT SAVED ===");
-        System.out.println("Top: " + (modelTop.getImage() != null ? "Selected" : "None"));
-        System.out.println("Bottom: " + (modelBottom.getImage() != null ? "Selected" : "None"));
-        System.out.println("Shoes: " + (modelShoes.getImage() != null ? "Selected" : "None"));
-        System.out.println("Accessory 1: " + (modelAccessory1.getImage() != null ? "Selected" : "None"));
-        System.out.println("Accessory 2: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
-        System.out.println("Accessory 3: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
-        System.out.println("Accessory 4: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
-        System.out.println("==================");
+        try {
+            String uid = FirebaseAuthService.getCurrentUserUid();
+
+            if (uid == null) {
+                System.out.println("ERROR: No user logged in.");
+                return;
+            }
+
+            // Build item list based on what's selected
+            List<String> selectedItems = new ArrayList<>();
+
+            if (modelTop.getImage() != null) selectedItems.add("top");
+            if (modelBottom.getImage() != null) selectedItems.add("bottom");
+            if (modelShoes.getImage() != null) selectedItems.add("shoes");
+            if (modelDress.getImage() != null) selectedItems.add("dress");
+            if (modelAccessory1.getImage() != null) selectedItems.add("accessory1");
+            if (modelAccessory2.getImage() != null) selectedItems.add("accessory2");
+            if (modelAccessory3.getImage() != null) selectedItems.add("accessory3");
+            if (modelAccessory4.getImage() != null) selectedItems.add("accessory4");
+
+            // Create Outfit object
+            Outfit outfit = new Outfit(uid, selectedItems);
+
+            // Save to Firestore
+            outfitService.saveOutfit(outfit);
+
+            System.out.println("Outfit saved for user: " + uid);
+            System.out.println("Items: " + selectedItems);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Failed to save outfit.");
+        }
 
     }
 
-
+    //To go back to the homepage scene
     @FXML
-    private void handleGoBack(ActionEvent event) {
+    private void goBack(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
+            // Load the homepage FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Homepage.fxml"));
             Parent homepageRoot = loader.load();
+
+            // Get the current stage (window) from the event source
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Create new scene with the homepage
             Scene homepageScene = new Scene(homepageRoot);
+
+            // Set the scene and show it
             stage.setScene(homepageScene);
             stage.show();
 
@@ -274,7 +316,7 @@ public class DressingRoomController {
             e.printStackTrace();
         }
     }
-
+    //Finish button - to go to the end of the game
     @FXML
     private void handleFinish(ActionEvent event) {
         try{
@@ -290,5 +332,4 @@ public class DressingRoomController {
 
         System.out.println("Finished Outfit!");
     }
-
 }
