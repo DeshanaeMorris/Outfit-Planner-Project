@@ -56,6 +56,15 @@ public class CatalogController {
         System.out.println("Going back from Catalog...");
         navigateTo("Homepage.fxml", "STYLZ Co. - Home");
     }
+
+    /**
+     * ✅ Pure logic helper for building the FXML path.
+     * This is what we'll test with JUnit.
+     */
+    public static String buildFxmlPath(String fxmlFile) {
+        return "/com/stylz/app/" + fxmlFile;
+    }
+
     @FXML
     private void navigateTo(String fxmlFile, String title) {
         try {
