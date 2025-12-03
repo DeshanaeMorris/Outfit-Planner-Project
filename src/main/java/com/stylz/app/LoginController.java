@@ -1,5 +1,6 @@
 package com.stylz.app;
 
+import com.stylz.app.Firebase.FirestoreDatabase;
 import com.stylz.app.Firebase.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,6 +48,9 @@ public class LoginController {
             System.out.println("Stored UID in session = " + UserSession.getUserId());
 
             messageLabel.setText("Login Success!");
+
+            //Initialize Firestore Database
+            FirestoreDatabase.initializeFirebase();
 
             // Navigate to home screen
             try {
