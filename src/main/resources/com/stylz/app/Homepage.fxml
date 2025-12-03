@@ -7,7 +7,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.stylz.app.HomepageController"
-            stylesheets="@styles.css"
+            stylesheets="@../../../styles.css"
             prefHeight="600.0" prefWidth="800.0">
 
     <!-- Left Side: Shopping Mall Image -->

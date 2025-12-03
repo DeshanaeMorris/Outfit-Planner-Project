@@ -32,12 +32,40 @@ public class HomepageController {
 
     @FXML
     private void handleStore(ActionEvent event) {
-        System.out.println("Store clicked!");
+        try {
+            System.out.println("Store clicked!");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/OnlineStore.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (IOException e) {
+            System.err.println("Error loading Online Store: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void handleCatalog(ActionEvent event) {
-        System.out.println("Catalog clicked!");
+        try {
+            System.out.println("Catalog clicked!");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Catalog.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            System.err.println("Error loading Catalog: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @FXML
