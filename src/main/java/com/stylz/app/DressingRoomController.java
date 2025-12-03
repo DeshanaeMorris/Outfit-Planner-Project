@@ -37,6 +37,21 @@ public class DressingRoomController {
     private ImageView modelAccessory4;
     @FXML
     private ImageView modelBase;
+    @FXML
+    private String selectedTop;
+    @FXML
+    private String selectedBottom;
+    @FXML
+    private String selectedShoes;
+    @FXML
+    private String selectedAccessory1;
+    @FXML
+    private String selectedAccessory2;
+    @FXML
+    private String selectedAccessory3;
+    @FXML
+    private String selectedAccessory4;
+
 
 
     //Initialize method
@@ -220,6 +235,21 @@ public class DressingRoomController {
         System.out.println("Accessory 4: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
         System.out.println("==================");
 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/GameEnd.fxml"));
+            Parent endRoot = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene endScene = new Scene(endRoot);
+
+            stage.setScene(endScene);
+            stage.show();
+
+            System.out.println("Navigated to Game End page.");
+        } catch (Exception e) {
+            System.out.println("Error loading Game End page: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
 

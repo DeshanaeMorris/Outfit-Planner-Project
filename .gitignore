@@ -14,3 +14,8 @@ target/
 # Windows system files
 Thumbs.db
 desktop.ini
+
+#Firebase service account key
+src/main/resources/key.json
+
+
