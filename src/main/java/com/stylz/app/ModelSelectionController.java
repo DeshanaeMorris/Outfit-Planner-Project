@@ -23,6 +23,22 @@ public class ModelSelectionController {
     @FXML
     private void chooseModel4(MouseEvent event) { loadDressingRoom("/images/model4-2.png", event); }
 
+    @FXML
+    public void handleGoBack(MouseEvent event) {
+        try {
+            // Go back to homepage
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Homepage.fxml"));
+            Parent homepageRoot = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene homepageScene = new Scene(homepageRoot);
+            stage.setScene(homepageScene);
+            stage.show();
+            System.out.println("Back to Homepage!");
+        } catch (Exception e) {
+            System.err.println("Error going to Homepage: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
     /**
      * Pure logic: given a model index, return the image path.
      * This is what we will unit-test with JUnit.
