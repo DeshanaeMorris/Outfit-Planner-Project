@@ -1,97 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Rectangle?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.stylz.app.OnlineStoreController"
-            prefWidth="800" prefHeight="600">
+            prefWidth="900" prefHeight="600"
+            styleClass="store-screen">
 
-    <!-- TOP BAR -->
+    <!-- ======= TOP BAR ======= -->
     <top>
-        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #6F4FF2;">
-
+        <HBox spacing="10" alignment="CENTER_LEFT"
+              style="-fx-background-color: #7A45E5;">
             <padding>
                 <Insets top="10" right="10" bottom="10" left="10"/>
             </padding>
 
-            <Label fx:id="backButton"
-                   text="&lt; Back"
-                   style="-fx-font-size: 20px; -fx-text-fill: white;"
-                   onMouseClicked="#handleBack"/>
+            <Label text="&lt; Back"
+                   onMouseClicked="#handleBack"
+                   style="-fx-font-size: 18px; -fx-text-fill: white; -fx-font-weight: bold;"/>
 
             <Pane HBox.hgrow="ALWAYS"/>
 
             <Label fx:id="balanceLabel"
                    text="Balance: $100.00"
-                   style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+                   style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
         </HBox>
     </top>
 
-    <!-- CENTER CONTENT -->
+    <!-- ======= CENTER CONTENT ======= -->
     <center>
         <HBox spacing="40">
             <padding>
-                <Insets top="20" right="20" bottom="20" left="20"/>
+                <Insets top="30" right="30" bottom="30" left="30"/>
             </padding>
 
-            <!-- LEFT: Items -->
-            <VBox spacing="20">
-                <Label text="Tops"/>
+            <!-- LEFT: ITEMS (TOPS & BOTTOMS) -->
+            <VBox spacing="25">
+                <Label text="Tops" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
 
-                <HBox spacing="10">
-                    <ImageView fx:id="topYellow" fitWidth="100" fitHeight="100"
+                <HBox spacing="15">
+                    <!-- Top Yellow -->
+                    <ImageView fx:id="topYellow"
+                               fitWidth="110" fitHeight="90"
                                pickOnBounds="true" preserveRatio="true"
                                onMouseClicked="#selectTopYellow">
-                        <Image url="@/images/top-yellow.png"/>
+                        <image>
+                            <Image url="@/images/top-yellow.png"/>
+                        </image>
                     </ImageView>
 
-                    <ImageView fx:id="topPink" fitWidth="100" fitHeight="100"
+                    <!-- Top Pink -->
+                    <ImageView fx:id="topPink"
+                               fitWidth="110" fitHeight="90"
                                pickOnBounds="true" preserveRatio="true"
                                onMouseClicked="#selectTopPink">
-                        <Image url="@/images/top-pink.png"/>
+                        <image>
+                            <Image url="@/images/top-pink.png"/>
+                        </image>
                     </ImageView>
 
-                    <ImageView fx:id="topGreen" fitWidth="100" fitHeight="100"
+                    <!-- Top Green -->
+                    <ImageView fx:id="topGreen"
+                               fitWidth="110" fitHeight="90"
                                pickOnBounds="true" preserveRatio="true"
                                onMouseClicked="#selectTopGreen">
-                        <Image url="@/images/top-green.png"/>
+                        <image>
+                            <Image url="@/images/top-green.png"/>
+                        </image>
                     </ImageView>
                 </HBox>
 
-                <Label text="Bottoms"/>
+                <Label text="Bottoms" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
 
-                <HBox spacing="10">
-                    <ImageView fx:id="bottomYellow" fitWidth="100" fitHeight="100"
+                <HBox spacing="15">
+                    <!-- Bottom Yellow -->
+                    <ImageView fx:id="bottomYellow"
+                               fitWidth="110" fitHeight="90"
                                pickOnBounds="true" preserveRatio="true"
                                onMouseClicked="#selectBottomYellow">
-                        <Image url="@/images/bottom-yellow.png"/>
+                        <image>
+                            <Image url="@/images/bottom-yellow.png"/>
+                        </image>
                     </ImageView>
 
-                    <ImageView fx:id="bottomPink" fitWidth="100" fitHeight="100"
+                    <!-- Bottom Pink -->
+                    <ImageView fx:id="bottomPink"
+                               fitWidth="110" fitHeight="90"
                                pickOnBounds="true" preserveRatio="true"
                                onMouseClicked="#selectBottomPink">
-                        <Image url="@/images/bottom-pink.png"/>
+                        <image>
+                            <Image url="@/images/bottom-pink.png"/>
+                        </image>
                     </ImageView>
 
-                    <ImageView fx:id="bottomGreen" fitWidth="100" fitHeight="100"
+                    <!-- Bottom Green -->
+                    <ImageView fx:id="bottomGreen"
+                               fitWidth="110" fitHeight="90"
                                pickOnBounds="true" preserveRatio="true"
                                onMouseClicked="#selectBottomGreen">
-                        <Image url="@/images/bottom-green.png"/>
+                        <image>
+                            <Image url="@/images/bottom-green.png"/>
+                        </image>
                     </ImageView>
                 </HBox>
             </VBox>
 
-            <!-- RIGHT: Panel -->
-            <VBox spacing="20" alignment="TOP_CENTER">
-                <Label text="Total"/>
-                <Label fx:id="totalPrice" text="0"
-                       style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
-                <Button text="Checkout" onAction="#handleCheckout"/>
+            <!-- This pushes the Total panel further to the right -->
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- RIGHT: TOTAL PANEL -->
+            <VBox spacing="20" alignment="TOP_CENTER" styleClass="store-total-panel">
+
+                <Label text="Total"
+                       style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #7A45E5;"/>
+
+                <!-- Color legend -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Rectangle width="18" height="18" styleClass="store-indicator-teal"/>
+                    <Label text="Teal outfit"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Rectangle width="18" height="18" styleClass="store-indicator-yellow"/>
+                    <Label text="Yellow outfit"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Rectangle width="18" height="18" styleClass="store-indicator-pink"/>
+                    <Label text="Pink outfit"/>
+                </HBox>
+
+                <!-- Total price label (set from controller, e.g. starts at $95) -->
+                <Label fx:id="totalPrice"
+                       style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+
+                <!-- Checkout button with cart icon -->
+                <Button styleClass="store-checkout-button"
+                        onAction="#handleCheckout">
+                    <graphic>
+                        <HBox spacing="8" alignment="CENTER">
+                            <ImageView fitWidth="18" fitHeight="18" preserveRatio="true">
+                                <image>
+                                    <Image url="@/images/cart-icon.png"/>
+                                </image>
+                            </ImageView>
+                            <Label text="Checkout"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+
             </VBox>
         </HBox>
     </center>
+
 </BorderPane>
