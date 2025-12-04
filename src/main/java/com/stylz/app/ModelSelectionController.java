@@ -23,6 +23,19 @@ public class ModelSelectionController {
     @FXML
     private void chooseModel4(MouseEvent event) { loadDressingRoom("/images/model4-2.png", event); }
 
+    /**
+     * Pure logic: given a model index, return the image path.
+     * This is what we will unit-test with JUnit.
+     */
+    public static String resolveModelPath(int modelIndex) {
+        return switch (modelIndex) {
+            case 1 -> "/images/model1-2.png";
+            case 2 -> "/images/model2-2.png";
+            case 3 -> "/images/model3-2.png";
+            case 4 -> "/images/model4-2.png";
+            default -> "/images/model1.png"; // fallback to default
+        };
+    }
 
     private void loadDressingRoom(String modelPath, MouseEvent event) {
         try {
