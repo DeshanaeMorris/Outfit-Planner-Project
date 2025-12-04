@@ -57,6 +57,7 @@
             <ImageView fx:id="modelTop" fitHeight="100.0" fitWidth="100.0" preserveRatio="true" translateX="-2.0" translateY="-104.0"/>
             <ImageView fx:id="modelBottom" fitHeight="520" fitWidth="270.0" preserveRatio="true" translateX="15.0" translateY="55.0"/>
             <ImageView fx:id="modelShoes" fitHeight="520" fitWidth="140.0" preserveRatio="true" translateX="3.0" translateY="180.0"/>
+            <ImageView fx:id="modelDress" fitHeight="250" fitWidth="135.0" preserveRatio="true" translateX="2.0" translateY="-50.0"/>
             <ImageView fx:id="modelAccessory1" fitHeight="700.0" fitWidth="700.0" preserveRatio="true" translateX="-164.0" translateY="-24.0"/>
             <ImageView fx:id="modelAccessory2" fitHeight="730.0" fitWidth="730.0" preserveRatio="true" translateX="79.0" translateY="-8.5"/>
             <ImageView fx:id="modelAccessory3" fitHeight="700.0" fitWidth="700.0" preserveRatio="true" translateX="73.0" translateY="-8.0"/>
