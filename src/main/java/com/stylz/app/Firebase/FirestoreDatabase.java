@@ -23,7 +23,7 @@ public class FirestoreDatabase {
 
             // Path to service-account JSON file
             FileInputStream serviceAccount =
-                    new FileInputStream("src/main/resources/FirebaseConfig.json");
+                    new FileInputStream("src/main/resources/key.json");
 
             FirebaseOptions options = FirebaseOptions.builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))

@@ -1,4 +1,7 @@
 package com.stylz.app;
+import com.stylz.app.Firebase.FirebaseAuthService;
+import com.stylz.app.Firebase.OutfitService;
+import com.stylz.app.model.Outfit;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,10 +14,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DressingRoomController {
+    private final OutfitService outfitService = new OutfitService();
 
     // Model display layers
     @FXML
@@ -26,6 +31,8 @@ public class DressingRoomController {
     @FXML
     private ImageView modelShoes;
     // For hat/sunglasses
+    @FXML
+    private ImageView modelDress;
     @FXML
     private ImageView modelAccessory1;
     // For bag/jewelry
@@ -135,7 +142,8 @@ public class DressingRoomController {
     private void selectWhiteDress(MouseEvent event) {
         try {
             Image dressImage = new Image(getClass().getResourceAsStream("/images/Dress1-pic.png"));
-            modelTop.setImage(dressImage);
+            modelDress.setImage(dressImage);
+            modelTop.setImage(null);
             modelBottom.setImage(null); // Clear bottom since dress covers it
             System.out.println("White dress selected");
         } catch (Exception e) {
@@ -213,6 +221,7 @@ public class DressingRoomController {
     @FXML
     public void handleReset() {
         modelTop.setImage(null);
+        modelDress.setImage(null);
         modelBottom.setImage(null);
         modelShoes.setImage(null);
         modelAccessory1.setImage(null);
@@ -236,7 +245,42 @@ public class DressingRoomController {
         System.out.println("==================");
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/GameEnd.fxml"));
+            String uid = FirebaseAuthService.getCurrentUserUid();
+
+            if (uid == null) {
+                System.out.println("Error: Not user not logged in");
+                return;
+            }
+
+            // Build item list based on what's selected
+            List<String> selectedItems = new ArrayList<>();
+
+            if (modelTop.getImage() != null) selectedItems.add("top");
+            if (modelBottom.getImage() != null) selectedItems.add("bottom");
+            if (modelShoes.getImage() != null) selectedItems.add("shoes");
+            if (modelDress.getImage() != null) selectedItems.add("dress");
+            if (modelAccessory1.getImage() != null) selectedItems.add("accessory1");
+            if (modelAccessory2.getImage() != null) selectedItems.add("accessory2");
+            if (modelAccessory3.getImage() != null) selectedItems.add("accessory3");
+            if (modelAccessory4.getImage() != null) selectedItems.add("accessory4");
+
+            // Create Outfit object
+            Outfit outfit = new Outfit(uid, selectedItems);
+
+            // Save to Firestore
+            outfitService.saveOutfit(outfit);
+
+            System.out.println("Outfit saved for user: " + uid);
+            System.out.println("Items: " + selectedItems);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Failed to save outfit.");
+            return;
+        }
+
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GameEnd.fxml"));
             Parent endRoot = loader.load();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -270,7 +314,7 @@ public class DressingRoomController {
             stage.setScene(homepageScene);
             stage.show();
 
-            System.out.println("Successfully navigated back to homepage");
+            System.out.println("Successfully navigated back to Homepage!");
         } catch (IOException e) {
             System.err.println("Error loading homepage: " + e.getMessage());
             e.printStackTrace();
