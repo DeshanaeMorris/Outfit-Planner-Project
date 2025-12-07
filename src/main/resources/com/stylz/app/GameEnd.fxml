@@ -12,50 +12,59 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.stylz.app.GameEndController"
             stylesheets="@../../../styles.css"
-            styleClass="endOfGame-screen"
+            style="-fx-background-color: #f8d6e2"
             prefHeight="786.0" prefWidth="808.0">
 
     <VBox alignment="TOP_CENTER" layoutX="264" layoutY="30" spacing="20" prefWidth="280">
 
         <!-- AMAZING! Title -->
         <Label text="AMAZING!"
-               style="-fx-font-size: 40px; -fx-font-weight: bold; -fx-text-fill: white;
+               style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: white;
                       -fx-effect: dropshadow(gaussian, rgba(255,215,0,0.8), 20, 0.7, 0, 0);
                       -fx-font-family: 'Arial Black', sans-serif; -fx-letter-spacing: 5px;"/>
 
         <!-- Model Frame -->
         <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
                    prefHeight="520" prefWidth="280"
-                   style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 4;">
+                   style="-fx-background-color: #f5f5dc; -fx-border-color: black; -fx-border-width: 4;">
             <clip>
                 <Rectangle width="280" height="520" />
             </clip>
 
             <ImageView fx:id="modelBase" fitHeight="520" fitWidth="280" preserveRatio="true"/>
+                <!-- Clothing layers -->
+                <ImageView fx:id="modelTop" fitHeight="100.0" fitWidth="100.0" preserveRatio="true" translateX="-2.0" translateY="-104.0"/>
+                <ImageView fx:id="modelBottom" fitHeight="520" fitWidth="270.0" preserveRatio="true" translateX="15.0" translateY="55.0"/>
+                <ImageView fx:id="modelShoes" fitHeight="520" fitWidth="140.0" preserveRatio="true" translateX="3.0" translateY="180.0"/>
+                <ImageView fx:id="modelDress" fitHeight="250" fitWidth="135.0" preserveRatio="true" translateX="2.0" translateY="-50.0"/>
+                <ImageView fx:id="modelAccessory1" fitHeight="700.0" fitWidth="700.0" preserveRatio="true" translateX="-164.0" translateY="-24.0"/>
+                <ImageView fx:id="modelAccessory2" fitHeight="730.0" fitWidth="730.0" preserveRatio="true" translateX="79.0" translateY="-8.5"/>
+                <ImageView fx:id="modelAccessory3" fitHeight="700.0" fitWidth="700.0" preserveRatio="true" translateX="73.0" translateY="-8.0"/>
+                <ImageView fx:id="modelAccessory4" fitHeight="710.0" fitWidth="710.0" preserveRatio="true" translateX="244.0" translateY="-11.0"/>
         </StackPane>
 
     </VBox>
 
     <!-- Left Side Buttons -->
-    <VBox spacing="30" AnchorPane.leftAnchor="40" AnchorPane.topAnchor="250">
+    <VBox spacing="120" AnchorPane.leftAnchor="40" AnchorPane.topAnchor="250">
         <Button text="Replay?" onAction="#handleReplay" prefWidth="200" prefHeight="50"
-                style="-fx-background-color: white; -fx-font-size: 20px;
-                       -fx-font-weight: bold; -fx-text-fill: black; -fx-cursor: hand;"/>
+                style="-fx-background-color: #bca0dc; -fx-font-size: 20px;
+                       -fx-font-weight: bold; -fx-text-fill: white; -fx-cursor: hand;"/>
 
         <Button text="&lt;&lt; Back" onAction="#handleGoBack" prefWidth="200" prefHeight="50"
-                style="-fx-background-color: white; -fx-font-size: 20px;
-                       -fx-font-weight: bold; -fx-text-fill: black; -fx-cursor: hand;"/>
+                style="-fx-background-color: #bca0dc; -fx-font-size: 20px;
+                       -fx-font-weight: bold; -fx-text-fill: white; -fx-cursor: hand;"/>
     </VBox>
 
     <!-- Right Side Buttons -->
-    <VBox spacing="30" AnchorPane.rightAnchor="40" AnchorPane.topAnchor="250">
+    <VBox spacing="120" AnchorPane.rightAnchor="40" AnchorPane.topAnchor="250">
         <Button text="Save to Catalog" onAction="#handleGoCatalog" prefWidth="200" prefHeight="50"
-                style="-fx-background-color: white; -fx-font-size: 20px;
-                       -fx-font-weight: bold; -fx-text-fill: black; -fx-cursor: hand;"/>
+                style="-fx-background-color: #bca0dc; -fx-font-size: 20px;
+                       -fx-font-weight: bold; -fx-text-fill: white; -fx-cursor: hand;"/>
 
         <Button text="Log Out" onAction="#handleLogOut" prefWidth="200" prefHeight="50"
-                style="-fx-background-color: white; -fx-font-size: 20px;
-                       -fx-font-weight: bold; -fx-text-fill: black; -fx-cursor: hand;"/>
+                style="-fx-background-color: #bca0dc; -fx-font-size: 20px;
+                       -fx-font-weight: bold; -fx-text-fill: white; -fx-cursor: hand;"/>
     </VBox>
 
 

@@ -1,4 +1,7 @@
 package com.stylz.app;
+import com.stylz.app.Firebase.FirebaseAuthService;
+import com.stylz.app.Firebase.OutfitService;
+import com.stylz.app.model.Outfit;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,9 +15,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DressingRoomController {
+    private final OutfitService outfitService = new OutfitService();
 
     // Model display layers
     @FXML
@@ -218,6 +224,7 @@ public class DressingRoomController {
         modelTop.setImage(null);
         modelBottom.setImage(null);
         modelShoes.setImage(null);
+        modelDress.setImage(null);
         modelAccessory1.setImage(null);
         modelAccessory2.setImage(null);
         modelAccessory3.setImage(null);
@@ -228,19 +235,55 @@ public class DressingRoomController {
 
     @FXML
     private void handleSave(ActionEvent event) {
-        System.out.println("=== OUTFIT SAVED ===");
-        System.out.println("Top: " + (modelTop.getImage() != null ? "Selected" : "None"));
-        System.out.println("Bottom: " + (modelBottom.getImage() != null ? "Selected" : "None"));
-        System.out.println("Shoes: " + (modelShoes.getImage() != null ? "Selected" : "None"));
-        System.out.println("Accessory 1: " + (modelAccessory1.getImage() != null ? "Selected" : "None"));
-        System.out.println("Accessory 2: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
-        System.out.println("Accessory 3: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
-        System.out.println("Accessory 4: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
-        System.out.println("==================");
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/GameEnd.fxml"));
+            String uid = FirebaseAuthService.getCurrentUserUid();
+
+            if (uid == null) {
+                System.out.println("Error: Not user not logged in");
+                return;
+            }
+            List<String> selectedItems = new ArrayList<>();
+
+            if (modelTop.getImage() != null) selectedItems.add("top");
+            if (modelBottom.getImage() != null) selectedItems.add("bottom");
+            if (modelShoes.getImage() != null) selectedItems.add("shoes");
+            if (modelDress.getImage() != null) selectedItems.add("dress");
+            if (modelAccessory1.getImage() != null) selectedItems.add("accessory1");
+            if (modelAccessory2.getImage() != null) selectedItems.add("accessory2");
+            if (modelAccessory3.getImage() != null) selectedItems.add("accessory3");
+            if (modelAccessory4.getImage() != null) selectedItems.add("accessory4");
+
+            // Create Outfit object
+            Outfit outfit = new Outfit(uid, selectedItems);
+
+            // Save to Firestore
+            outfitService.saveOutfit(outfit);
+
+            System.out.println("Outfit saved for user: " + uid);
+            System.out.println("Items: " + selectedItems);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Failed to save outfit.");
+            return;
+        }
+
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GameEnd.fxml"));
             Parent endRoot = loader.load();
+
+            GameEndController gameEnd = loader.getController();
+            gameEnd.setOutfitImages(
+                modelTop.getImage(),
+                modelBottom.getImage(),
+                modelShoes.getImage(),
+                modelDress.getImage(),
+                modelAccessory1.getImage(),
+                modelAccessory2.getImage(),
+                modelAccessory3.getImage(),
+                modelAccessory4.getImage()
+            );
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene endScene = new Scene(endRoot);
