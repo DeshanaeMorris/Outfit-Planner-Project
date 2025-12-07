@@ -16,8 +16,14 @@
       prefWidth="900" prefHeight="650"
       style="-fx-background-color: #f8d6e2;">
 
-    <Label text="Choose Your Model"
-           style="-fx-font-size: 32px; -fx-font-weight: bold;" />
+    <StackPane style="-fx-padding: 0 0 0 0; -fx-translate-y: -30;">
+        <Label text="&lt;&lt;&lt; Go Back" StackPane.alignment="CENTER_LEFT"
+               style="-fx-text-fill: #4b4453; -fx-font-size: 14px; -fx-cursor: hand; -fx-underline: true; -fx-font-weight: bold; -fx-padding: 0 0 0 40"
+               onMouseClicked="#handleGoBack"/>
+
+        <Label text="Choose Your Model"
+               style="-fx-font-size: 32px; -fx-font-weight: bold;" />
+    </StackPane>
 
     <HBox alignment="CENTER" spacing="40">
 
