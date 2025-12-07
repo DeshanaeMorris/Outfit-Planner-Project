@@ -27,6 +27,8 @@ public class DressingRoomController {
     private ImageView modelShoes;
     // For hat/sunglasses
     @FXML
+    private ImageView modelDress;
+    @FXML
     private ImageView modelAccessory1;
     // For bag/jewelry
     @FXML
@@ -134,8 +136,9 @@ public class DressingRoomController {
     @FXML
     private void selectWhiteDress(MouseEvent event) {
         try {
-            Image dressImage = new Image(getClass().getResourceAsStream("/images/Dress1-pic.png"));
-            modelTop.setImage(dressImage);
+            Image dressImage = new Image(getClass().getResourceAsStream("/images/Dress1-picFitted.png"));
+            modelDress.setImage(dressImage);
+            modelTop.setImage(null);
             modelBottom.setImage(null); // Clear bottom since dress covers it
             System.out.println("White dress selected");
         } catch (Exception e) {
