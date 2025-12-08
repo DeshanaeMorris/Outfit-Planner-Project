@@ -12,18 +12,30 @@ import javafx.stage.Stage;
 
 public class GameEndController {
 
+    //holds outfit snapshot
+    private static Image lastOutfitImage;
+
+    public static void setLastOutfitImage(Image image) {
+        lastOutfitImage = image;
+    }
+
     @FXML
     private ImageView modelBase;
 
     @FXML
     private void initialize() {
         try {
-            // Load the selected model from ModelSelectionController
-            Image selectedModel = new Image(
-                    getClass().getResourceAsStream(ModelSelectionController.selectedModelPath)
-            );
-            modelBase.setImage(selectedModel);
-            System.out.println("Game End - Loaded model: " + ModelSelectionController.selectedModelPath);
+            if (lastOutfitImage != null) {
+                modelBase.setImage(lastOutfitImage);
+                System.out.println("Game End - Loaded outfit snapshot.");
+            } else {
+                //show just the selected base model if no snapshot is set
+                Image selectedModel = new Image(
+                        getClass().getResourceAsStream(ModelSelectionController.selectedModelPath)
+                );
+                modelBase.setImage(selectedModel);
+                System.out.println("Game End - Loaded base model only: " + ModelSelectionController.selectedModelPath);
+            }
         } catch (Exception e) {
             System.out.println("Error loading model in Game End: " + e.getMessage());
             e.printStackTrace();
@@ -50,6 +62,7 @@ public class GameEndController {
     @FXML
     public void handleReplay(ActionEvent event) {
         try {
+            lastOutfitImage = null;
             // Go back to dressing room to create a new outfit
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
             Parent dressingRoomRoot = loader.load();
@@ -67,6 +80,7 @@ public class GameEndController {
     @FXML
     public void handleGoBack(ActionEvent event) {
         try {
+            lastOutfitImage = null;
             // Go back to homepage
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/DressingRoom.fxml"));
             Parent homepageRoot = loader.load();
