@@ -1,4 +1,7 @@
 package com.stylz.app;
+import com.stylz.app.Firebase.FirebaseAuthService;
+import com.stylz.app.Firebase.OutfitService;
+import com.stylz.app.model.Outfit;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,9 +15,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DressingRoomController {
+
+    // Firebase outfit service
+    private final OutfitService outfitService = new OutfitService();
 
     // Model display layers
     @FXML
@@ -37,19 +45,13 @@ public class DressingRoomController {
     private ImageView modelAccessory4;
     @FXML
     private ImageView modelBase;
-    @FXML
+
     private String selectedTop;
-    @FXML
     private String selectedBottom;
-    @FXML
     private String selectedShoes;
-    @FXML
     private String selectedAccessory1;
-    @FXML
     private String selectedAccessory2;
-    @FXML
     private String selectedAccessory3;
-    @FXML
     private String selectedAccessory4;
 
 
@@ -75,6 +77,7 @@ public class DressingRoomController {
         try {
             Image topImage = new Image(getClass().getResourceAsStream("/images/DisplayTop1.PNG"));
             modelTop.setImage(topImage);
+            selectedTop = "white_top";
             System.out.println("White top selected");
         } catch (Exception e) {
             System.out.println("Error loading white top: " + e.getMessage());
@@ -87,6 +90,7 @@ public class DressingRoomController {
         try {
             Image shirtImage = new Image(getClass().getResourceAsStream("/images/Top2-pic.png"));
             modelTop.setImage(shirtImage);
+            selectedTop = "pink_shirt";
             System.out.println("Pink shirt selected");
         } catch (Exception e) {
             System.out.println("Error loading pink shirt: " + e.getMessage());
@@ -99,6 +103,7 @@ public class DressingRoomController {
         try {
             Image shortsImage = new Image(getClass().getResourceAsStream("/images/Bottom1-pic.png"));
             modelBottom.setImage(shortsImage);
+            selectedBottom = "blue_shorts";
             System.out.println("Blue shorts selected");
         } catch (Exception e) {
             System.out.println("Error loading blue shorts: " + e.getMessage());
@@ -111,6 +116,7 @@ public class DressingRoomController {
         try {
             Image skirtImage = new Image(getClass().getResourceAsStream("/images/black-skirt.png"));
             modelBottom.setImage(skirtImage);
+            selectedBottom = "black_skirt";
             System.out.println("Black skirt selected");
         } catch (Exception e) {
             System.out.println("Error loading black skirt: " + e.getMessage());
@@ -123,6 +129,7 @@ public class DressingRoomController {
         try {
             Image shoesImage = new Image(getClass().getResourceAsStream("/images/Shoes1-pic.png"));
             modelShoes.setImage(shoesImage);
+            selectedShoes = "black_heels";
             System.out.println("Black heels selected");
         } catch (Exception e) {
             System.out.println("Error loading shoes: " + e.getMessage());
@@ -137,6 +144,8 @@ public class DressingRoomController {
             Image dressImage = new Image(getClass().getResourceAsStream("/images/Dress1-pic.png"));
             modelTop.setImage(dressImage);
             modelBottom.setImage(null); // Clear bottom since dress covers it
+            selectedTop = "white_dress";
+            selectedBottom = null;
             System.out.println("White dress selected");
         } catch (Exception e) {
             System.out.println("Error loading dress: " + e.getMessage());
@@ -148,6 +157,7 @@ public class DressingRoomController {
         try {
             Image hatImage = new Image(getClass().getResourceAsStream("/images/Hat1-pic.png"));
             modelAccessory1.setImage(hatImage);
+            selectedAccessory1 = "hat_1";
             System.out.println("Hat selected");
         } catch (Exception e) {
             System.out.println("Error loading hat: " + e.getMessage());
@@ -159,6 +169,7 @@ public class DressingRoomController {
         try {
             Image bagImage = new Image(getClass().getResourceAsStream("/images/Bag1-pic.png"));
             modelAccessory2.setImage(bagImage);
+            selectedAccessory2 = "bag_1";
             System.out.println("Bag selected");
         } catch (Exception e) {
             System.out.println("Error loading bag: " + e.getMessage());
@@ -171,6 +182,7 @@ public class DressingRoomController {
         try {
             Image jewelryImage = new Image(getClass().getResourceAsStream("/images/Jewelry1.PNG"));
             modelAccessory3.setImage(jewelryImage);
+            selectedAccessory3 = "jewelry_1";
             System.out.println("Jewelry selected");
         } catch (Exception e) {
             System.out.println("Error loading jewelry: " + e.getMessage());
@@ -183,6 +195,7 @@ public class DressingRoomController {
         try {
             Image sunglassesImage = new Image(getClass().getResourceAsStream("/images/Glasses1-pic.png"));
             modelAccessory4.setImage(sunglassesImage);
+            selectedAccessory4 = "sunglasses_1";
             System.out.println("Sunglasses selected");
         } catch (Exception e) {
             System.out.println("Error loading sunglasses: " + e.getMessage());
@@ -219,6 +232,15 @@ public class DressingRoomController {
         modelAccessory2.setImage(null);
         modelAccessory3.setImage(null);
         modelAccessory4.setImage(null);
+
+        selectedTop = null;
+        selectedBottom = null;
+        selectedShoes = null;
+        selectedAccessory1 = null;
+        selectedAccessory2 = null;
+        selectedAccessory3 = null;
+        selectedAccessory4 = null;
+
         System.out.println("Outfit reset - all clothing cleared!");
     }
 
@@ -226,6 +248,7 @@ public class DressingRoomController {
     @FXML
     private void handleSave(ActionEvent event) {
         System.out.println("=== OUTFIT SAVED ===");
+
         System.out.println("Top: " + (modelTop.getImage() != null ? "Selected" : "None"));
         System.out.println("Bottom: " + (modelBottom.getImage() != null ? "Selected" : "None"));
         System.out.println("Shoes: " + (modelShoes.getImage() != null ? "Selected" : "None"));
@@ -235,6 +258,33 @@ public class DressingRoomController {
         System.out.println("Accessory 4: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
         System.out.println("==================");
 
+        //Build list of selected item IDs
+        List<String> items = new ArrayList<>();
+        if (selectedTop != null) items.add(selectedTop);
+        if (selectedBottom != null) items.add(selectedBottom);
+        if (selectedShoes != null) items.add(selectedShoes);
+        if (selectedAccessory1 != null) items.add(selectedAccessory1);
+        if (selectedAccessory2 != null) items.add(selectedAccessory2);
+        if (selectedAccessory3 != null) items.add(selectedAccessory3);
+        if (selectedAccessory4 != null) items.add(selectedAccessory4);
+
+        //Get current logged-in user
+        String userId = FirebaseAuthService.getCurrentUserUid();
+
+        if (userId == null) {
+            System.out.println("⚠️ USER IS NULL — NOT LOGGED IN");
+        } else {
+            Outfit outfit = new Outfit(userId, items);
+            try {
+                outfitService.saveOutfit(outfit);
+                System.out.println("✅ Outfit successfully saved to Firestore!");
+            } catch (Exception e) {
+                System.out.println("❌ Firestore save failed:");
+                e.printStackTrace();
+            }
+        }
+
+        // NOW navigate
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/GameEnd.fxml"));
             Parent endRoot = loader.load();
@@ -245,9 +295,7 @@ public class DressingRoomController {
             stage.setScene(endScene);
             stage.show();
 
-            System.out.println("Navigated to Game End page.");
         } catch (Exception e) {
-            System.out.println("Error loading Game End page: " + e.getMessage());
             e.printStackTrace();
         }
     }

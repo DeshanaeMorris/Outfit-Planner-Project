@@ -6,8 +6,8 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+
+import java.io.InputStream;
 
 public class FirestoreDatabase {
     private static boolean initialized = false;
@@ -21,10 +21,13 @@ public class FirestoreDatabase {
         try {
             System.out.println("Initializing Firebase...");
 
-            // Path to service-account JSON file
-            FileInputStream serviceAccount =
-                    new FileInputStream("src/main/resources/FirebaseConfig.json");
+            InputStream serviceAccount = FirestoreDatabase.class
+                    .getClassLoader()
+                    .getResourceAsStream("com/stylz/app/key.json");
 
+            if (serviceAccount == null) {
+                throw new RuntimeException("key.json NOT FOUND in resources!");
+            }
             FirebaseOptions options = FirebaseOptions.builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .build();
@@ -34,7 +37,7 @@ public class FirestoreDatabase {
 
             System.out.println("Firebase successfully connected!");
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Error initializing Firebase:");
             e.printStackTrace();
         }
