@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Ellipse;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
@@ -112,64 +113,71 @@ public class CatalogController {
 
     private StackPane createOutfitStack(Outfit outfit) {
         StackPane stack = new StackPane();
-        stack.setPrefWidth(280);
-        stack.setPrefHeight(520);
+        stack.setPrefWidth(160);
+        stack.setPrefHeight(220);
+        stack.setMaxWidth(160);
+        stack.setMaxHeight(220);
 
         ImageView modelBase = createLayerImage(outfit.getModelPath());
-        modelBase.setFitWidth(280);
-        modelBase.setFitHeight(520);
+        modelBase.setFitWidth(100);
+        modelBase.setFitHeight(150);
         modelBase.setPreserveRatio(true);
 
         ImageView bottom = createLayerImage(resolveImagePathFromKey(outfit.getBottomKey()));
-        bottom.setFitWidth(270);
-        bottom.setFitHeight(520);
+        bottom.setFitWidth(77);
+        bottom.setFitHeight(150);
         bottom.setPreserveRatio(true);
-        bottom.setTranslateX(15);
-        bottom.setTranslateY(55);
+        bottom.setTranslateX(4.3);
+        bottom.setTranslateY(16);
 
         ImageView shoes = createLayerImage(resolveImagePathFromKey(outfit.getShoesKey()));
-        shoes.setFitWidth(140);
-        shoes.setFitHeight(520);
+        shoes.setFitWidth(40);
+        shoes.setFitHeight(150);
         shoes.setPreserveRatio(true);
-        shoes.setTranslateX(3);
-        shoes.setTranslateY(180);
+        shoes.setTranslateX(0.9);
+        shoes.setTranslateY(51);
 
         ImageView top = createLayerImage(resolveImagePathFromKey(outfit.getTopKey()));
-        top.setFitWidth(100);
-        top.setFitHeight(100);
+        top.setFitWidth(29);
+        top.setFitHeight(29);
         top.setPreserveRatio(true);
-        top.setTranslateX(-2);
-        top.setTranslateY(-104);
+        top.setTranslateX(-0.6);
+        top.setTranslateY(-30);
 
         ImageView acc1 = createLayerImage(resolveImagePathFromKey(outfit.getAccessory1Key()));
-        acc1.setFitWidth(700);
-        acc1.setFitHeight(700);
+        acc1.setFitWidth(200);
+        acc1.setFitHeight(200);
         acc1.setPreserveRatio(true);
-        acc1.setTranslateX(-164);
-        acc1.setTranslateY(-24);
+        acc1.setTranslateX(-47);
+        acc1.setTranslateY(-7);
 
         ImageView acc2 = createLayerImage(resolveImagePathFromKey(outfit.getAccessory2Key()));
-        acc2.setFitWidth(730);
-        acc2.setFitHeight(730);
+        acc2.setFitWidth(208);
+        acc2.setFitHeight(208);
         acc2.setPreserveRatio(true);
-        acc2.setTranslateX(79);
-        acc2.setTranslateY(-8.5);
+        acc2.setTranslateX(23);
+        acc2.setTranslateY(-2.4);
 
         ImageView acc3 = createLayerImage(resolveImagePathFromKey(outfit.getAccessory3Key()));
-        acc3.setFitWidth(700);
-        acc3.setFitHeight(700);
+        acc3.setFitWidth(200);
+        acc3.setFitHeight(200);
         acc3.setPreserveRatio(true);
-        acc3.setTranslateX(73);
-        acc3.setTranslateY(-8);
+        acc3.setTranslateX(21);
+        acc3.setTranslateY(-2.3);
 
         ImageView acc4 = createLayerImage(resolveImagePathFromKey(outfit.getAccessory4Key()));
-        acc4.setFitWidth(710);
-        acc4.setFitHeight(710);
+        acc4.setFitWidth(203);
+        acc4.setFitHeight(203);
         acc4.setPreserveRatio(true);
-        acc4.setTranslateX(244);
-        acc4.setTranslateY(-11);
+        acc4.setTranslateX(70);
+        acc4.setTranslateY(-3.1);
 
         stack.getChildren().addAll(modelBase, bottom, shoes, top, acc1, acc2, acc3, acc4);
+        // Clip to oval shape
+        Ellipse clip = new Ellipse(80, 110);
+        clip.setCenterX(80);
+        clip.setCenterY(110);
+        stack.setClip(clip);
 
         return stack;
     }

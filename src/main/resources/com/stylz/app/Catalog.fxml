@@ -50,22 +50,96 @@
               spacing="30"
               maxWidth="700">
 
+            <StackPane>
+                <!-- Polaroid Frame -->
+                <VBox alignment="CENTER"
+                      style="-fx-background-color: white;
+                                 -fx-padding: 15;
+                                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 2, 3);"
+                      rotate="-8">
 
-            <!-- Just 3 containers where we’ll drop the outfits -->
-            <VBox fx:id="purpleCard"
-                  alignment="CENTER"
-                  prefWidth="240"/>
+                    <!-- Colored background with oval -->
+                    <StackPane prefWidth="200" prefHeight="240"
+                               style="-fx-background-color: #B39DDB;">
 
+                        <!-- White oval for outfit -->
+                        <Region prefWidth="160" prefHeight="220"
+                                style="-fx-background-color: white;
+                                -fx-background-radius: 80px;"/>
 
-            <VBox fx:id="greenCard"
-                  alignment="CENTER"
-                  prefWidth="240"/>
+                        <VBox fx:id="purpleCard"
+                              alignment="CENTER"
+                              prefWidth="240"/>
+                    </StackPane>
+                </VBox>
 
+                <ImageView fitWidth="30" fitHeight="30" preserveRatio="true" translateY="-135">
+                    <image>
+                        <Image url="@/images/pushpin.png"/>
+                    </image>
+                </ImageView>
+            </StackPane>
 
-            <VBox fx:id="yellowCard"
-                  alignment="CENTER"
-                  prefWidth="240"/>
+            <!-- Green Polaroid Card -->
+            <StackPane>
+                <!-- Polaroid Frame -->
+                <VBox alignment="CENTER"
+                      style="-fx-background-color: white;
+                                 -fx-padding: 15;
+                                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 2, 3);"
+                      rotate="3">
 
+                    <!-- Colored background with oval -->
+                    <StackPane prefWidth="200" prefHeight="240"
+                               style="-fx-background-color: #4DB6AC;">
+
+                    <!-- White oval for outfit -->
+                    <Region prefWidth="160" prefHeight="220"
+                            style="-fx-background-color: white;
+                                               -fx-background-radius: 80px;"/>
+                    <VBox fx:id="greenCard"
+                          alignment="CENTER"
+                          prefWidth="240"/>
+                    </StackPane>
+                </VBox>
+
+                <ImageView fitWidth="30" fitHeight="30" preserveRatio="true" translateY="-135">
+                    <image>
+                        <Image url="@/images/pushpin.png"/>
+                    </image>
+                </ImageView>
+            </StackPane>
+
+            <!-- Yellow Polaroid Card -->
+            <StackPane>
+                <!-- Polaroid Frame -->
+                <VBox alignment="CENTER"
+                      style="-fx-background-color: white;
+                                 -fx-padding: 15;
+                                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 2, 3);"
+                      rotate="-5">
+
+                    <!-- Colored background with oval -->
+                    <StackPane prefWidth="200" prefHeight="240"
+                               style="-fx-background-color: #FFD54F;">
+
+                    <!-- White oval for outfit -->
+                    <Region prefWidth="160" prefHeight="220"
+                            style="-fx-background-color: white;
+                                               -fx-background-radius: 80px;"/>
+
+                    <VBox fx:id="yellowCard"
+                          alignment="CENTER"
+                          prefWidth="240"/>
+                    </StackPane>
+                </VBox>
+
+                <ImageView fitWidth="30" fitHeight="30" preserveRatio="true" translateY="-135">
+                    <image>
+                        <Image url="@/images/pushpin.png"/>
+                    </image>
+                </ImageView>
+            </StackPane>
 
         </HBox>
 
