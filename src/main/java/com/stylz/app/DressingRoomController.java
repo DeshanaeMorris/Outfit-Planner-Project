@@ -1,5 +1,7 @@
 package com.stylz.app;
+import com.google.cloud.Timestamp;
 import com.stylz.app.Firebase.FirebaseAuthService;
+import com.stylz.app.Firebase.FirebaseStorageService;
 import com.stylz.app.Firebase.OutfitService;
 import com.stylz.app.model.Outfit;
 import javafx.fxml.FXML;
@@ -12,18 +14,28 @@ import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.image.WritableImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class DressingRoomController {
+
+    // Firebase outfit service
     private final OutfitService outfitService = new OutfitService();
+
+    // Outfit passed in from Catalog
+    public static Outfit outfitToLoad;
 
     // Model display layers
     @FXML
     private AnchorPane rootPane;
+    @FXML
+    private StackPane avatarPane;
     @FXML
     private ImageView modelTop;
     @FXML
@@ -44,37 +56,137 @@ public class DressingRoomController {
     private ImageView modelAccessory4;
     @FXML
     private ImageView modelBase;
-    @FXML
+
     private String selectedTop;
-    @FXML
     private String selectedBottom;
-    @FXML
     private String selectedShoes;
-    @FXML
     private String selectedAccessory1;
-    @FXML
     private String selectedAccessory2;
-    @FXML
     private String selectedAccessory3;
-    @FXML
     private String selectedAccessory4;
 
+    // Apply an item by its key
+    private void applyItem(String itemId) {
+        try {
+            switch (itemId) {
 
+                // TOPS
+                case "white_top" -> {
+                    Image img = new Image(getClass().getResourceAsStream("/images/DisplayTop1.PNG"));
+                    modelTop.setImage(img);
+                    selectedTop = "white_top";
+                }
+                case "pink_shirt" -> {
+                    Image img = new Image(getClass().getResourceAsStream("/images/Top2-pic.png"));
+                    modelTop.setImage(img);
+                    selectedTop = "pink_shirt";
+                }
 
-    //Initialize method
+                // BOTTOMS
+                case "blue_shorts" -> {
+                    Image img = new Image(getClass().getResourceAsStream("/images/Bottom1-pic.png"));
+                    modelBottom.setImage(img);
+                    selectedBottom = "blue_shorts";
+                }
+                case "black_skirt" -> {
+                    Image img = new Image(getClass().getResourceAsStream("/images/black-skirt.png"));
+                    modelBottom.setImage(img);
+                    selectedBottom = "black_skirt";
+                }
+
+                // DRESS
+                case "white_dress" -> {
+                    Image img = new Image(getClass().getResourceAsStream("/images/Dress1-pic.png"));
+                    modelTop.setImage(img);
+                    modelBottom.setImage(null);
+                    selectedTop = "white_dress";
+                    selectedBottom = null;
+                }
+
+                // SHOES
+                case "black_heels" -> {
+                    Image img = new Image(getClass().getResourceAsStream("/images/Shoes1-pic.png"));
+                    modelShoes.setImage(img);
+                    selectedShoes = "black_heels";
+                }
+
+                // ACCESSORIES
+                case "hat_1" -> {
+                    Image img = new Image(getClass().getResourceAsStream("/images/Hat1-pic.png"));
+                    modelAccessory1.setImage(img);
+                    selectedAccessory1 = "hat_1";
+                }
+                case "bag_1" -> {
+                    Image img = new Image(getClass().getResourceAsStream("/images/Bag1-pic.png"));
+                    modelAccessory2.setImage(img);
+                    selectedAccessory2 = "bag_1";
+                }
+                case "jewelry_1" -> {
+                    Image img = new Image(getClass().getResourceAsStream("/images/Jewelry1.PNG"));
+                    modelAccessory3.setImage(img);
+                    selectedAccessory3 = "jewelry_1";
+                }
+                case "sunglasses_1" -> {
+                    Image img = new Image(getClass().getResourceAsStream("/images/Glasses1-pic.png"));
+                    modelAccessory4.setImage(img);
+                    selectedAccessory4 = "sunglasses_1";
+                }
+
+                default -> System.out.println("Unknown itemId: " + itemId);
+            }
+        } catch (Exception e) {
+            System.out.println("Error applying item " + itemId + ": " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void initialize() {
+        String basePath = ModelSelectionController.selectedModelPath;
+        if (outfitToLoad != null && outfitToLoad.getModelPath() != null) {
+            basePath = outfitToLoad.getModelPath();
+        }
+
         try {
             // Load selected model from ModelSelectionController
             Image selected = new Image(
                     getClass().getResourceAsStream(ModelSelectionController.selectedModelPath)
             );
             modelBase.setImage(selected);
-            System.out.println("Loaded selected model: " + ModelSelectionController.selectedModelPath);
+            System.out.println("Loaded selected model: " + basePath);
         } catch (Exception e) {
             System.out.println("Error loading selected model: " + e.getMessage());
         }
         updateVisibilityBasedOnPurchases();
+        // If coming from Catalog, apply saved outfit using keys
+        if (outfitToLoad != null) {
+            System.out.println("Applying outfit from Catalog (id = " + outfitToLoad.getId() + ")");
+
+            if (outfitToLoad.getTopKey() != null) {
+                applyItem(outfitToLoad.getTopKey());
+            }
+            if (outfitToLoad.getBottomKey() != null) {
+                applyItem(outfitToLoad.getBottomKey());
+            }
+            if (outfitToLoad.getShoesKey() != null) {
+                applyItem(outfitToLoad.getShoesKey());
+            }
+            if (outfitToLoad.getAccessory1Key() != null) {
+                applyItem(outfitToLoad.getAccessory1Key());
+            }
+            if (outfitToLoad.getAccessory2Key() != null) {
+                applyItem(outfitToLoad.getAccessory2Key());
+            }
+            if (outfitToLoad.getAccessory3Key() != null) {
+                applyItem(outfitToLoad.getAccessory3Key());
+            }
+            if (outfitToLoad.getAccessory4Key() != null) {
+                applyItem(outfitToLoad.getAccessory4Key());
+            }
+
+            // Clear so it's not reused accidentally
+            outfitToLoad = null;
+        }
     }
     //Select white top
 
@@ -148,9 +260,8 @@ public class DressingRoomController {
     private void selectWhiteDress(MouseEvent event) {
         try {
             Image dressImage = new Image(getClass().getResourceAsStream("/images/Dress1-pic.png"));
-            modelDress.setImage(dressImage);
-            modelTop.setImage(null);
-            modelBottom.setImage(null); // Clear bottom since dress covers it
+            modelTop.setImage(dressImage);
+            modelBottom.setImage(null);
             selectedTop = "white_dress";
             selectedBottom = null;
             System.out.println("White dress selected");
@@ -266,43 +377,72 @@ public class DressingRoomController {
         System.out.println("Accessory 4: " + (modelAccessory2.getImage() != null ? "Selected" : "None"));
         System.out.println("==================");
 
+        //Don't save if model has nothing on
+        boolean hasAnyClothing =
+                selectedTop != null ||
+                        selectedBottom != null ||
+                        selectedShoes != null ||
+                        selectedAccessory1 != null ||
+                        selectedAccessory2 != null ||
+                        selectedAccessory3 != null ||
+                        selectedAccessory4 != null;
+
+        String userId = FirebaseAuthService.getCurrentUserUid();
+
+        WritableImage snapshot = null;
         try {
-            String uid = FirebaseAuthService.getCurrentUserUid();
-
-            if (uid == null) {
-                System.out.println("Error: Not user not logged in");
-                return;
-            }
-
-            // Build item list based on what's selected
-            List<String> selectedItems = new ArrayList<>();
-
-            if (modelTop.getImage() != null) selectedItems.add("top");
-            if (modelBottom.getImage() != null) selectedItems.add("bottom");
-            if (modelShoes.getImage() != null) selectedItems.add("shoes");
-            if (modelDress.getImage() != null) selectedItems.add("dress");
-            if (modelAccessory1.getImage() != null) selectedItems.add("accessory1");
-            if (modelAccessory2.getImage() != null) selectedItems.add("accessory2");
-            if (modelAccessory3.getImage() != null) selectedItems.add("accessory3");
-            if (modelAccessory4.getImage() != null) selectedItems.add("accessory4");
-
-            // Create Outfit object
-            Outfit outfit = new Outfit(uid, selectedItems);
-
-            // Save to Firestore
-            outfitService.saveOutfit(outfit);
-
-            System.out.println("Outfit saved for user: " + uid);
-            System.out.println("Items: " + selectedItems);
-
+            SnapshotParameters params = new SnapshotParameters();
+            snapshot = avatarPane.snapshot(params, null);
+            GameEndController.setLastOutfitImage(snapshot);
+            System.out.println("Snapshot of outfit captured");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Failed to save outfit.");
-            return;
         }
 
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("GameEnd.fxml"));
+        if (!hasAnyClothing) {
+            System.out.println("No clothing selected - outfit will not be saved to Firestore.");
+        } else if (userId == null) {
+            System.out.println("USER IS NOT LOGGED IN - cannot save outfit to Firestore.");
+        } else {
+            String snapshotUrl = null;
+            if (snapshot != null) {
+                try {
+                    snapshotUrl = FirebaseStorageService.uploadOutfitSnapshot(snapshot, userId);
+                    System.out.println("Snapshot uploaded. URL = " + snapshotUrl);
+                } catch (Exception e) {
+                    System.out.println("Failed to upload snapshot: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            }
+
+            String modelPath = ModelSelectionController.selectedModelPath;
+
+            Outfit outfit = new Outfit(
+                    userId,
+                    modelPath,
+                    selectedTop,
+                    selectedBottom,
+                    selectedShoes,
+                    selectedAccessory1,
+                    selectedAccessory2,
+                    selectedAccessory3,
+                    selectedAccessory4,
+                    Timestamp.now(),
+                    snapshotUrl
+            );
+
+            try {
+                outfitService.saveOutfit(outfit);
+                System.out.println("Outfit successfully saved to Firestore!");
+            } catch (Exception e) {
+                System.out.println("Firestore save failed:");
+                e.printStackTrace();
+            }
+        }
+
+        // Navigate to GameEnd
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/GameEnd.fxml"));
             Parent endRoot = loader.load();
 
             GameEndController gameEnd = loader.getController();
@@ -324,6 +464,7 @@ public class DressingRoomController {
             stage.show();
 
             System.out.println("Navigated to Game End page.");
+
         } catch (Exception e) {
             System.out.println("Error loading Game End page: " + e.getMessage());
             e.printStackTrace();
