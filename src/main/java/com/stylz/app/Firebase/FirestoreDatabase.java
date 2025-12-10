@@ -7,9 +7,10 @@ import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
 
 import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.InputStream;
 
 public class FirestoreDatabase {
+
     private static boolean initialized = false;
 
     public static void initializeFirebase() {
@@ -21,9 +22,8 @@ public class FirestoreDatabase {
         try {
             System.out.println("Initializing Firebase...");
 
-            // Path to service-account JSON file
-            FileInputStream serviceAccount =
-                    new FileInputStream("src/main/resources/key.json");
+            // Direct file load to guarantee access
+            InputStream serviceAccount = new FileInputStream("src/main/resources/key.json");
 
             FirebaseOptions options = FirebaseOptions.builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
@@ -32,9 +32,9 @@ public class FirestoreDatabase {
             FirebaseApp.initializeApp(options);
             initialized = true;
 
-            System.out.println("Firebase successfully connected!");
+            System.out.println("Firebase successfully connected.");
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Error initializing Firebase:");
             e.printStackTrace();
         }

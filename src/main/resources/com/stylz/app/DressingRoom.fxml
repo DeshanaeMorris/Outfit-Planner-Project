@@ -8,8 +8,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 
+<?import javafx.scene.shape.Rectangle?>
 <AnchorPane fx:id="rootPane" prefHeight="786.0" prefWidth="808.0" style="-fx-background-color: #FFB6D9;" stylesheets="@../../../styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stylz.app.DressingRoomController">
 
     <!--Clothing - Left side -->
@@ -51,10 +51,8 @@
             </clip>
 
             <!-- Base model that changes when user selects a model -->
-            <ImageView fx:id="modelBase" fitHeight="520" fitWidth="280" preserveRatio="true">
-            <image>
-               <Image url="@../../../images/model3-2.png" />
-            </image></ImageView>
+            <ImageView fx:id="modelBase" fitHeight="520" fitWidth="280" preserveRatio="true"/>
+
 
             <!-- Clothing layers -->
             <ImageView fx:id="modelTop" fitHeight="100.0" fitWidth="100.0" preserveRatio="true" translateX="-2.0" translateY="-104.0" />

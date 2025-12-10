@@ -10,11 +10,19 @@ import java.util.concurrent.ExecutionException;
 
 public class OutfitService {
 
-    private final Firestore db = FirestoreDatabase.getFirestore();
-    // Firestore is already initialized automatically;
+    private final Firestore db;
+
+    public OutfitService() {
+        // Initialize Firebase only once (the Database class handles the check)
+        FirestoreDatabase.initializeFirebase();
+        this.db = FirestoreDatabase.getFirestore();
+    }
 
     public void saveOutfit(Outfit outfit) throws ExecutionException, InterruptedException {
         ApiFuture<DocumentReference> future = db.collection("outfits").add(outfit);
+        future.get(); //waits for Firestore to confirm the save
         System.out.println("Outfit saved to Firestore!");
     }
+
+
 }
