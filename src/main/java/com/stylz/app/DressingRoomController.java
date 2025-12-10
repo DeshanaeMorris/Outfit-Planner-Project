@@ -74,6 +74,7 @@ public class DressingRoomController {
         } catch (Exception e) {
             System.out.println("Error loading selected model: " + e.getMessage());
         }
+        updateVisibilityBasedOnPurchases();
     }
     //Select white top
 
@@ -82,6 +83,7 @@ public class DressingRoomController {
         try {
             Image topImage = new Image(getClass().getResourceAsStream("/images/DisplayTop1.PNG"));
             modelTop.setImage(topImage);
+            selectedTop = "white_top";
             System.out.println("White top selected");
         } catch (Exception e) {
             System.out.println("Error loading white top: " + e.getMessage());
@@ -94,6 +96,7 @@ public class DressingRoomController {
         try {
             Image shirtImage = new Image(getClass().getResourceAsStream("/images/Top2-pic.png"));
             modelTop.setImage(shirtImage);
+            selectedTop = "pink_shirt";
             System.out.println("Pink shirt selected");
         } catch (Exception e) {
             System.out.println("Error loading pink shirt: " + e.getMessage());
@@ -106,6 +109,7 @@ public class DressingRoomController {
         try {
             Image shortsImage = new Image(getClass().getResourceAsStream("/images/Bottom1-pic.png"));
             modelBottom.setImage(shortsImage);
+            selectedBottom = "blue_shorts";
             System.out.println("Blue shorts selected");
         } catch (Exception e) {
             System.out.println("Error loading blue shorts: " + e.getMessage());
@@ -118,6 +122,7 @@ public class DressingRoomController {
         try {
             Image skirtImage = new Image(getClass().getResourceAsStream("/images/black-skirt.png"));
             modelBottom.setImage(skirtImage);
+            selectedBottom = "black_skirt";
             System.out.println("Black skirt selected");
         } catch (Exception e) {
             System.out.println("Error loading black skirt: " + e.getMessage());
@@ -130,6 +135,7 @@ public class DressingRoomController {
         try {
             Image shoesImage = new Image(getClass().getResourceAsStream("/images/Shoes1-pic.png"));
             modelShoes.setImage(shoesImage);
+            selectedShoes = "black_heels";
             System.out.println("Black heels selected");
         } catch (Exception e) {
             System.out.println("Error loading shoes: " + e.getMessage());
@@ -145,6 +151,8 @@ public class DressingRoomController {
             modelDress.setImage(dressImage);
             modelTop.setImage(null);
             modelBottom.setImage(null); // Clear bottom since dress covers it
+            selectedTop = "white_dress";
+            selectedBottom = null;
             System.out.println("White dress selected");
         } catch (Exception e) {
             System.out.println("Error loading dress: " + e.getMessage());
@@ -156,6 +164,7 @@ public class DressingRoomController {
         try {
             Image hatImage = new Image(getClass().getResourceAsStream("/images/Hat1-pic.png"));
             modelAccessory1.setImage(hatImage);
+            selectedAccessory1 = "hat_1";
             System.out.println("Hat selected");
         } catch (Exception e) {
             System.out.println("Error loading hat: " + e.getMessage());
@@ -167,6 +176,7 @@ public class DressingRoomController {
         try {
             Image bagImage = new Image(getClass().getResourceAsStream("/images/Bag1-pic.png"));
             modelAccessory2.setImage(bagImage);
+            selectedAccessory2 = "bag_1";
             System.out.println("Bag selected");
         } catch (Exception e) {
             System.out.println("Error loading bag: " + e.getMessage());
@@ -179,6 +189,7 @@ public class DressingRoomController {
         try {
             Image jewelryImage = new Image(getClass().getResourceAsStream("/images/Jewelry1.PNG"));
             modelAccessory3.setImage(jewelryImage);
+            selectedAccessory3 = "jewelry_1";
             System.out.println("Jewelry selected");
         } catch (Exception e) {
             System.out.println("Error loading jewelry: " + e.getMessage());
@@ -191,6 +202,7 @@ public class DressingRoomController {
         try {
             Image sunglassesImage = new Image(getClass().getResourceAsStream("/images/Glasses1-pic.png"));
             modelAccessory4.setImage(sunglassesImage);
+            selectedAccessory4 = "sunglasses_1";
             System.out.println("Sunglasses selected");
         } catch (Exception e) {
             System.out.println("Error loading sunglasses: " + e.getMessage());
@@ -228,6 +240,15 @@ public class DressingRoomController {
         modelAccessory2.setImage(null);
         modelAccessory3.setImage(null);
         modelAccessory4.setImage(null);
+
+        selectedTop = null;
+        selectedBottom = null;
+        selectedShoes = null;
+        selectedAccessory1 = null;
+        selectedAccessory2 = null;
+        selectedAccessory3 = null;
+        selectedAccessory4 = null;
+
         System.out.println("Outfit reset - all clothing cleared!");
     }
 
@@ -235,6 +256,7 @@ public class DressingRoomController {
     @FXML
     private void handleSave(ActionEvent event) {
         System.out.println("=== OUTFIT SAVED ===");
+
         System.out.println("Top: " + (modelTop.getImage() != null ? "Selected" : "None"));
         System.out.println("Bottom: " + (modelBottom.getImage() != null ? "Selected" : "None"));
         System.out.println("Shoes: " + (modelShoes.getImage() != null ? "Selected" : "None"));
@@ -283,6 +305,18 @@ public class DressingRoomController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GameEnd.fxml"));
             Parent endRoot = loader.load();
 
+            GameEndController gameEnd = loader.getController();
+            gameEnd.setOutfitImages(
+                    modelTop.getImage(),
+                    modelBottom.getImage(),
+                    modelShoes.getImage(),
+                    modelDress.getImage(),
+                    modelAccessory1.getImage(),
+                    modelAccessory2.getImage(),
+                    modelAccessory3.getImage(),
+                    modelAccessory4.getImage()
+            );
+
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene endScene = new Scene(endRoot);
 
@@ -321,4 +355,17 @@ public class DressingRoomController {
 
         }
     }
+
+        private void updateVisibilityBasedOnPurchases () {
+            List<String> items = com.stylz.app.LocalInventory.purchased;
+
+            modelTop.setVisible(items.contains("White Top"));
+            modelBottom.setVisible(items.contains("Blue Shorts"));
+            modelShoes.setVisible(items.contains("Black Heels"));
+            modelDress.setVisible(items.contains("White Dress"));
+            modelAccessory1.setVisible(items.contains("Hat"));
+            modelAccessory2.setVisible(items.contains("Bag"));
+            modelAccessory3.setVisible(items.contains("Jewelry"));
+            modelAccessory4.setVisible(items.contains("Sunglasses"));
+        }
 }
