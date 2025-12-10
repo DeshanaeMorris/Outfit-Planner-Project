@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -282,6 +283,18 @@ public class DressingRoomController {
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GameEnd.fxml"));
             Parent endRoot = loader.load();
+
+            GameEndController gameEnd = loader.getController();
+            gameEnd.setOutfitImages(
+                modelTop.getImage(),
+                modelBottom.getImage(),
+                modelShoes.getImage(),
+                modelDress.getImage(),
+                modelAccessory1.getImage(),
+                modelAccessory2.getImage(),
+                modelAccessory3.getImage(),
+                modelAccessory4.getImage()
+            );
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene endScene = new Scene(endRoot);
