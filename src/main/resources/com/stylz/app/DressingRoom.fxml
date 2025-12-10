@@ -45,7 +45,11 @@
 
     <!--Center part: Model-->
     <VBox alignment="CENTER" layoutX="260" layoutY="50">
-        <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520" prefWidth="280" style="-fx-background-color: #F5F5DC; -fx-border-color: black; -fx-border-width: 4;">
+        <StackPane fx:id="avatarPane"
+                   maxHeight="-Infinity" maxWidth="-Infinity"
+                   minHeight="-Infinity" minWidth="-Infinity"
+                   prefHeight="520" prefWidth="280"
+                   style="-fx-background-color: #F5F5DC; -fx-border-color: black; -fx-border-width: 4;">
             <clip>
                 <Rectangle width="280" height="520" />
             </clip>
