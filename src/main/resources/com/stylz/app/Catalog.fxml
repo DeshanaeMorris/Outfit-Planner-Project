@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
 <StackPane prefHeight="600.0" prefWidth="800"
            styleClass="catalog-screen"
@@ -48,50 +44,28 @@
                     onAction="#handleHome"/>
         </HBox>
 
-        <!-- Photo Cards -->
-        <HBox spacing="50" alignment="CENTER">
 
-            <!-- Purple Polaroid -->
-            <VBox alignment="TOP_CENTER"
-                  onMouseClicked="#handlePhotoClick"
-                  userData="purple"
-                  style="-fx-cursor: hand;">
+        <!-- Outfit row -->
+        <HBox alignment="CENTER"
+              spacing="30"
+              maxWidth="700">
 
-                <ImageView fitWidth="215" fitHeight="250" preserveRatio="true"
-                           style="-fx-rotate: -8;">
-                    <image>
-                        <Image url="@/images/purple-polaroid1.png"/>
-                    </image>
-                </ImageView>
-            </VBox>
 
-            <!-- Green Polaroid -->
-            <VBox alignment="TOP_CENTER"
-                  onMouseClicked="#handlePhotoClick"
-                  userData="green"
-                  style="-fx-cursor: hand;">
+            <!-- Just 3 containers where we’ll drop the outfits -->
+            <VBox fx:id="purpleCard"
+                  alignment="CENTER"
+                  prefWidth="240"/>
 
-                <ImageView fitWidth="215" fitHeight="250" preserveRatio="true"
-                           style="-fx-rotate: 3;">
-                    <image>
-                        <Image url="@/images/green-polaroid2.png"/>
-                    </image>
-                </ImageView>
-            </VBox>
 
-            <!-- Yellow Polaroid -->
-            <VBox alignment="TOP_CENTER"
-                  onMouseClicked="#handlePhotoClick"
-                  userData="yellow"
-                  style="-fx-cursor: hand;">
+            <VBox fx:id="greenCard"
+                  alignment="CENTER"
+                  prefWidth="240"/>
 
-                <ImageView fitWidth="215" fitHeight="250" preserveRatio="true"
-                           style="-fx-rotate: -5;">
-                    <image>
-                        <Image url="@/images/yellow-polaroid3.png"/>
-                    </image>
-                </ImageView>
-            </VBox>
+
+            <VBox fx:id="yellowCard"
+                  alignment="CENTER"
+                  prefWidth="240"/>
+
 
         </HBox>
 

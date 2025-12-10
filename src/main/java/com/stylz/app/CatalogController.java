@@ -1,19 +1,224 @@
 package com.stylz.app;
 
+import com.stylz.app.Firebase.FirebaseAuthService;
+import com.stylz.app.Firebase.OutfitService;
+import com.stylz.app.model.Outfit;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.ExecutionException;
 
 
 public class CatalogController {
 
+    private final OutfitService outfitService = new OutfitService();
+
+    //3 polaroid VBoxes from FXML
+    @FXML
+    private VBox purpleCard;
+    @FXML
+    private VBox greenCard;
+    @FXML
+    private VBox yellowCard;
+
+    @FXML
+    public void initialize() {
+        System.out.println("Catalog initialized...");
+
+        String userId = FirebaseAuthService.getCurrentUserUid();
+        if (userId == null) {
+            System.out.println("No logged-in user");
+            return;
+        }
+
+        try {
+            List<Outfit> outfits = outfitService.getLastOutfitsForUser(userId, 3);
+            System.out.println("Loaded " + outfits.size() + " outfits for user " + userId);
+            bindOutfitsToPolaroids(outfits);
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load outfits: " + e.getMessage());
+        }
+    }
+
+    private void bindOutfitsToPolaroids(List<Outfit> outfits) {
+        VBox[] cards = { purpleCard, greenCard, yellowCard };
+
+        for (int i = 0; i < cards.length; i++) {
+            VBox card = cards[i];
+            if (card == null) continue;
+
+            card.getChildren().clear();
+
+            if (i < outfits.size()) {
+                Outfit outfit = outfits.get(i);
+
+                card.setVisible(true);
+                card.setManaged(true);
+
+                card.setUserData(outfit);
+
+                StackPane outfitView = createOutfitStack(outfit);
+                card.getChildren().add(outfitView);
+
+                card.setOnMouseClicked(e -> openOutfit(outfit));
+
+            } else {
+                card.setVisible(false);
+                card.setManaged(false);
+            }
+        }
+    }
+
+    private String resolveImagePathFromKey(String key) {
+        if (key == null || key.isEmpty()) return null;
+
+        return switch (key) {
+            // Tops
+            case "white_top"   -> "/images/DisplayTop1.PNG";
+            case "pink_shirt"  -> "/images/Top2-pic.png";
+            case "white_dress" -> "/images/Dress1-pic.png"; // dress acts like a top layer
+
+            // Bottoms
+            case "blue_shorts" -> "/images/Bottom1-pic.png";
+            case "black_skirt" -> "/images/black-skirt.png";
+
+            // Shoes
+            case "black_heels" -> "/images/Shoes1-pic.png";
+
+            // Accessories
+            case "hat_1"        -> "/images/Hat1-pic.png";
+            case "bag_1"        -> "/images/Bag1-pic.png";
+            case "jewelry_1"    -> "/images/Jewelry1.PNG";
+            case "sunglasses_1" -> "/images/Glasses1-pic.png";
+
+            default -> {
+                System.out.println("No image mapping for key: " + key);
+                yield null;
+            }
+        };
+    }
+
+    private StackPane createOutfitStack(Outfit outfit) {
+        StackPane stack = new StackPane();
+        stack.setPrefWidth(280);
+        stack.setPrefHeight(520);
+
+        ImageView modelBase = createLayerImage(outfit.getModelPath());
+        modelBase.setFitWidth(280);
+        modelBase.setFitHeight(520);
+        modelBase.setPreserveRatio(true);
+
+        ImageView bottom = createLayerImage(resolveImagePathFromKey(outfit.getBottomKey()));
+        bottom.setFitWidth(270);
+        bottom.setFitHeight(520);
+        bottom.setPreserveRatio(true);
+        bottom.setTranslateX(15);
+        bottom.setTranslateY(55);
+
+        ImageView shoes = createLayerImage(resolveImagePathFromKey(outfit.getShoesKey()));
+        shoes.setFitWidth(140);
+        shoes.setFitHeight(520);
+        shoes.setPreserveRatio(true);
+        shoes.setTranslateX(3);
+        shoes.setTranslateY(180);
+
+        ImageView top = createLayerImage(resolveImagePathFromKey(outfit.getTopKey()));
+        top.setFitWidth(100);
+        top.setFitHeight(100);
+        top.setPreserveRatio(true);
+        top.setTranslateX(-2);
+        top.setTranslateY(-104);
+
+        ImageView acc1 = createLayerImage(resolveImagePathFromKey(outfit.getAccessory1Key()));
+        acc1.setFitWidth(700);
+        acc1.setFitHeight(700);
+        acc1.setPreserveRatio(true);
+        acc1.setTranslateX(-164);
+        acc1.setTranslateY(-24);
+
+        ImageView acc2 = createLayerImage(resolveImagePathFromKey(outfit.getAccessory2Key()));
+        acc2.setFitWidth(730);
+        acc2.setFitHeight(730);
+        acc2.setPreserveRatio(true);
+        acc2.setTranslateX(79);
+        acc2.setTranslateY(-8.5);
+
+        ImageView acc3 = createLayerImage(resolveImagePathFromKey(outfit.getAccessory3Key()));
+        acc3.setFitWidth(700);
+        acc3.setFitHeight(700);
+        acc3.setPreserveRatio(true);
+        acc3.setTranslateX(73);
+        acc3.setTranslateY(-8);
+
+        ImageView acc4 = createLayerImage(resolveImagePathFromKey(outfit.getAccessory4Key()));
+        acc4.setFitWidth(710);
+        acc4.setFitHeight(710);
+        acc4.setPreserveRatio(true);
+        acc4.setTranslateX(244);
+        acc4.setTranslateY(-11);
+
+        stack.getChildren().addAll(modelBase, bottom, shoes, top, acc1, acc2, acc3, acc4);
+
+        return stack;
+    }
+
+    private ImageView createLayerImage(String path) {
+        ImageView iv = new ImageView();
+
+        if (path == null || path.isEmpty()) {
+            return iv;
+        }
+
+        System.out.println("Loading image for path: " + path);
+
+        try {
+            iv.setImage(new Image(
+                    java.util.Objects.requireNonNull(
+                            getClass().getResourceAsStream(path),
+                            "Image not found: " + path
+                    )
+            ));
+        } catch (NullPointerException e) {
+            System.out.println("Image not found for path: " + path);
+        }
+
+        iv.setPreserveRatio(true);
+        return iv;
+    }
+
+    private void openOutfit(Outfit outfit) {
+        try {
+            System.out.println("Opening outfit from catalog: " + outfit.getId());
+            DressingRoomController.outfitToLoad = outfit;
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/DressingRoom.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = getCurrentStage();
+            if (stage != null) {
+                Scene scene = new Scene(root);
+                scene.getStylesheets().add(Objects.requireNonNull(
+                        getClass().getResource("/styles.css")).toExternalForm());
+                stage.setScene(scene);
+                stage.setTitle("Dressing Room");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load DressingRoom.fxml: " + e.getMessage());
+        }
+    }
     @FXML
     private void handleLogout(javafx.event.ActionEvent event){
         System.out.println("Logging Lout from Catalog...");
@@ -27,40 +232,12 @@ public class CatalogController {
     }
 
     @FXML
-    private void handlePhotoClick(MouseEvent event) {
-
-        VBox photoCard = (VBox) event.getSource();
-
-        String color = (String) photoCard.getUserData();
-
-        System.out.println("Photo clicked: " + color + " outfit");
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/DressingRoom.fxml"));
-            Scene scene = new Scene(loader.load());
-            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles.css")).toExternalForm());
-
-            Stage stage = getCurrentStage();
-            if (stage != null) {
-                stage.setScene(scene);
-                stage.setTitle("Dressing Room");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Failed to load DressingRoom.fxml" + e.getMessage());
-        }
-
-    }
-    @FXML
     private void handleGoBack(javafx.scene.input.MouseEvent event){
         System.out.println("Going back from Catalog...");
         navigateTo("Homepage.fxml", "STYLZ Co. - Home");
     }
 
-    /**
-     * ✅ Pure logic helper for building the FXML path.
-     * This is what we'll test with JUnit.
-     */
+    //JUnit
     public static String buildFxmlPath(String fxmlFile) {
         return "/com/stylz/app/" + fxmlFile;
     }
