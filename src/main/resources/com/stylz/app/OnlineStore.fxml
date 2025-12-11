@@ -1,97 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.stylz.app.OnlineStoreController"
-            prefWidth="800" prefHeight="600">
+            prefWidth="900" prefHeight="650">
 
-    <!-- TOP BAR -->
+    <!-- HEADER -->
     <top>
-        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #6F4FF2;">
+        <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color:#6F4FF2;">
+            <padding><Insets top="15" bottom="15" left="18" right="18"/></padding>
 
-            <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
-            </padding>
-
-            <Label fx:id="backButton"
-                   text="&lt; Back"
-                   style="-fx-font-size: 20px; -fx-text-fill: white;"
+            <Label text="‹ Back" style="-fx-font-size:22; -fx-text-fill:white;"
                    onMouseClicked="#handleBack"/>
 
             <Pane HBox.hgrow="ALWAYS"/>
 
-            <Label fx:id="balanceLabel"
-                   text="Balance: $100.00"
-                   style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+            <Label fx:id="balanceLabel" text="Balance: $140.00"
+                   style="-fx-text-fill:white; -fx-font-size:18;"/>
         </HBox>
     </top>
 
-    <!-- CENTER CONTENT -->
+    <!-- MAIN STORE LAYOUT -->
     <center>
-        <HBox spacing="40">
-            <padding>
-                <Insets top="20" right="20" bottom="20" left="20"/>
-            </padding>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
+            <VBox spacing="30" alignment="TOP_CENTER" prefWidth="900">
+                <padding>
+                    <Insets top="30" bottom="30" left="30" right="30"/>
+                </padding>
 
-            <!-- LEFT: Items -->
-            <VBox spacing="20">
-                <Label text="Tops"/>
+                <!-- TOPS -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Tops" style="-fx-font-size:22; -fx-font-weight:bold;"/>
 
-                <HBox spacing="10">
-                    <ImageView fx:id="topYellow" fitWidth="100" fitHeight="100"
-                               pickOnBounds="true" preserveRatio="true"
-                               onMouseClicked="#selectTopYellow">
-                        <Image url="@/images/top-yellow.png"/>
-                    </ImageView>
+                    <HBox spacing="20" alignment="CENTER">
+                        <ImageView fitWidth="130" fitHeight="130" onMouseClicked="#selectWhiteTop">
+                            <Image url="@/images/DisplayTop1.PNG"/>
+                        </ImageView>
+                    </HBox>
+                </VBox>
 
-                    <ImageView fx:id="topPink" fitWidth="100" fitHeight="100"
-                               pickOnBounds="true" preserveRatio="true"
-                               onMouseClicked="#selectTopPink">
-                        <Image url="@/images/top-pink.png"/>
-                    </ImageView>
+                <!-- BOTTOMS -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Bottoms" style="-fx-font-size:22; -fx-font-weight:bold;"/>
 
-                    <ImageView fx:id="topGreen" fitWidth="100" fitHeight="100"
-                               pickOnBounds="true" preserveRatio="true"
-                               onMouseClicked="#selectTopGreen">
-                        <Image url="@/images/top-green.png"/>
-                    </ImageView>
-                </HBox>
+                    <HBox spacing="20" alignment="CENTER">
+                        <ImageView fitWidth="130" fitHeight="130" onMouseClicked="#selectBlueShorts">
+                            <Image url="@/images/Bottom1-pic.png"/>
+                        </ImageView>
+                    </HBox>
+                </VBox>
 
-                <Label text="Bottoms"/>
+                <!-- SHOES + DRESS -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Shoes / Dress" style="-fx-font-size:22; -fx-font-weight:bold;"/>
 
-                <HBox spacing="10">
-                    <ImageView fx:id="bottomYellow" fitWidth="100" fitHeight="100"
-                               pickOnBounds="true" preserveRatio="true"
-                               onMouseClicked="#selectBottomYellow">
-                        <Image url="@/images/bottom-yellow.png"/>
-                    </ImageView>
+                    <HBox spacing="20" alignment="CENTER">
+                        <ImageView fitWidth="130" fitHeight="130" onMouseClicked="#selectBlackHeels">
+                            <Image url="@/images/Shoes1-pic.png"/>
+                        </ImageView>
+                        <ImageView fitWidth="130" fitHeight="130" onMouseClicked="#selectWhiteDress">
+                            <Image url="@/images/DisplayDress.PNG"/>
+                        </ImageView>
+                    </HBox>
+                </VBox>
 
-                    <ImageView fx:id="bottomPink" fitWidth="100" fitHeight="100"
-                               pickOnBounds="true" preserveRatio="true"
-                               onMouseClicked="#selectBottomPink">
-                        <Image url="@/images/bottom-pink.png"/>
-                    </ImageView>
+                <!-- ACCESSORIES -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Accessories" style="-fx-font-size:22; -fx-font-weight:bold;"/>
 
-                    <ImageView fx:id="bottomGreen" fitWidth="100" fitHeight="100"
-                               pickOnBounds="true" preserveRatio="true"
-                               onMouseClicked="#selectBottomGreen">
-                        <Image url="@/images/bottom-green.png"/>
-                    </ImageView>
-                </HBox>
+                    <HBox spacing="20" alignment="CENTER">
+                        <ImageView fitWidth="130" fitHeight="130" onMouseClicked="#selectHat">
+                            <Image url="@/images/DisplayHat2.PNG"/>
+                        </ImageView>
+                        <ImageView fitWidth="130" fitHeight="130" onMouseClicked="#selectBag">
+                            <Image url="@/images/DisplayBag1.PNG"/>
+                        </ImageView>
+                        <ImageView fitWidth="130" fitHeight="130" onMouseClicked="#selectJewelry">
+                            <Image url="@/images/DisplayJewelry1.png"/>
+                        </ImageView>
+                        <ImageView fitWidth="130" fitHeight="130" onMouseClicked="#selectSunglasses">
+                            <Image url="@/images/DisplayGlasses1.PNG"/>
+                        </ImageView>
+                    </HBox>
+                </VBox>
+
+                <!-- CHECKOUT SECTION -->
+                <VBox spacing="10" alignment="TOP_CENTER">
+                    <Label text="Cart" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+                    <ListView fx:id="cartList" prefWidth="200" prefHeight="300" />
+
+                    <Label text="Total" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                    <Label fx:id="totalPrice" text="0" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+
+                    <Button text="Remove Selected Item" onAction="#handleRemoveItem"/>
+
+                    <Button text="Checkout" onAction="#handleCheckout" />
+
+                </VBox>
+
             </VBox>
-
-            <!-- RIGHT: Panel -->
-            <VBox spacing="20" alignment="TOP_CENTER">
-                <Label text="Total"/>
-                <Label fx:id="totalPrice" text="0"
-                       style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
-                <Button text="Checkout" onAction="#handleCheckout"/>
-            </VBox>
-        </HBox>
+        </ScrollPane>
     </center>
+
 </BorderPane>

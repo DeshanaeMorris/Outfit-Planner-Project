@@ -47,20 +47,22 @@
     <VBox alignment="CENTER" layoutX="260" layoutY="50">
         <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520" prefWidth="280" style="-fx-background-color: #F5F5DC; -fx-border-color: black; -fx-border-width: 4;">
             <clip>
-                <Rectangle width="280" height="520" />
+                <Rectangle height="520" width="280" />
             </clip>
 
             <!-- Base model that changes when user selects a model -->
             <ImageView fx:id="modelBase" fitHeight="520" fitWidth="280" preserveRatio="true"/>
 
+
             <!-- Clothing layers -->
-            <ImageView fx:id="modelTop" fitHeight="100.0" fitWidth="100.0" preserveRatio="true" translateX="-2.0" translateY="-104.0"/>
-            <ImageView fx:id="modelBottom" fitHeight="520" fitWidth="270.0" preserveRatio="true" translateX="15.0" translateY="55.0"/>
-            <ImageView fx:id="modelShoes" fitHeight="520" fitWidth="140.0" preserveRatio="true" translateX="3.0" translateY="180.0"/>
-            <ImageView fx:id="modelAccessory1" fitHeight="700.0" fitWidth="700.0" preserveRatio="true" translateX="-164.0" translateY="-24.0"/>
-            <ImageView fx:id="modelAccessory2" fitHeight="730.0" fitWidth="730.0" preserveRatio="true" translateX="79.0" translateY="-8.5"/>
-            <ImageView fx:id="modelAccessory3" fitHeight="700.0" fitWidth="700.0" preserveRatio="true" translateX="73.0" translateY="-8.0"/>
-            <ImageView fx:id="modelAccessory4" fitHeight="710.0" fitWidth="710.0" preserveRatio="true" translateX="244.0" translateY="-11.0"/>
+            <ImageView fx:id="modelTop" fitHeight="100.0" fitWidth="100.0" preserveRatio="true" translateX="-2.0" translateY="-104.0" />
+            <ImageView fx:id="modelBottom" fitHeight="520" fitWidth="270.0" preserveRatio="true" translateX="15.0" translateY="55.0" />
+            <ImageView fx:id="modelShoes" fitHeight="520" fitWidth="140.0" preserveRatio="true" translateX="3.0" translateY="180.0" />
+            <ImageView fx:id="modelDress" fitHeight="800.0" fitWidth="780.0" preserveRatio="true" translateX="83.0" translateY="5.0"/>
+            <ImageView fx:id="modelAccessory1" fitHeight="700.0" fitWidth="700.0" preserveRatio="true" translateX="-164.0" translateY="-24.0" />
+            <ImageView fx:id="modelAccessory2" fitHeight="730.0" fitWidth="730.0" preserveRatio="true" translateX="79.0" translateY="-8.5" />
+            <ImageView fx:id="modelAccessory3" fitHeight="700.0" fitWidth="700.0" preserveRatio="true" translateX="73.0" translateY="-8.0" />
+            <ImageView fx:id="modelAccessory4" fitHeight="710.0" fitWidth="710.0" preserveRatio="true" translateX="244.0" translateY="-11.0" />
         </StackPane>
     </VBox>
 
@@ -69,7 +71,7 @@
     <VBox alignment="TOP_CENTER" layoutX="600" layoutY="50" spacing="25">
         <VBox alignment="CENTER" onMouseClicked="#selectHat" spacing="8" style="-fx-cursor: hand;">
             <ImageView fitHeight="120" fitWidth="120" preserveRatio="true">
-               <Image url="@/images/DisplayHat1.PNG" />
+               <Image url="@/images/DisplayHat2.PNG" />
             </ImageView>
             <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;" text="Hat" />
         </VBox>

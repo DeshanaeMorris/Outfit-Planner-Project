@@ -12,22 +12,65 @@ import javafx.stage.Stage;
 
 public class GameEndController {
 
+    //holds outfit snapshot
+    private static Image lastOutfitImage;
+
+    public static void setLastOutfitImage(Image image) {
+        lastOutfitImage = image;
+    }
+
     @FXML
     private ImageView modelBase;
+    @FXML
+    private ImageView modelTop;
+    @FXML
+    private ImageView modelBottom;
+    @FXML
+    private ImageView modelShoes;
+    // For hat/sunglasses
+    @FXML
+    private ImageView modelDress;
+    @FXML
+    private ImageView modelAccessory1;
+    // For bag/jewelry
+    @FXML
+    private ImageView modelAccessory2;
+    @FXML
+    private ImageView modelAccessory3; // for sunglasses
+    @FXML
+    private ImageView modelAccessory4;
 
     @FXML
     private void initialize() {
         try {
-            // Load the selected model from ModelSelectionController
-            Image selectedModel = new Image(
-                    getClass().getResourceAsStream(ModelSelectionController.selectedModelPath)
-            );
-            modelBase.setImage(selectedModel);
-            System.out.println("Game End - Loaded model: " + ModelSelectionController.selectedModelPath);
+            if (lastOutfitImage != null) {
+                modelBase.setImage(lastOutfitImage);
+                System.out.println("Game End - Loaded outfit snapshot.");
+            } else {
+                //show just the selected base model if no snapshot is set
+                Image selectedModel = new Image(
+                        getClass().getResourceAsStream(ModelSelectionController.selectedModelPath)
+                );
+                modelBase.setImage(selectedModel);
+                System.out.println("Game End - Loaded base model only: " + ModelSelectionController.selectedModelPath);
+            }
         } catch (Exception e) {
             System.out.println("Error loading model in Game End: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+    //This will load all the items the user chooses, and it will show the final outfit
+    public void setOutfitImages(Image Top, Image Bottom, Image Shoes, Image Dress, Image Acc1, Image Acc2, Image Acc3, Image Acc4) {
+        if (Top != null) modelTop.setImage(Top);
+        if (Bottom != null) modelBottom.setImage(Bottom);
+        if (Shoes != null) modelShoes.setImage(Shoes);
+        if (Dress != null) modelDress.setImage(Dress);
+        if (Acc1 != null) modelAccessory1.setImage(Acc1);
+        if (Acc2 != null) modelAccessory2.setImage(Acc2);
+        if (Acc3 != null) modelAccessory3.setImage(Acc3);
+        if (Acc4 != null) modelAccessory4.setImage(Acc4);
+
+        System.out.println("Outfit Images Loaded! Final Outfit!");
     }
 
     @FXML
@@ -50,6 +93,7 @@ public class GameEndController {
     @FXML
     public void handleReplay(ActionEvent event) {
         try {
+            lastOutfitImage = null;
             // Go back to dressing room to create a new outfit
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/Homepage.fxml"));
             Parent dressingRoomRoot = loader.load();
@@ -67,6 +111,7 @@ public class GameEndController {
     @FXML
     public void handleGoBack(ActionEvent event) {
         try {
+            lastOutfitImage = null;
             // Go back to homepage
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/stylz/app/DressingRoom.fxml"));
             Parent homepageRoot = loader.load();
